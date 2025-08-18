@@ -1,4 +1,5 @@
 using Game.Events;
+using Game.Utils;
 using System.Collections;
 using UnityEngine;
 
@@ -25,13 +26,13 @@ namespace Game.Controller
             Blood_moon
         }
 
-        [Header("Settings")]
+        [Header("Day - settings")]
         [Range(1, 30)]
         public int Days_per_season = 30;
         [Range(0, 20f)]
         public float Seconds_per_hour = 20f;
 
-        [Header("State")]
+        [Header("Day - states")]
         public int Total_days = 0;
         public int Day_hour = 8;
         public Day_stages Current_day_stage = Day_stages.Day;
@@ -52,8 +53,10 @@ namespace Game.Controller
 #endif
 
             Set_day_stage(Day_stages.Day);
-
             StartCoroutine(Hour_timer());
+
+            //Events
+            Game_events.Warning_panel_called.Invoke("Fields of the Full Moon");
         }
 
         private void Update()
@@ -66,6 +69,10 @@ namespace Game.Controller
             else if (Input.GetKeyDown(KeyCode.F2))
             {
                 New_day();
+            }
+            else if (Input.GetKeyDown(KeyCode.F5))
+            {
+                Game_utils.Instance.Create_enemy(Game_utils.Instance.Get_scriptable("Scriptables/Enemies/Ant_king"), new Vector2(15, 15));
             }
 #endif
         }

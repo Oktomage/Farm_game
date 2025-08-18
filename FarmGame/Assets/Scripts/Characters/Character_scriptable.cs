@@ -1,4 +1,5 @@
 using Game.Items;
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace Game.Characters
@@ -17,7 +18,10 @@ namespace Game.Characters
             Apocalyptic
         }
 
+        [Header("Settings")]
         public string Name;
+        [Range(0.1f, 5f)]
+        public float Size_multiplier = 1f;
 
         public float Max_health;
         public float Move_speed;
@@ -25,7 +29,8 @@ namespace Game.Characters
 
         public int Souls_reward = 1;
 
-        [Space]
+        [Header("Class settings")]
+        public bool IsBoss = false;
         public Character_menance_class Menance_class = Character_menance_class.Common;
 
         [Space]
@@ -34,6 +39,7 @@ namespace Game.Characters
         [Header("Drop settings")]
         public Item_scriptable Item_drop;
         [Range(0, 1)]
+        [ShowIf("Item_drop")]
         public float Drop_chance = 0.5f;
 
         [Header("Audio settings")]

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60746cd618fed2d43af36194875c110b, type: 3}
+  m_Name: Gold_stone
+  m_EditorClassIdentifier: 
+  ObjectName: Gold stone
+  Description: Gold
+  Object_sprite: {fileID: -6365403845357250194, guid: 64c81fc08a835bc42b8fc1a5854274a8, type: 3}
+  Item_drop: {fileID: 11400000, guid: 37f31604e59e3c14f8885f968139706c, type: 2}
+  Drop_chance: 1
+  Drop_amount: 1

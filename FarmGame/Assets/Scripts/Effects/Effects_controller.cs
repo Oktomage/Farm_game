@@ -1,4 +1,5 @@
 using Game.Utils;
+using NaughtyAttributes;
 using System.Collections;
 using UnityEngine;
 
@@ -20,10 +21,11 @@ namespace Game.Effects
 
         [Header("Secundary effects settings")]
         public bool Souls_aura = false;
+        [ShowIf("Souls_aura")]
         public Color Souls_aura_color = Color.white;
 
         [Header("Components")]
-        public SpriteRenderer Render;
+        public SpriteRenderer Render => GetComponentInChildren<SpriteRenderer>();
 
         //Internals
         internal Coroutine Pulse_effect_routine;
@@ -35,8 +37,6 @@ namespace Game.Effects
 
         private void Start()
         {
-            Render = GetComponentInChildren<SpriteRenderer>();
-
             Read_effect();
             Create_secunday_effects();
         }

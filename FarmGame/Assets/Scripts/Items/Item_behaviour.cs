@@ -1,3 +1,6 @@
+using Game.Characters;
+using Game.Events;
+using Game.Items.Tools;
 using Game.Utils;
 using UnityEngine;
 
@@ -7,6 +10,7 @@ namespace Game.Items
     {
         [Header("Data")]
         public Item_scriptable ItemData;
+        public Character_behaviour Character;
 
         [Header("Components")]
         public SpriteRenderer Render;
@@ -36,9 +40,22 @@ namespace Game.Items
             Configure_object();
         }
 
-        internal void Set_collected_settings()
+        /// MAIN METHODS
+        internal void Delete_item()
+        {
+            if(Character == null) return;
+
+            //Remove item from character inventory
+            Character.Drop_selected_item_from_inventory();
+
+            Destroy(this.gameObject);
+        }
+
+        internal void Set_collected_settings(Character_behaviour character)
         {
             //Set
+            Character = character;
+
             IsCollectable = false;
             
             Collider.enabled = false;
@@ -54,6 +71,8 @@ namespace Game.Items
         internal void Set_dropped_settings()
         {
             //Set
+            Character = null;
+
             IsCollectable = true;
             
             Collider.enabled = true;

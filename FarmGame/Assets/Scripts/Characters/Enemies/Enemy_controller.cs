@@ -1,4 +1,5 @@
 using Game.Effects;
+using Game.Events;
 using System.Collections;
 using UnityEngine;
 
@@ -16,32 +17,42 @@ namespace Game.Characters.Enemies
         public GameObject Target;
 
         //Internal variables
-        internal GameObject Player_character;
+        internal GameObject Player_character => GameObject.FindGameObjectWithTag("Player");
 
         private void Start()
         {
-            if(characterData != null) { Configure(); }
-        
-            Player_character = GameObject.FindGameObjectWithTag("Player");
-            Set_target(Player_character);
+            if(characterData != null)
+                Configure();
         }
 
         /// CORE METHODS
         private void Configure()
         {
-            //Set
+            // Set
             Character.Configure(characterData);
             Character.IsEnemy = true;
 
             Character.Render.sprite = characterData.Icon;
 
+            // Boss
+            if (characterData.IsBoss)
+                Start_boss_battle();
+
             StopAllCoroutines();
             StartCoroutine(Brain_controller());
+
+            Set_target(Player_character);
+        }
+
+        private void Start_boss_battle()
+        {
+            // Events
+            Game_events.Warning_panel_called.Invoke("Boss encounter !");
         }
 
         internal void Set_characterData(Character_scriptable data)
         {
-            //Set
+            // Set
             characterData = data;
 
             Configure();
@@ -49,6 +60,7 @@ namespace Game.Characters.Enemies
 
         private void Set_target(GameObject obj)
         {
+            // Set
             Target = obj;
         }
 

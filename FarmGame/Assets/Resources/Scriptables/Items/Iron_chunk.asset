@@ -15,4 +15,7 @@ MonoBehaviour:
   ItemName: Iron chunk
   Description: Iron
   Icon: {fileID: -6994366154136683667, guid: 8f96af051f41a4c4a9169823aa9ec712, type: 3}
+  Price: 1
+  Can_trade: 1
   Type: 2
+  Crop: {fileID: 0}

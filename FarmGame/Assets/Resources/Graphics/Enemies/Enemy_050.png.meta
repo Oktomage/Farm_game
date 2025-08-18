@@ -108,7 +108,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 24
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -635,7 +635,27 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Enemy_050_0: 8266185354152034630
+      Enemy_050_1: -2286532831027393186
+      Enemy_050_10: 2068095163923698028
+      Enemy_050_11: 7847163600047051719
+      Enemy_050_12: -8323025526272810749
+      Enemy_050_13: -1375201052874554362
+      Enemy_050_14: 7816076632714956499
+      Enemy_050_15: 2482902539228959666
+      Enemy_050_16: -8539060826158425723
+      Enemy_050_17: -1576550625722298780
+      Enemy_050_18: 3598273579862480440
+      Enemy_050_19: 5361628774325805543
+      Enemy_050_2: 333866099605680772
+      Enemy_050_3: 5626982799547657083
+      Enemy_050_4: 2340063868937076353
+      Enemy_050_5: 8958002813648654797
+      Enemy_050_6: -3406618631401082559
+      Enemy_050_7: 2968585464748577447
+      Enemy_050_8: 161114370053561297
+      Enemy_050_9: -1890737492444131213
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

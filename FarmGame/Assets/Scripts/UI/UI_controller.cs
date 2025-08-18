@@ -5,12 +5,12 @@ using Game.Controller;
 using Game.Events;
 using Game.Items;
 using Game.Utils;
+using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 namespace Game.UI
 {
@@ -19,7 +19,10 @@ namespace Game.UI
         public static UI_controller Instance;
 
         [Header("Data")]
-        public Character_behaviour Player_character;
+        public Character_behaviour Player_character => GameObject.FindGameObjectWithTag("Player").GetComponent<Character_behaviour>();
+
+        [Header("Settings")]
+        public Texture2D CustomCursor;
 
         [Header("Components UI")]
         public Slider Slider_health;
@@ -35,6 +38,10 @@ namespace Game.UI
         [Space]
         public GameObject Enemy_stats_UI;
         public Slider Slider_enemy_health;
+
+        [Space]
+        public GameObject Warning_panel_UI;
+        public TextMeshProUGUI Text_warning;
 
         [Space]
         public GameObject Shop_UI;
@@ -63,6 +70,8 @@ namespace Game.UI
             Game_events.Player_character_opened_shop.AddListener(Show_shop_UI);
             Game_events.Player_character_closed_shop.AddListener(Hide_shop_UI);
 
+            Game_events.Warning_panel_called.AddListener(Show_warning_panel_UI);
+
             Game_events.New_hour.AddListener(Update_game_UI);
             Game_events.New_day.AddListener(Update_game_UI);
             Game_events.New_season.AddListener(Update_game_UI);
@@ -70,8 +79,8 @@ namespace Game.UI
 
         private void Start()
         {
-            //Get player character
-            Player_character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character_behaviour>();
+            // Cursor
+            Cursor.SetCursor(CustomCursor, Vector2.zero, CursorMode.Auto);
 
             Update_game_UI();
 
@@ -115,7 +124,6 @@ namespace Game.UI
 
             rect.position = Vector2.Lerp(rect.position, screenPos, speed * Time.deltaTime);
         }
-
         private void Show_shop_UI(Shopper_controller shopper)
         {
             //Set position
@@ -125,11 +133,28 @@ namespace Game.UI
             Game_utils.Instance.Do_UI_fade_effect(Shop_UI);
             Game_utils.Instance.Do_UI_pop_effect(Shop_UI);
         }
-
         private void Hide_shop_UI()
         {
             //Effects
             Game_utils.Instance.Do_UI_fade_effect(Shop_UI);
+        }
+
+        private void Show_warning_panel_UI(string warning)
+        {
+            // Set
+            Text_warning.text = warning;
+
+            // Effects
+            Game_utils.Instance.Do_UI_fade_effect(Warning_panel_UI);
+
+            StartCoroutine(Warning_panel_timer(time: 3f));
+        }
+        private IEnumerator Warning_panel_timer(float time)
+        {
+            yield return new WaitForSeconds(time);
+
+            // Effects
+            Game_utils.Instance.Do_UI_fade_effect(Warning_panel_UI);
         }
 
         ///PLAYER CHARACTER UI METHODS

@@ -12,6 +12,8 @@ namespace Game.Controller
         [Header("Settings")]
         [Range(0, 15f)]
         public float Spawn_interval = 5f;
+        [Range(0, 1f)]
+        public float Boss_chance_per_day = 0.05f;
 
         [Header("State")]
         public bool IsSpawning = false;

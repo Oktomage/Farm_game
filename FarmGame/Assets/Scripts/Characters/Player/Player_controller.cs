@@ -78,6 +78,10 @@ namespace Game.Characters.Player
             {
                 Character.Interact();
             }
+            else if (Character.Objects_nearby.Count > 0)
+            {
+                Character.Interact();
+            }
         }
     }
 }

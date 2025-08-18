@@ -23,7 +23,7 @@ namespace Game.Items.Tools
             Seeds
         }
 
-        [Header("Settings")]
+        [Header("Data")]
         public Character_behaviour Character;
 
         [Header("Tool Settings")]

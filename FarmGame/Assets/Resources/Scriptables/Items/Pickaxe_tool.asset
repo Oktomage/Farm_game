@@ -15,4 +15,7 @@ MonoBehaviour:
   ItemName: Pickaxe
   Description: Tool
   Icon: {fileID: 596632130216942404, guid: 90700818cea28fc45a9715100d0e134f, type: 3}
+  Price: 1
+  Can_trade: 0
   Type: 4
+  Crop: {fileID: 0}

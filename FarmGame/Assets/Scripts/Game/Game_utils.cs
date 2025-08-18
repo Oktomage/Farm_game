@@ -1,5 +1,6 @@
 using Game.Characters;
 using Game.Characters.Enemies;
+using Game.Events;
 using Game.Items;
 using System.Collections;
 using System.Collections.Generic;
@@ -111,7 +112,6 @@ namespace Game.Utils
 
             audio_source.Play();
         }
-
         public void Create_sound(string name, AudioClip audio_clip, Vector2 pos)
         {
             //Create
@@ -123,6 +123,20 @@ namespace Game.Utils
 
             //Set
             audio_source.clip = audio_clip;
+            audio_source.pitch = Random.Range(0.9f, 1.1f);
+
+            audio_source.Play();
+        }
+
+        public void Create_2d_sound(string name, string clip_path)
+        {
+            //Create
+            GameObject sound_obj = new GameObject(name);
+
+            AudioSource audio_source = sound_obj.AddComponent<AudioSource>();
+
+            //Set
+            audio_source.clip = Get_audio_clip(clip_path);
             audio_source.pitch = Random.Range(0.9f, 1.1f);
 
             audio_source.Play();

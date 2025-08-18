@@ -23,6 +23,9 @@ namespace Game.Items
         public Sprite Icon;
         public int Price = 1;
 
+        [Space]
+        public bool Can_trade = false;
+
         [Header("Item Properties")]
         public ItemType Type = ItemType.Miscellaneous;
 

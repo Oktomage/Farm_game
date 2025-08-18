@@ -15,6 +15,6 @@ MonoBehaviour:
   ObjectName: Tree
   Description: Tree
   Object_sprite: {fileID: 680736209, guid: bcbe3fbf92506ce4a91421383221c6c4, type: 3}
-  Item_drop: {fileID: 0}
-  Drop_chance: 0.5
+  Item_drop: {fileID: 11400000, guid: 0f46039c90c41174dbd9806d218f239e, type: 2}
+  Drop_chance: 1
   Drop_amount: 1

@@ -15,5 +15,7 @@ MonoBehaviour:
   ItemName: Sunflower
   Description: flower
   Icon: {fileID: -4628161212038380469, guid: 8f96af051f41a4c4a9169823aa9ec712, type: 3}
+  Price: 1
+  Can_trade: 1
   Type: 2
-  Path_reference: Scriptables/Crops/Sunflower_crop
+  Crop: {fileID: 0}

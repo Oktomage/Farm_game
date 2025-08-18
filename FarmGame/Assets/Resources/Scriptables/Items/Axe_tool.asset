@@ -15,4 +15,7 @@ MonoBehaviour:
   ItemName: Axe
   Description: Tool
   Icon: {fileID: 5930683173467997356, guid: 8f96af051f41a4c4a9169823aa9ec712, type: 3}
+  Price: 1
+  Can_trade: 0
   Type: 4
+  Crop: {fileID: 0}

@@ -56,7 +56,7 @@ namespace Game.UI.Shop
             Refresh();
 
             //Audio
-            Game_utils.Instance.Create_sound("UI_Click", "Audios/UI/Click_1", Vector2.zero);
+            Game_utils.Instance.Create_2d_sound("UI_Click", "Audios/UI/Click_1");
         }
 
         private void Previous_item()
@@ -69,7 +69,7 @@ namespace Game.UI.Shop
             Refresh();
 
             //Audio
-            Game_utils.Instance.Create_sound("UI_Click", "Audios/UI/Click_1", Vector2.zero);
+            Game_utils.Instance.Create_2d_sound("UI_Click", "Audios/UI/Click_1");
         }
 
         private void Next_item()
@@ -80,9 +80,9 @@ namespace Game.UI.Shop
             currentItemIndex = Mathf.Clamp(currentItemIndex, 0, selectedTab.tabItemsData.Count - 1);
 
             Refresh();
-        
+
             //Audio
-            Game_utils.Instance.Create_sound("UI_Click", "Audios/UI/Click_1", Vector2.zero);
+            Game_utils.Instance.Create_2d_sound("UI_Click", "Audios/UI/Click_1");
         }
 
         private void Buy_current()

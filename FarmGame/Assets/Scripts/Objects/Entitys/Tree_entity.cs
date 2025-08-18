@@ -21,7 +21,7 @@ namespace Game.Objects.Entitys
         }
 
         [Header("Data")]
-        public Object_behaviour Object;
+        public Object_behaviour Object => this.gameObject.GetComponent<Object_behaviour>();
 
         [Header("Settings")]
         public Tree_Sizes Size = Tree_Sizes.Normal;
@@ -33,11 +33,7 @@ namespace Game.Objects.Entitys
         //Internal variables
         internal bool IsFalling = false;
 
-        private void Start()
-        {
-            Object = this.gameObject.GetComponent<Object_behaviour>();
-        }
-
+        ///MAIN METHODS
         public void Take_damage(float dmg)
         {
             Health -= dmg;
@@ -74,7 +70,8 @@ namespace Game.Objects.Entitys
         private IEnumerator Fall()
         {
             //Create stump
-            Game_utils.Instance.Create_prefab_from_resources("Prefabs/Objects/Tree_stump_object");
+            GameObject stump = Game_utils.Instance.Create_prefab_from_resources("Prefabs/Objects/Tree_stump_object");
+            stump.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
 
             //Audio
             Game_utils.Instance.Create_sound("Tree_falling_sound", "Audios/Objects/Tree_falling_1", this.transform.position);

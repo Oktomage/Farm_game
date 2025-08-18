@@ -16,5 +16,6 @@ MonoBehaviour:
   Description: Tool
   Icon: {fileID: 2119056217517678423, guid: 12f4648ce0a73fc40a5b363be4b0c884, type: 3}
   Price: 1
+  Can_trade: 0
   Type: 4
-  Path_reference: Scriptables/Items/
+  Crop: {fileID: 0}

@@ -58,7 +58,7 @@ namespace Game.UI.Notifications
                 ui_not.Configure(current_notification.Title, current_notification.Message, current_notification.Icon);
 
                 //Sound
-                Game_utils.Instance.Create_sound("Notification_sound", "Audios/UI/Pop_1", ui_notification_obj.transform.position);
+                Game_utils.Instance.Create_2d_sound("Notification_sound", "Audios/UI/Pop_1");
 
                 yield return new WaitForSeconds(current_notification.Duration);
 

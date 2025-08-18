@@ -4,7 +4,6 @@ using Game.Objects;
 using Game.Utils;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 
 namespace Game.Items.Tools
 {
@@ -54,7 +53,7 @@ namespace Game.Items.Tools
         internal void Delete_bag()
         {
             //Remove item from character inventory
-            Tool_behaviour.Character.Drop_selected_item_from_inventory();
+            Item_behaviour.Delete_item();
 
             //Events
             if (Tool_behaviour.Character != null && Tool_behaviour.Character.IsPlayer)

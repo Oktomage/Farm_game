@@ -6,6 +6,7 @@ using Game.Grids;
 using Game.Items;
 using Game.Items.Tools;
 using Game.Objects;
+using Game.Objects.Cristal;
 using Game.UI.Notifications;
 using Game.Utils;
 using System.Collections;
@@ -28,6 +29,7 @@ namespace Game.Characters
         public bool IsPlayer = false;
         public bool IsAlly = false;
         public bool IsEnemy = false;
+        public bool IsBoss = false;
 
         [Space]
         public bool IsUsingTool = false;
@@ -101,6 +103,8 @@ namespace Game.Characters
         internal void Configure(Character_scriptable character_scriptable)
         {
             //Set
+            transform.localScale *= character_scriptable.Size_multiplier;
+
             Max_health = character_scriptable.Max_health;
             Health = Max_health;
             MoveSpeed = character_scriptable.Move_speed;
@@ -110,6 +114,8 @@ namespace Game.Characters
             Inventory = new List<GameObject>(new GameObject[InventorySize]);
 
             Souls = character_scriptable.Souls_reward;
+
+            IsBoss = character_scriptable.IsBoss;
 
             //Audios
             Move_sound = character_scriptable.Move_sound;
@@ -287,7 +293,7 @@ namespace Game.Characters
                 //Add
                 Inventory.Add(item_behaviour.gameObject);
 
-                item_behaviour.Set_collected_settings();
+                item_behaviour.Set_collected_settings(character: this);
 
                 //Events
                 if (IsPlayer)
@@ -381,6 +387,15 @@ namespace Game.Characters
                     shopper_ctrl.Call_shop();
 
                     break;
+                }
+            }
+
+            foreach(var other_objects in Objects_nearby)
+            {
+                if(other_objects.TryGetComponent<Cristal_controller>(out Cristal_controller cristal_ctrl))
+                {
+                    if(Inventory.Count > 0)
+                        cristal_ctrl.Trade(Inventory[Selected_item_index]);
                 }
             }
         }
