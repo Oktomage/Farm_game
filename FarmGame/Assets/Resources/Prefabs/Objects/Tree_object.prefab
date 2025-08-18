@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 7853782262511315705}
   - component: {fileID: 117706134106859324}
   m_Layer: 6
-  m_Name: Spring_tree_object
+  m_Name: Tree_object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,7 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 955cec89b647dfc419178a961037f843, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Object: {fileID: 0}
   Size: 0
   Type: 0
   Health: 5
@@ -170,7 +169,6 @@ MonoBehaviour:
   effectType: 0
   Souls_aura: 0
   Souls_aura_color: {r: 1, g: 1, b: 1, a: 1}
-  Render: {fileID: 0}
 --- !u!1 &7489656125677430700
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,6 +179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6214704502665894220}
   - component: {fileID: 1886138443216356741}
+  - component: {fileID: 4116404400615476101}
   m_Layer: 6
   m_Name: Sprite (Down)
   m_TagString: Untagged
@@ -258,6 +257,58 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4116404400615476101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7489656125677430700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_Priority: 2
+  m_ComponentVersion: 5
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_AlphaCutoff: 0.1
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.2746601, y: -0.029582977, z: 0}
+  - {x: -0.28178787, y: 0.371706, z: 0}
+  - {x: 0.19625664, y: 0.38595772, z: 0}
+  - {x: 0.21051216, y: -0.03671074, z: 0}
+  m_ShapePathHash: -1115298475
+  m_InstanceId: 0
+  m_ShadowShape2DComponent: {fileID: 0}
+  m_ShadowShape2DProvider:
+    rid: -2
+  m_ShadowCastingSource: 1
+  m_ShadowMesh:
+    m_Mesh: {fileID: 0}
+    m_LocalBounds:
+      m_Center: {x: -0.035637856, y: 0.17462349, z: 0}
+      m_Extent: {x: 0.24615002, y: 0.21133423, z: 0}
+    m_EdgeProcessing: 1
+    m_TrimEdge: 0.37
+    m_FlipX: 0
+    m_FlipY: 0
+    m_InitialTrim: 0.05
+  m_CastingOption: 1
+  m_PreviousTrimEdge: 0.37
+  m_PreviousEdgeProcessing: 1
+  m_PreviousShadowCastingSource: 1
+  m_PreviousShadowShape2DSource: {fileID: 1886138443216356741}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1 &8001133948900977147
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,15 +12,18 @@ namespace Game.Map.Controller
         public Vector2 MapSize = new Vector2(100, 100);
         public float CellSize = 1f;
         [Range(1, 1000)]
-        public int Max_world_entitys = 100;
+        public int Max_world_objects = 100;
         [Range(1, 1024)]
         public float Spawn_cells_per_frame = 512;
+
+        [Range(0, 1000)]
+        public int Max_world_animals = 50;
 
         [System.Serializable]
         public class Spawn_option
         {
-            public string Entity_name;
-            public string Entity_resources_path;
+            public string Object_name;
+            public string Object_resources_path;
             [Space]
             [Range(0f, 1f)] 
             public float Probability;
@@ -33,7 +36,8 @@ namespace Game.Map.Controller
         public Slider Slider_progress_bar;
 
         //Internal variables
-        internal int Entitys_generated = 0;
+        internal int Objects_generated = 0;
+        internal int Animals_generated = 0;
 
         private void Start()
         {
@@ -72,10 +76,10 @@ namespace Game.Map.Controller
                 //Spawn entity
                 if (randomValue <= probabilityAccumulator)
                 {
-                    GameObject spawnedEntity = Game_utils.Instance.Create_prefab_from_resources(SpawnTable[i].Entity_resources_path);
+                    GameObject spawnedEntity = Game_utils.Instance.Create_prefab_from_resources(SpawnTable[i].Object_resources_path);
                     spawnedEntity.transform.position = pos;
 
-                    Entitys_generated++;
+                    Objects_generated++;
 
                     return spawnedEntity;
                 }

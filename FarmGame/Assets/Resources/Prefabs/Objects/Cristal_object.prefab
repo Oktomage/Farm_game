@@ -104,7 +104,6 @@ MonoBehaviour:
   effectType: 0
   Souls_aura: 1
   Souls_aura_color: {r: 0, g: 0.18928123, b: 1, a: 1}
-  Render: {fileID: 0}
 --- !u!1 &750655456638016529
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,6 +114,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8486790020185284338}
   - component: {fileID: 2929123996610439504}
+  - component: {fileID: 8828345566856491308}
   m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
@@ -192,6 +192,58 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8828345566856491308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750655456638016529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_Priority: 5
+  m_ComponentVersion: 5
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_AlphaCutoff: 0.1
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.11888695, y: -0.24551964, z: 0}
+  - {x: -0.13663673, y: 0.122327805, z: 0}
+  - {x: 0.12171364, y: 0.12961006, z: 0}
+  - {x: 0.11367226, y: -0.23783588, z: 0}
+  m_ShapePathHash: 1904925333
+  m_InstanceId: 0
+  m_ShadowShape2DComponent: {fileID: 0}
+  m_ShadowShape2DProvider:
+    rid: -2
+  m_ShadowCastingSource: 1
+  m_ShadowMesh:
+    m_Mesh: {fileID: 0}
+    m_LocalBounds:
+      m_Center: {x: -0.007461548, y: -0.05795479, z: 0}
+      m_Extent: {x: 0.12917519, y: 0.18756485, z: 0}
+    m_EdgeProcessing: 1
+    m_TrimEdge: 0.3
+    m_FlipX: 0
+    m_FlipY: 0
+    m_InitialTrim: 0
+  m_CastingOption: 1
+  m_PreviousTrimEdge: 0.3
+  m_PreviousEdgeProcessing: 1
+  m_PreviousShadowCastingSource: 1
+  m_PreviousShadowShape2DSource: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1 &2103685938884108693
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +293,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 0.16470589, g: 0.97647065, b: 0.91372555, a: 1}
-  m_Intensity: 1.5
+  m_Intensity: 2
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -265,7 +317,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 3
+  m_PointLightOuterRadius: 5
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1

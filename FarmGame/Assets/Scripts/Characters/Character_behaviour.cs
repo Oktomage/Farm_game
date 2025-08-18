@@ -25,22 +25,32 @@ namespace Game.Characters
         public float detectionRadius = 1.5f;
         public int Souls = 1;
 
+        public enum Character_stances
+        {
+            Idle,
+            Neutral,
+            Agressive
+        }
+
         [Header("States")]
+        public Character_stances Current_stance;
+
+        [Space]
         public bool IsPlayer = false;
         public bool IsAlly = false;
         public bool IsEnemy = false;
         public bool IsBoss = false;
 
         [Space]
-        public bool IsUsingTool = false;
+        internal bool IsUsingTool = false;
         public bool IsAlive = true;
-        public bool IsMoving = false;
-        public bool IsPlowing = false;
-        public bool IsWatering = false;
-        public bool IsAttacking = false;
-        public bool IsHarvesting = false;
-        public bool IsMining = false;
-        public bool IsCutting = false;
+        internal bool IsMoving = false;
+        internal bool IsPlowing = false;
+        internal bool IsWatering = false;
+        internal bool IsAttacking = false;
+        internal bool IsHarvesting = false;
+        internal bool IsMining = false;
+        internal bool IsCutting = false;
 
         [Header("Inventory")]
         public int InventorySize = 2;
@@ -49,6 +59,7 @@ namespace Game.Characters
         public int Selected_item_index = 0;
 
         [Header("Audio settings")]
+        public AudioClip Idle_sound;
         public AudioClip Move_sound;
         public AudioClip Attack_sound;
         public AudioClip Hurt_sound;
@@ -110,6 +121,8 @@ namespace Game.Characters
             MoveSpeed = character_scriptable.Move_speed;
             AttackDamage = character_scriptable.Damage;
 
+            Current_stance = Character_stances.Idle;
+
             InventorySize = 2;
             Inventory = new List<GameObject>(new GameObject[InventorySize]);
 
@@ -118,6 +131,7 @@ namespace Game.Characters
             IsBoss = character_scriptable.IsBoss;
 
             //Audios
+            Idle_sound = character_scriptable.Idle_sound;
             Move_sound = character_scriptable.Move_sound;
             Attack_sound = character_scriptable.Attack_sound;
             Hurt_sound = character_scriptable.Hurt_sound;
@@ -193,6 +207,12 @@ namespace Game.Characters
             {
                 Game_events.Player_character_regen.Invoke(hlth_regen);
             }
+        }
+
+        internal void Set_stance(Character_stances stance)
+        {
+            // Set
+            Current_stance = stance;
         }
 
         ///  ACTIONS METHODS
@@ -412,6 +432,14 @@ namespace Game.Characters
         }
 
         /// AUX METHODS
+        private IEnumerator Idle_actions()
+        {
+            while(IsAlive)
+            {
+                yield return new WaitForSeconds(1f);
+            }
+        }
+
         private IEnumerator Regens()
         {
             while (IsAlive)

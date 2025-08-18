@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8922006675179035344}
   - component: {fileID: 1322875100134980049}
+  - component: {fileID: 718013268445985319}
   m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
@@ -87,6 +88,58 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &718013268445985319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3205555405481115918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_Priority: 0
+  m_ComponentVersion: 5
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_AlphaCutoff: 0.1
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.24751282, y: -0.20183563, z: 0}
+  - {x: -0.16575813, y: 0.13931656, z: 0}
+  - {x: 0.20422935, y: 0.13931656, z: 0}
+  - {x: 0.28598404, y: -0.24511719, z: 0}
+  m_ShapePathHash: 801943957
+  m_InstanceId: 0
+  m_ShadowShape2DComponent: {fileID: 0}
+  m_ShadowShape2DProvider:
+    rid: -2
+  m_ShadowCastingSource: 1
+  m_ShadowMesh:
+    m_Mesh: {fileID: 0}
+    m_LocalBounds:
+      m_Center: {x: 0.019235611, y: -0.052900314, z: 0}
+      m_Extent: {x: 0.26674843, y: 0.19221687, z: 0}
+    m_EdgeProcessing: 1
+    m_TrimEdge: 0.3
+    m_FlipX: 0
+    m_FlipY: 0
+    m_InitialTrim: 0
+  m_CastingOption: 1
+  m_PreviousTrimEdge: 0.3
+  m_PreviousEdgeProcessing: 1
+  m_PreviousShadowCastingSource: 1
+  m_PreviousShadowShape2DSource: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1 &3577861954917682597
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,6 +308,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectType: 0
+  Souls_aura: 0
+  Souls_aura_color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &8705302017974682755
 GameObject:
   m_ObjectHideFlags: 0

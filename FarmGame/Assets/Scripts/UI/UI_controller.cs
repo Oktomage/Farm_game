@@ -146,6 +146,7 @@ namespace Game.UI
 
             // Effects
             Game_utils.Instance.Do_UI_fade_effect(Warning_panel_UI);
+            Game_utils.Instance.Do_UI_pop_effect(Warning_panel_UI);
 
             StartCoroutine(Warning_panel_timer(time: 3f));
         }

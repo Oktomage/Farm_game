@@ -165,6 +165,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7697527145251852849}
   - component: {fileID: 2622887819292198600}
+  - component: {fileID: 4988492646729835368}
   - component: {fileID: 6445508000691514448}
   m_Layer: 6
   m_Name: Animal
@@ -202,14 +203,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f36a2a977e42e24e85c7d65912f82c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Render: {fileID: 5080755931854119805}
-  Anim: {fileID: 0}
-  Rigid: {fileID: 6445508000691514448}
-  Collider: {fileID: 5614095789301554587}
   Health: 5
+  Max_health: 5
   MoveSpeed: 2
+  AttackDamage: 1
   detectionRadius: 1
+  Souls: 1
   IsPlayer: 0
+  IsAlly: 0
+  IsEnemy: 0
+  IsBoss: 0
+  IsUsingTool: 0
   IsAlive: 1
   IsMoving: 0
   IsPlowing: 0
@@ -222,9 +226,34 @@ MonoBehaviour:
   Inventory: []
   Equipped_tool: {fileID: 0}
   Selected_item_index: 0
+  Move_sound: {fileID: 0}
+  Attack_sound: {fileID: 0}
+  Hurt_sound: {fileID: 0}
+  Death_sound: {fileID: 0}
+  Render: {fileID: 5080755931854119805}
+  Anim: {fileID: 0}
+  Rigid: {fileID: 6445508000691514448}
+  Collider: {fileID: 5614095789301554587}
+  IsGodMode: 0
   Items_nearby: []
   Current_grid: {fileID: 0}
   Objects_nearby: []
+  Characters_nearby: []
+  Last_damaged_by_obj: {fileID: 0}
+--- !u!114 &4988492646729835368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6233623432270069224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1a62f7d4e791e4fbe75e9d9003528d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterData: {fileID: 11400000, guid: e115a2c0358096244acd95bbc9b9b011, type: 2}
+  Target: {fileID: 0}
 --- !u!50 &6445508000691514448
 Rigidbody2D:
   serializedVersion: 5

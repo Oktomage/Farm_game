@@ -3,9 +3,9 @@ using Game.Events;
 using System.Collections;
 using UnityEngine;
 
-namespace Game.Characters.Enemies
+namespace Game.Characters.Animals
 {
-    public class Enemy_controller : MonoBehaviour
+    public class Animal_controller : MonoBehaviour
     {
         [Header("Data")]
         public Character_scriptable characterData;
@@ -21,7 +21,7 @@ namespace Game.Characters.Enemies
 
         private void Start()
         {
-            if(characterData != null)
+            if (characterData != null)
                 Configure();
         }
 
@@ -30,24 +30,13 @@ namespace Game.Characters.Enemies
         {
             // Set
             Character.Configure(characterData);
-            Character.IsEnemy = true;
+
+            Character.Set_stance(Character_behaviour.Character_stances.Neutral);
 
             Character.Render.sprite = characterData.Icon;
 
-            // Boss
-            if (characterData.IsBoss)
-                Start_boss_battle();
-
             StopAllCoroutines();
             StartCoroutine(Brain_controller());
-
-            Set_target(Player_character);
-        }
-
-        private void Start_boss_battle()
-        {
-            // Events
-            Game_events.Warning_panel_called.Invoke("Boss encounter !");
         }
 
         internal void Set_characterData(Character_scriptable data)
@@ -62,16 +51,16 @@ namespace Game.Characters.Enemies
         {
             // Set
             Target = obj;
-
-            Character.Set_stance(Character_behaviour.Character_stances.Agressive);
-        }
+        } // NOT USING YET
 
         /// MAIN METHODS
         private IEnumerator Brain_controller()
         {
-            while(true)
+            while (true)
             {
                 yield return new WaitForSeconds(0.5f);
+
+                Vector3 move_dir = Vector3.zero;
 
                 switch (Character.Current_stance)
                 {
@@ -79,21 +68,21 @@ namespace Game.Characters.Enemies
                         break;
 
                     case Character_behaviour.Character_stances.Neutral:
+                        // Get random direction
+                        move_dir = Random.onUnitSphere;
+
+                        Character.Move(move_dir);
+
+                        yield return new WaitForSeconds(Random.Range(1f, 5f));
                         break;
 
                     case Character_behaviour.Character_stances.Agressive:
                         if (Target != null)
                         {
-                            //Get the direction to the target
-                            Vector3 direction = (Target.transform.position - transform.position).normalized;
+                            // Get the direction to the target
+                            move_dir = (Target.transform.position - transform.position).normalized;
 
-                            Character.Move(direction);
-
-                            //Check if the enemy can attack the target
-                            if (Vector3.Distance(transform.position, Target.transform.position) < Character.detectionRadius)
-                            {
-                                Character.Hit_other_entity(Target);
-                            }
+                            Character.Move(move_dir);
                         }
                         break;
                 }

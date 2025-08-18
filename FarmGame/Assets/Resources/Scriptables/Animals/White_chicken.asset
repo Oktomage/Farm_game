@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36fb45de3db820b4aadef4c9c5fa640d, type: 3}
+  m_Name: White_chicken
+  m_EditorClassIdentifier: 
+  Name: White chicken
+  Size_multiplier: 1
+  Max_health: 1
+  Move_speed: 1
+  Damage: 0
+  Souls_reward: 1
+  IsBoss: 0
+  Menance_class: 0
+  Icon: {fileID: 2161211097934087789, guid: 6326d01a10cba3849849e7a4f25b2c02, type: 3}
+  Item_drop: {fileID: 0}
+  Drop_chance: 0.5
+  Move_sound: {fileID: 0}
+  Attack_sound: {fileID: 0}
+  Hurt_sound: {fileID: 0}
+  Death_sound: {fileID: 0}

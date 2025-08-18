@@ -43,6 +43,7 @@ namespace Game.Characters
         public float Drop_chance = 0.5f;
 
         [Header("Audio settings")]
+        public AudioClip Idle_sound;
         public AudioClip Move_sound;
         public AudioClip Attack_sound;
         public AudioClip Hurt_sound;
