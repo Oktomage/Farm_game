@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67f4df1bbf9512a49aa58e9c7032ecac, type: 3}
+  m_Name: Sunflower_crop
+  m_EditorClassIdentifier: 
+  CropName: Sunflower
+  Description: 
+  Crop_stages:
+  - {fileID: -7586758718247015871, guid: 88539fc0428bcf2439f412dbee5f13f6, type: 3}
+  - {fileID: 1038229379730960037, guid: 88539fc0428bcf2439f412dbee5f13f6, type: 3}
+  - {fileID: 1863154279288066793, guid: 88539fc0428bcf2439f412dbee5f13f6, type: 3}
+  - {fileID: 8561726298923361673, guid: 88539fc0428bcf2439f412dbee5f13f6, type: 3}
+  - {fileID: 7301306011389335966, guid: 88539fc0428bcf2439f412dbee5f13f6, type: 3}
+  Type: 3
+  Crop_item: {fileID: 11400000, guid: 20e4223540e2d0d47820607ad23ba6eb, type: 2}

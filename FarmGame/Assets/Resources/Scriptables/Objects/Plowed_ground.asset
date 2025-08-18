@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60746cd618fed2d43af36194875c110b, type: 3}
+  m_Name: Plowed_ground
+  m_EditorClassIdentifier: 
+  ObjectName: Plowed ground
+  Description: ground
+  Object_sprite: {fileID: 6500312130145788974, guid: 33ca0aa1913d57346a5f0b85f5afa938, type: 3}
+  Item_drop: {fileID: 0}
+  Drop_chance: 0
+  Drop_amount: 1

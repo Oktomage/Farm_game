@@ -1,0 +1,1339 @@
+fileFormatVersion: 2
+guid: ac5e603aee912df49817b0e0991ae72d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8966400135691817614
+    second: FG_Crops_Sheet_3_0
+  - first:
+      213: 141471407004260221
+    second: FG_Crops_Sheet_3_1
+  - first:
+      213: 5342775271709619909
+    second: FG_Crops_Sheet_3_2
+  - first:
+      213: -6702438145925161267
+    second: FG_Crops_Sheet_3_3
+  - first:
+      213: 3573748190926274156
+    second: FG_Crops_Sheet_3_4
+  - first:
+      213: -1662779486617355244
+    second: FG_Crops_Sheet_3_5
+  - first:
+      213: 9201761498384919312
+    second: FG_Crops_Sheet_3_6
+  - first:
+      213: -3615640845415141508
+    second: FG_Crops_Sheet_3_7
+  - first:
+      213: -7853805599834122730
+    second: FG_Crops_Sheet_3_8
+  - first:
+      213: 1588045465735607838
+    second: FG_Crops_Sheet_3_9
+  - first:
+      213: 2050172421498690637
+    second: FG_Crops_Sheet_3_10
+  - first:
+      213: 5892262818561985035
+    second: FG_Crops_Sheet_3_11
+  - first:
+      213: -6711833704920453328
+    second: FG_Crops_Sheet_3_12
+  - first:
+      213: 9222231432871165107
+    second: FG_Crops_Sheet_3_13
+  - first:
+      213: -4202731968244835801
+    second: FG_Crops_Sheet_3_14
+  - first:
+      213: -5137291846380740726
+    second: FG_Crops_Sheet_3_15
+  - first:
+      213: 2802008427182035017
+    second: FG_Crops_Sheet_3_16
+  - first:
+      213: 6480782974706102701
+    second: FG_Crops_Sheet_3_17
+  - first:
+      213: 4550478864422155006
+    second: FG_Crops_Sheet_3_18
+  - first:
+      213: 8179996394496214285
+    second: FG_Crops_Sheet_3_19
+  - first:
+      213: -2320209510736428848
+    second: FG_Crops_Sheet_3_20
+  - first:
+      213: 7021084746220830833
+    second: FG_Crops_Sheet_3_21
+  - first:
+      213: -4407012161257696493
+    second: FG_Crops_Sheet_3_22
+  - first:
+      213: 2886156188921453898
+    second: FG_Crops_Sheet_3_23
+  - first:
+      213: 6627852884821728753
+    second: FG_Crops_Sheet_3_24
+  - first:
+      213: -4298691818739853332
+    second: FG_Crops_Sheet_3_25
+  - first:
+      213: -1882399768840363203
+    second: FG_Crops_Sheet_3_26
+  - first:
+      213: -2578018363328393651
+    second: FG_Crops_Sheet_3_27
+  - first:
+      213: -2132283105813127453
+    second: FG_Crops_Sheet_3_28
+  - first:
+      213: -6324023830425086791
+    second: FG_Crops_Sheet_3_29
+  - first:
+      213: 5979412352717923442
+    second: FG_Crops_Sheet_3_30
+  - first:
+      213: -4654534189926045144
+    second: FG_Crops_Sheet_3_31
+  - first:
+      213: 7433205154514317030
+    second: FG_Crops_Sheet_3_32
+  - first:
+      213: 7796239626532491314
+    second: FG_Crops_Sheet_3_33
+  - first:
+      213: 7484134274290592574
+    second: FG_Crops_Sheet_3_34
+  - first:
+      213: 4665713920214050992
+    second: FG_Crops_Sheet_3_35
+  - first:
+      213: -2119994000967557849
+    second: FG_Crops_Sheet_3_36
+  - first:
+      213: -6466455470703138660
+    second: FG_Crops_Sheet_3_37
+  - first:
+      213: 1029439787220795985
+    second: FG_Crops_Sheet_3_38
+  - first:
+      213: -2305731408491543417
+    second: FG_Crops_Sheet_3_39
+  - first:
+      213: 7286706867323657876
+    second: FG_Crops_Sheet_3_40
+  - first:
+      213: -1128124234850295609
+    second: FG_Crops_Sheet_3_41
+  - first:
+      213: 606347288000609604
+    second: FG_Crops_Sheet_3_42
+  - first:
+      213: 7477706838244671692
+    second: FG_Crops_Sheet_3_43
+  - first:
+      213: 546562560655163276
+    second: FG_Crops_Sheet_3_44
+  - first:
+      213: 8531541229577210956
+    second: FG_Crops_Sheet_3_45
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 132
+        width: 24
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27d23162592f09380800000000000000
+      internalID: -8966400135691817614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 130
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d771d50ce7b96f100800000000000000
+      internalID: 141471407004260221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_2
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 131
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c63ef86dc9552a40800000000000000
+      internalID: 5342775271709619909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_3
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 98
+        width: 48
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dce5a1f64082cf2a0800000000000000
+      internalID: -6702438145925161267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_4
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 134
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6efadc8b01889130800000000000000
+      internalID: 3573748190926274156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_5
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 132
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41cbd50edde9ce8e0800000000000000
+      internalID: -1662779486617355244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_6
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 133
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01b691b645933bf70800000000000000
+      internalID: 9201761498384919312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_7
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 134
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7f23adbec9a2ddc0800000000000000
+      internalID: -3615640845415141508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_8
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 134
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 616d9ee0b6da10390800000000000000
+      internalID: -7853805599834122730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_9
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 134
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e163750ffeed90610800000000000000
+      internalID: 1588045465735607838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_10
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 134
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4c5bbf74fca37c10800000000000000
+      internalID: 2050172421498690637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_11
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 134
+        width: 17
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0a01af90d585c150800000000000000
+      internalID: 5892262818561985035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_12
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 102
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03fe8b26ec6cad2a0800000000000000
+      internalID: -6711833704920453328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_13
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 102
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bc3ab070a2fbff70800000000000000
+      internalID: 9222231432871165107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_14
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 102
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72a969aba85eca5c0800000000000000
+      internalID: -4202731968244835801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_15
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 102
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8f17f4c84ca4b8b0800000000000000
+      internalID: -5137291846380740726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_16
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 100
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94016df91dbb2e620800000000000000
+      internalID: 2802008427182035017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_17
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 99
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da1b1c167cd50f950800000000000000
+      internalID: 6480782974706102701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_18
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 98
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef23ecfea6c862f30800000000000000
+      internalID: 4550478864422155006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_19
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 100
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d054ced916f258170800000000000000
+      internalID: 8179996394496214285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_20
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 100
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d082143eb5fccfd0800000000000000
+      internalID: -2320209510736428848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_21
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 100
+        width: 15
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 170086c9067ef6160800000000000000
+      internalID: 7021084746220830833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_22
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 100
+        width: 15
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3139867e9c527d2c0800000000000000
+      internalID: -4407012161257696493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_23
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 66
+        width: 28
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4d55f623cfad0820800000000000000
+      internalID: 2886156188921453898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_24
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 67
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fdd857351ddafb50800000000000000
+      internalID: 6627852884821728753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_25
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 66
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce71229f09af754c0800000000000000
+      internalID: -4298691818739853332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_26
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 68
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d332ef4326f50e5e0800000000000000
+      internalID: -1882399768840363203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_27
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 68
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4e806d15f9093cd0800000000000000
+      internalID: -2578018363328393651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_28
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 68
+        width: 15
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ee117500db9862e0800000000000000
+      internalID: -2132283105813127453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_29
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 68
+        width: 15
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b4586415dd8c38a0800000000000000
+      internalID: -6324023830425086791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_30
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 33
+        width: 14
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 274a551cad32bf250800000000000000
+      internalID: 5979412352717923442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_31
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 69
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82a2c86a0d5c76fb0800000000000000
+      internalID: -4654534189926045144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_32
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 69
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6eead6984bc082760800000000000000
+      internalID: 7433205154514317030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_33
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 69
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2301b4352aec13c60800000000000000
+      internalID: 7796239626532491314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_34
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 69
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3baa66487cfcd760800000000000000
+      internalID: 7484134274290592574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_35
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 35
+        width: 28
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b824f52712ffb040800000000000000
+      internalID: 4665713920214050992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_36
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 37
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72d9e5630b44492e0800000000000000
+      internalID: -2119994000967557849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_37
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 37
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c98abd892098246a0800000000000000
+      internalID: -6466455470703138660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_38
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 37
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15203f2480e494e00800000000000000
+      internalID: 1029439787220795985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_39
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 33
+        width: 10
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 784866110856000e0800000000000000
+      internalID: -2305731408491543417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_40
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 33
+        width: 12
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49ed9390a459f1560800000000000000
+      internalID: 7286706867323657876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_41
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 33
+        width: 12
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c02d374cf81850f0800000000000000
+      internalID: -1128124234850295609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_42
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 3
+        width: 28
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44d3cc755ad2a6800800000000000000
+      internalID: 606347288000609604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_43
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 6
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc0451430c626c760800000000000000
+      internalID: 7477706838244671692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_44
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 3
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8ff06bc0c7c59700800000000000000
+      internalID: 546562560655163276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FG_Crops_Sheet_3_45
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 4
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4c8c87db8f166670800000000000000
+      internalID: 8531541229577210956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      FG_Crops_Sheet_3_0: -8966400135691817614
+      FG_Crops_Sheet_3_1: 141471407004260221
+      FG_Crops_Sheet_3_10: 2050172421498690637
+      FG_Crops_Sheet_3_11: 5892262818561985035
+      FG_Crops_Sheet_3_12: -6711833704920453328
+      FG_Crops_Sheet_3_13: 9222231432871165107
+      FG_Crops_Sheet_3_14: -4202731968244835801
+      FG_Crops_Sheet_3_15: -5137291846380740726
+      FG_Crops_Sheet_3_16: 2802008427182035017
+      FG_Crops_Sheet_3_17: 6480782974706102701
+      FG_Crops_Sheet_3_18: 4550478864422155006
+      FG_Crops_Sheet_3_19: 8179996394496214285
+      FG_Crops_Sheet_3_2: 5342775271709619909
+      FG_Crops_Sheet_3_20: -2320209510736428848
+      FG_Crops_Sheet_3_21: 7021084746220830833
+      FG_Crops_Sheet_3_22: -4407012161257696493
+      FG_Crops_Sheet_3_23: 2886156188921453898
+      FG_Crops_Sheet_3_24: 6627852884821728753
+      FG_Crops_Sheet_3_25: -4298691818739853332
+      FG_Crops_Sheet_3_26: -1882399768840363203
+      FG_Crops_Sheet_3_27: -2578018363328393651
+      FG_Crops_Sheet_3_28: -2132283105813127453
+      FG_Crops_Sheet_3_29: -6324023830425086791
+      FG_Crops_Sheet_3_3: -6702438145925161267
+      FG_Crops_Sheet_3_30: 5979412352717923442
+      FG_Crops_Sheet_3_31: -4654534189926045144
+      FG_Crops_Sheet_3_32: 7433205154514317030
+      FG_Crops_Sheet_3_33: 7796239626532491314
+      FG_Crops_Sheet_3_34: 7484134274290592574
+      FG_Crops_Sheet_3_35: 4665713920214050992
+      FG_Crops_Sheet_3_36: -2119994000967557849
+      FG_Crops_Sheet_3_37: -6466455470703138660
+      FG_Crops_Sheet_3_38: 1029439787220795985
+      FG_Crops_Sheet_3_39: -2305731408491543417
+      FG_Crops_Sheet_3_4: 3573748190926274156
+      FG_Crops_Sheet_3_40: 7286706867323657876
+      FG_Crops_Sheet_3_41: -1128124234850295609
+      FG_Crops_Sheet_3_42: 606347288000609604
+      FG_Crops_Sheet_3_43: 7477706838244671692
+      FG_Crops_Sheet_3_44: 546562560655163276
+      FG_Crops_Sheet_3_45: 8531541229577210956
+      FG_Crops_Sheet_3_5: -1662779486617355244
+      FG_Crops_Sheet_3_6: 9201761498384919312
+      FG_Crops_Sheet_3_7: -3615640845415141508
+      FG_Crops_Sheet_3_8: -7853805599834122730
+      FG_Crops_Sheet_3_9: 1588045465735607838
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

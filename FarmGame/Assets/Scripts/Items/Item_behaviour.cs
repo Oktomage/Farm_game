@@ -1,0 +1,69 @@
+using Game.Utils;
+using UnityEngine;
+
+namespace Game.Items
+{
+    public class Item_behaviour : MonoBehaviour
+    {
+        [Header("Data")]
+        public Item_scriptable ItemData;
+
+        [Header("Components")]
+        public SpriteRenderer Render;
+        public SpriteRenderer Render_shadow;
+        public Collider2D Collider;
+
+        [Header("Settings")]
+        public bool IsCollectable = true;
+
+        private void Start()
+        {
+            if(ItemData != null) { Configure_object(); }
+        }
+
+        /// CORE METHODS
+
+        private void Configure_object()
+        {
+            //Sprite
+            Render.sprite = ItemData.Icon;
+        }
+
+        internal void Set_item_data(Item_scriptable data)
+        {
+            ItemData = data;
+
+            Configure_object();
+        }
+
+        internal void Set_collected_settings()
+        {
+            //Set
+            IsCollectable = false;
+            
+            Collider.enabled = false;
+            Render.enabled = false;
+
+            if(Render_shadow != null)
+                Render_shadow.enabled = false;
+
+            //Audio
+            Game_utils.Instance.Create_sound("Item_collect_sound", "Audios/Items/Grab_item_1", this.transform.position);
+        }
+
+        internal void Set_dropped_settings()
+        {
+            //Set
+            IsCollectable = true;
+            
+            Collider.enabled = true;
+            Render.enabled = true;
+
+            if (Render_shadow != null)
+                Render_shadow.enabled = true;
+
+            //Audio
+            Game_utils.Instance.Create_sound("Item_collect_sound", "Audios/Items/Grab_item_1", this.transform.position);
+        }
+    }
+}
