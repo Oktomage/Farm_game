@@ -15,6 +15,7 @@ MonoBehaviour:
   tabName: Materials
   tabIcon: {fileID: -1595546459871342229, guid: fae9a6b5c0ccc0344bf1582d62cc6488, type: 3}
   tabItemsData:
+  - {fileID: 11400000, guid: 1f487f1aa4658144aa79262635ae9a7d, type: 2}
   - {fileID: 11400000, guid: e139d2affc2bf2541adce57b0614c2ff, type: 2}
-  - {fileID: 11400000, guid: 76b0f738960564741a7fa06e10bce367, type: 2}
-  - {fileID: 11400000, guid: 20e4223540e2d0d47820607ad23ba6eb, type: 2}
+  - {fileID: 11400000, guid: 37f31604e59e3c14f8885f968139706c, type: 2}
+  - {fileID: 11400000, guid: 0f46039c90c41174dbd9806d218f239e, type: 2}

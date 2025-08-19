@@ -1,3 +1,4 @@
+using Game.Characters.Data;
 using Game.Items;
 using Game.Shop;
 using Game.Utils;
@@ -32,6 +33,7 @@ namespace Game.UI.Shop
         [SerializeField] internal int currentItemIndex = 0;
         
         [SerializeField] internal Item_scriptable Selected_item => selectedTab.tabItemsData[currentItemIndex];
+        internal GameObject Player_obj => GameObject.FindGameObjectWithTag("Player");
 
         void Awake()
         {
@@ -87,7 +89,17 @@ namespace Game.UI.Shop
 
         private void Buy_current()
         {
+            if (Player_data.Instance.Total_souls < Selected_item.Price)
+                return;
 
+            GameObject bought_item = Game_utils.Instance.Create_item(Selected_item, Player_obj.transform.position);
+
+            // Set
+            Player_data.Instance.Decrease_souls(Selected_item.Price);
+
+            // Audio
+            Game_utils.Instance.Create_2d_sound("UI_Click", "Audios/UI/Click_1");
+            Game_utils.Instance.Create_sound("Character_laugh", "Audios/Characters/Laugh_1", Player_obj.transform.position);
         }
 
         private void Refresh()

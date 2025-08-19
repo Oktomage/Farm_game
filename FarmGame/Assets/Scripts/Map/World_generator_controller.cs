@@ -29,7 +29,7 @@ namespace Game.Map.Controller
             public float Probability;
         }
 
-        public List<Spawn_option> World_spawn_table = new List<Spawn_option>();
+        internal List<Spawn_option> World_spawn_table = new List<Spawn_option>();
 
         [Header("UI Components (For testing pourposes)")]
         public GameObject Panel_loading;

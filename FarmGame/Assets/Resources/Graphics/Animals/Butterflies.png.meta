@@ -72,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -335,7 +335,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Butterflies_0: -6522484170420502303
+      Butterflies_1: 1148166039475955093
+      Butterflies_2: 2305347001291335209
+      Butterflies_3: 9131374477077437790
+      Butterflies_4: -2261488825325905035
+      Butterflies_5: -7069275506716678167
+      Butterflies_6: 8857968491152972040
+      Butterflies_7: -6159003875796621367
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

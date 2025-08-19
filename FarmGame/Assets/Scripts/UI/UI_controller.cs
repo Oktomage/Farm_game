@@ -66,6 +66,7 @@ namespace Game.UI
             Game_events.Player_character_used_item.AddListener(Update_player_character_inventory_UI);
 
             Game_events.Player_collected_souls.AddListener(Update_player_souls_panel_UI);
+            Game_events.Player_lost_souls.AddListener(_ => Update_player_souls_panel_UI(changed_ammount: 0));
 
             Game_events.Player_character_opened_shop.AddListener(Show_shop_UI);
             Game_events.Player_character_closed_shop.AddListener(Hide_shop_UI);
@@ -206,6 +207,8 @@ namespace Game.UI
             if(Player_character == null) { return; }
 
             Text_souls.text = $"x {Player_data.Instance.Total_souls}";
+
+            if (changed_ammount == 0) { return; }
 
             //Effects
             Game_utils.Instance.Do_UI_pop_effect(Text_souls.gameObject);

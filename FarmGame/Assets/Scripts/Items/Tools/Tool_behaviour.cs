@@ -136,7 +136,7 @@ namespace Game.Items.Tools
             if (Character.Characters_nearby.Count > 0)
             {
                 //Get character to attack
-                Character_behaviour other_character = null;
+                //Character_behaviour other_character = null;
 
                 foreach (Character_behaviour other_char in Character.Characters_nearby.ToArray())
                 {

@@ -1,14 +1,13 @@
 using Game.Events;
 using Game.UI.Notifications;
 using Game.Utils;
-using UnityEditor;
 using UnityEngine;
 
 namespace Game.Characters.Data
 {
     public class Player_data : MonoBehaviour
     {
-        public static Player_data Instance;
+        public static Player_data Instance { get; private set; }
 
         [Header("Data")]
         public int Total_souls;
@@ -21,7 +20,7 @@ namespace Game.Characters.Data
         private void Update()
         {
 #if UNITY_EDITOR
-            if(Input.GetKeyDown(KeyCode.F5))
+            if(Input.GetKeyDown(KeyCode.F4))
             {
                 Add_souls(1000);
             }
@@ -45,6 +44,15 @@ namespace Game.Characters.Data
                 Duration = 2f,
                 Icon = Game_utils.Instance.Get_sprite("Graphics/Icons/Soul") // Optionally set an icon
             });
+        }
+
+        public void Decrease_souls(int amount)
+        {
+            //Set
+            Total_souls -= amount;
+
+            //Events
+            Game_events.Player_lost_souls.Invoke(amount);
         }
     }
 }

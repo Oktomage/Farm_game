@@ -10,6 +10,8 @@ namespace Game.Events
     public class Game_events : MonoBehaviour
     {
         public static UnityEvent<Character_behaviour> Player_clicked_on_enemy = new UnityEvent<Character_behaviour>();
+        public static UnityEvent<int> Player_collected_souls = new UnityEvent<int>();
+        public static UnityEvent<int> Player_lost_souls = new UnityEvent<int>();
 
         public static UnityEvent Player_character_collected_item = new UnityEvent();
         public class InventoryEvent : UnityEvent<int, Item_behaviour> { }
@@ -20,7 +22,6 @@ namespace Game.Events
         public static UnityEvent<GameObject> Player_character_killed_enemy = new UnityEvent<GameObject>();
         public static UnityEvent Player_character_died = new UnityEvent();
         public static UnityEvent<float> Player_character_regen = new UnityEvent<float>();
-        public static UnityEvent<int> Player_collected_souls = new UnityEvent<int>();
         public static UnityEvent Player_character_used_cristal_to_trade = new UnityEvent();
 
         public static UnityEvent<Shopper_controller> Player_character_opened_shop = new UnityEvent<Shopper_controller>();

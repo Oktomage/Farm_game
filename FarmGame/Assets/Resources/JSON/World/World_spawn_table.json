@@ -28,5 +28,10 @@
     "Object_name": "Flowers",
     "Object_resources_path": "Prefabs/Objects/Flowers_object",
     "Probability": 0.05
+  },
+  {
+    "Object_name": "Butterflies",
+    "Object_resources_path": "Prefabs/Objects/Butterflies_object",
+    "Probability": 0.005
   }
 ]
