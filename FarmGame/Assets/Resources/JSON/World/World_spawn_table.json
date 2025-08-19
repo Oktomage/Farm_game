@@ -1,0 +1,32 @@
+[
+  {
+    "Object_name": "Stone",
+    "Object_resources_path": "Prefabs/Objects/Stone_object",
+    "Probability": 0.03
+  },
+  {
+    "Object_name": "Iron stone",
+    "Object_resources_path": "Prefabs/Objects/Iron_stone_object",
+    "Probability": 0.02
+  },
+  {
+    "Object_name": "Silver stone",
+    "Object_resources_path": "Prefabs/Objects/Silver_stone_object",
+    "Probability": 0.01
+  },
+  {
+    "Object_name": "Gold stone",
+    "Object_resources_path": "Prefabs/Objects/Gold_stone_object",
+    "Probability": 0.01
+  },
+  {
+    "Object_name": "Tree",
+    "Object_resources_path": "Prefabs/Objects/Tree_object",
+    "Probability": 0.05
+  },
+  {
+    "Object_name": "Flowers",
+    "Object_resources_path": "Prefabs/Objects/Flowers_object",
+    "Probability": 0.05
+  }
+]

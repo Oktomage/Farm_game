@@ -15,7 +15,6 @@ namespace Game.Controller.Audio
         }
 
         [Header("Settings")]
-        public float Fade_time = 5f;
         [Range(0, 1f)]
         public float Volume_target = 0.4f;
 
@@ -38,7 +37,8 @@ namespace Game.Controller.Audio
         public AudioSource Music_source_B;
 
         //Internal variables
-        [SerializeField] internal bool IsTransitioning = false;
+        internal bool IsTransitioning = false;
+        internal float Fade_time => Game_controller.Instance.Seconds_per_hour;
 
         private void Awake()
         {

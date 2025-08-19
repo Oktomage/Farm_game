@@ -1,10 +1,14 @@
 using Game.Characters;
 using Game.Characters.Enemies;
-using Game.Events;
 using Game.Items;
+using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace Game.Utils
 {
@@ -259,6 +263,39 @@ namespace Game.Utils
             });
 
             return enemies;
+        }
+
+        /// SCRIPTING
+        public void Export_to_Json(object obj, string folder_path, string file_name)
+        {
+            // Convert to JSON formatado (indentado)
+            string json = JsonConvert.SerializeObject(obj, Formatting.Indented);
+
+            // Save
+            string path = Path.Combine(Application.dataPath + "/" + folder_path, file_name + ".json");
+            File.WriteAllText(path, json);
+
+#if UNITY_EDITOR
+            AssetDatabase.Refresh();
+#endif
+        }
+
+        public T Read_from_Json<T>(string path)
+        {
+            if(!File.Exists(path))
+                return default;
+
+            // Read
+            try
+            {
+                string json = File.ReadAllText(path);
+                return JsonConvert.DeserializeObject<T>(json);
+            }
+            catch (System.Exception ex)
+            { 
+                Debug.LogError(ex.Message);
+                return default;
+            }
         }
     }
 }

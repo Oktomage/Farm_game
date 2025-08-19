@@ -1,5 +1,6 @@
 using Game.Effects;
 using Game.Events;
+using Game.Utils;
 using System.Collections;
 using UnityEngine;
 
@@ -47,7 +48,11 @@ namespace Game.Characters.Enemies
         private void Start_boss_battle()
         {
             // Events
+            Game_events.Boss_battle_started.Invoke(Character);
             Game_events.Warning_panel_called.Invoke("Boss encounter !");
+
+            //Audio
+            Game_utils.Instance.Create_2d_sound("Boss_encounter", "Audios/Characters/Roar_1");
         }
 
         internal void Set_characterData(Character_scriptable data)

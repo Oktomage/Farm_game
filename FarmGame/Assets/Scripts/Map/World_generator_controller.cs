@@ -29,7 +29,7 @@ namespace Game.Map.Controller
             public float Probability;
         }
 
-        public List<Spawn_option> SpawnTable = new List<Spawn_option>();
+        public List<Spawn_option> World_spawn_table = new List<Spawn_option>();
 
         [Header("UI Components (For testing pourposes)")]
         public GameObject Panel_loading;
@@ -42,11 +42,18 @@ namespace Game.Map.Controller
         private void Start()
         {
             Generate_world();
+
+            // Save to JSON
+            //Game_utils.Instance.ExportToJson(SpawnTable, folder_path: "Resources/JSON/World", file_name: "World_spawn_table");
         }
 
         private void Generate_world()
         {
-            StartCoroutine(Generate_world_entitys());
+            // Get JSON
+            World_spawn_table = Game_utils.Instance.Read_from_Json<List<Spawn_option>>(Application.dataPath + "/Resources/JSON/World/World_spawn_table.json");
+
+            if(World_spawn_table.Count > 0)
+                StartCoroutine(Generate_world_entitys());
         }
 
         /// MAIN METHODS
@@ -54,9 +61,9 @@ namespace Game.Map.Controller
         {
             float totalProbability = 0f;
 
-            for (int i = 0; i < SpawnTable.Count; i++)
+            for (int i = 0; i < World_spawn_table.Count; i++)
             {
-                totalProbability += SpawnTable[i].Probability;
+                totalProbability += World_spawn_table[i].Probability;
             }
 
             // Número aleatório entre 0 e 1
@@ -69,14 +76,14 @@ namespace Game.Map.Controller
             // Acumulador para encontrar em qual faixa de probabilidade caiu
             float probabilityAccumulator = 0f;
 
-            for (int i = 0; i < SpawnTable.Count; i++)
+            for (int i = 0; i < World_spawn_table.Count; i++)
             {
-                probabilityAccumulator += SpawnTable[i].Probability;
+                probabilityAccumulator += World_spawn_table[i].Probability;
 
                 //Spawn entity
                 if (randomValue <= probabilityAccumulator)
                 {
-                    GameObject spawnedEntity = Game_utils.Instance.Create_prefab_from_resources(SpawnTable[i].Object_resources_path);
+                    GameObject spawnedEntity = Game_utils.Instance.Create_prefab_from_resources(World_spawn_table[i].Object_resources_path);
                     spawnedEntity.transform.position = pos;
 
                     Objects_generated++;
