@@ -78,6 +78,12 @@ namespace Game.Utils
             return scriptable;
         }
         
+        public ScriptableObject[] Get_all_scriptable(string path)
+        {
+            ScriptableObject[] scriptables = Resources.LoadAll<ScriptableObject>(path);
+            return scriptables;
+        }
+
         public Material Get_material(string path)
         {
             Material material = Resources.Load<Material>(path);
@@ -280,22 +286,31 @@ namespace Game.Utils
 #endif
         }
 
-        public T Read_from_Json<T>(string path)
+        public T Read_from_Json<T>(string resources_path)
         {
-            if(!File.Exists(path))
-                return default;
-
-            // Read
-            try
+            if (!string.IsNullOrEmpty(resources_path))
             {
-                string json = File.ReadAllText(path);
-                return JsonConvert.DeserializeObject<T>(json);
+                TextAsset jsonFile = Resources.Load<TextAsset>(resources_path);
+
+                if (jsonFile != null)
+                {
+                    try
+                    {
+                        return JsonConvert.DeserializeObject<T>(jsonFile.text);
+                    }
+                    catch (System.Exception ex)
+                    {
+                        Debug.LogError($"Erro lendo JSON de Resources/{resources_path}: {ex.Message}");
+                        return default;
+                    }
+                }
+                else
+                {
+                    Debug.LogError($"Arquivo não encontrado em Resources/{resources_path}");
+                }
             }
-            catch (System.Exception ex)
-            { 
-                Debug.LogError(ex.Message);
-                return default;
-            }
+
+            return default;
         }
     }
 }

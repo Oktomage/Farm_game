@@ -98,7 +98,7 @@ namespace Game.Controller.Audio
                     break;
             }
 
-            Debug.LogWarning("Music updated to " + target_clip.name);
+            //Debug.LogWarning("Music updated to " + target_clip.name);
         }
 
         private void Set_music_to_audio_source(AudioSource source, AudioClip clip)

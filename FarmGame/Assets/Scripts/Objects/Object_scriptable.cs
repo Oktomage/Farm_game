@@ -1,4 +1,5 @@
 using Game.Items;
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace Game.Objects
@@ -13,8 +14,13 @@ namespace Game.Objects
 
         [Header("Drop settings")]
         public Item_scriptable Item_drop;
+
+        [ShowIf(nameof(HasItemDrop))]
         [Range(0, 1f)]
         public float Drop_chance = 0.5f;
+        [ShowIf(nameof(HasItemDrop))]
         public int Drop_amount = 1;
+
+        private bool HasItemDrop => Item_drop != null;
     }
 }

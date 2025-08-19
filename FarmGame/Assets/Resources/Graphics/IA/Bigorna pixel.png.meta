@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: df2be14d900961a4d8edda430eb4881b
+guid: 508a143b59b9f4441839ae57000eb23d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3609059099544017212
-    second: Cursor pixel_0
+      213: -7935057425251759853
+    second: Bigorna pixel_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 500
+  spritePixelsToUnits: 800
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -74,7 +74,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cursor pixel_0
+      name: Bigorna pixel_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 9
-        width: 326
-        height: 501
+        x: 5
+        y: 4
+        width: 802
+        height: 509
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c3956b12124f51230800000000000000
-      internalID: 3609059099544017212
+      spriteID: 3190b8f305301e190800000000000000
+      internalID: -7935057425251759853
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Cursor pixel_0: 3609059099544017212
+      Bigorna pixel_0: -7935057425251759853
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

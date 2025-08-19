@@ -22,28 +22,42 @@ namespace Game.Items
 
         private void Start()
         {
-            if(ItemData != null) { Configure_object(); }
+            if(ItemData != null)
+                Configure_item();
         }
 
         /// CORE METHODS
-
-        private void Configure_object()
+        private void Configure_item()
         {
-            //Sprite
+            // Sprite
             Render.sprite = ItemData.Icon;
+        
+            // Add essential scripts to item_obj
+            switch(ItemData.Type)
+            {
+                case Item_scriptable.ItemType.Seed:
+                    Tool_behaviour tool = this.gameObject.AddComponent<Tool_behaviour>();
+                    tool.Type = Tool_behaviour.ToolType.Seeds;
+
+                    Seeds_bag seeds_Bag = this.gameObject.AddComponent<Seeds_bag>();
+                    seeds_Bag.Set_crop_in_bag(ItemData.Crop);
+                    break;
+            }
         }
 
         internal void Set_item_data(Item_scriptable data)
         {
+            // Set
             ItemData = data;
 
-            Configure_object();
+            Configure_item();
         }
 
         /// MAIN METHODS
         internal void Delete_item()
         {
-            if(Character == null) return;
+            if(Character == null)
+                return;
 
             //Remove item from character inventory
             Character.Drop_selected_item_from_inventory();

@@ -66,10 +66,10 @@ namespace Game.Characters
         public AudioClip Death_sound;
 
         [Header("Components")]
-        public SpriteRenderer Render;
-        public Animator Anim;
-        public Rigidbody2D Rigid;
-        public Collider2D Collider;
+        public SpriteRenderer Render => this.gameObject.GetComponentInChildren<SpriteRenderer>();
+        public Animator Anim => this.gameObject.GetComponentInChildren<Animator>();
+        public Rigidbody2D Rigid => this.gameObject.GetComponent<Rigidbody2D>();
+        public Collider2D Collider => this.gameObject.GetComponentInChildren<Collider2D>();
 
         [Space(30)]
         //Internal variables
@@ -177,7 +177,8 @@ namespace Game.Characters
                 }
 
                 //Set last damaged by
-                Last_damaged_by_obj = attacker;
+                if(attacker != null)
+                    Last_damaged_by_obj = attacker;
 
                 //Events
                 if (IsPlayer)
@@ -333,8 +334,11 @@ namespace Game.Characters
 
         internal void Use_tool()
         {
-            if(IsUsingTool) { return; }
-            if (Equipped_tool == null) { return; }
+            if(IsUsingTool) 
+                return;
+
+            if (Equipped_tool == null)
+                return;
 
             Equipped_tool.Use(this);
         }
@@ -558,9 +562,12 @@ namespace Game.Characters
 
         private IEnumerator Animator_controller()
         {
-            while (Anim != null)
+            while (true)
             {
                 yield return new WaitForSeconds(0.1f);
+
+                if (Anim == null)
+                    yield break;
 
                 Anim.SetBool("IsMoving", IsMoving);
                 Anim.SetBool("IsUsingTool", IsPlowing || IsMining || IsCutting || IsAttacking);

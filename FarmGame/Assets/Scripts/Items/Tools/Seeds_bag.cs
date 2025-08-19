@@ -10,9 +10,9 @@ namespace Game.Items.Tools
     public class Seeds_bag : MonoBehaviour
     {
         [Header("Data")]
-        public Item_behaviour Item_behaviour;
-        public Tool_behaviour Tool_behaviour;
-        [SerializeField] internal Crop_scriptable CropData;
+        public Crop_scriptable CropData;
+        internal Item_behaviour Item_behaviour => this.gameObject.GetComponent<Item_behaviour>();
+        internal Tool_behaviour Tool_behaviour => this.gameObject.GetComponent<Tool_behaviour>();
 
         [Header("Settings")]
         [Range(1, 16)]
@@ -21,28 +21,7 @@ namespace Game.Items.Tools
         [Header("State")]
         public int Seed_ammount = 0;
 
-        private void Start()
-        {
-            Configure();
-        }
-
         /// CORE METHODS
-        private void Configure()
-        {
-            if(this.gameObject.TryGetComponent<Item_behaviour>(out Item_behaviour item))
-            {
-                //Set
-                Item_behaviour = item;
-
-                Set_crop_in_bag(Item_behaviour.ItemData.Crop);
-            }
-            if (this.gameObject.TryGetComponent<Tool_behaviour>(out Tool_behaviour tool))
-            {
-                //Set
-                Tool_behaviour = tool;
-            }
-        }
-
         internal void Set_crop_in_bag(Crop_scriptable crop)
         {
             //Set

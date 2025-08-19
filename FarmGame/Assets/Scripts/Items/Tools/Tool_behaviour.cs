@@ -24,7 +24,7 @@ namespace Game.Items.Tools
         }
 
         [Header("Data")]
-        public Character_behaviour Character;
+        internal Character_behaviour Character;
 
         [Header("Tool Settings")]
         public ToolType Type = ToolType.Hoe;
@@ -200,6 +200,10 @@ namespace Game.Items.Tools
 
                     //Plant seeds
                     seeds_bag.Plant_seeds(plant_ammount, spots_list);
+                }
+                else
+                {
+                    Debug.LogError("Cant find seeds bag");
                 }
             }
         }

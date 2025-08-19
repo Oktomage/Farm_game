@@ -22,8 +22,8 @@ namespace Game.Map.Controller
         [System.Serializable]
         public class Spawn_option
         {
-            public string Object_name;
-            public string Object_resources_path;
+            public string Entity_name;
+            public string Entity_resources_path;
             [Space]
             [Range(0f, 1f)] 
             public float Probability;
@@ -36,8 +36,8 @@ namespace Game.Map.Controller
         public Slider Slider_progress_bar;
 
         //Internal variables
-        internal int Objects_generated = 0;
-        internal int Animals_generated = 0;
+        [SerializeField] internal int Objects_generated = 0;
+        [SerializeField] internal int Animals_generated = 0;
 
         private void Start()
         {
@@ -47,29 +47,39 @@ namespace Game.Map.Controller
             //Game_utils.Instance.ExportToJson(SpawnTable, folder_path: "Resources/JSON/World", file_name: "World_spawn_table");
         }
 
+        /// CORE METHODS
         private void Generate_world()
         {
             // Get JSON
-            World_spawn_table = Game_utils.Instance.Read_from_Json<List<Spawn_option>>(Application.dataPath + "/Resources/JSON/World/World_spawn_table.json");
+            World_spawn_table = Game_utils.Instance.Read_from_Json<List<Spawn_option>>("JSON/World/World_spawn_table");
 
             if(World_spawn_table.Count > 0)
                 StartCoroutine(Generate_world_entitys());
         }
 
         /// MAIN METHODS
-        private GameObject Spawn_entity(Vector2 pos)
+        internal class Entity_info
+        {
+            internal enum Entity_types
+            {
+                Object,
+                Animal
+            }
+
+            internal Entity_types Type;
+        }
+        private GameObject Spawn_entity(Entity_info info, Vector2 pos)
         {
             float totalProbability = 0f;
 
+            // Get total probabilities
             for (int i = 0; i < World_spawn_table.Count; i++)
             {
                 totalProbability += World_spawn_table[i].Probability;
             }
 
-            // Número aleatório entre 0 e 1
             float randomValue = Random.value;
 
-            // Se cair na faixa de "nada" (chance vazia), retorna null
             if (randomValue > totalProbability)
                 return null;
 
@@ -83,7 +93,7 @@ namespace Game.Map.Controller
                 //Spawn entity
                 if (randomValue <= probabilityAccumulator)
                 {
-                    GameObject spawnedEntity = Game_utils.Instance.Create_prefab_from_resources(World_spawn_table[i].Object_resources_path);
+                    GameObject spawnedEntity = Game_utils.Instance.Create_prefab_from_resources(World_spawn_table[i].Entity_resources_path);
                     spawnedEntity.transform.position = pos;
 
                     Objects_generated++;
@@ -122,11 +132,21 @@ namespace Game.Map.Controller
                 {
                     Vector2 pos = new Vector2(x + CellSize / 2, y + CellSize / 2);
                     GameObject entity = null;
+                    Entity_info entity_Info = new Entity_info();
 
-                    // Check if can put at cell
                     if (Check_if_can_spawn_at_cell(pos))
                     {
-                        entity = Spawn_entity(pos);
+                        // Object
+                        if (Objects_generated < Max_world_objects)
+                        {
+                            entity_Info.Type = Entity_info.Entity_types.Object;
+                        }
+                        else if (Animals_generated < Max_world_animals)
+                        {
+                            entity_Info.Type = Entity_info.Entity_types.Animal;
+                        }
+
+                        entity = Spawn_entity(entity_Info, pos);
                     }
 
                     // Set
@@ -150,7 +170,7 @@ namespace Game.Map.Controller
             Panel_loading.GetComponent<CanvasGroup>().alpha = 0;
         }
 
-        void SetProgress(float t)
+        private void SetProgress(float t)
         {
             if (Slider_progress_bar) Slider_progress_bar.value = Mathf.Clamp01(t);
             //if (progressLabel) progressLabel.text = $"Loading world... {(int)(t * 100f)}%";
