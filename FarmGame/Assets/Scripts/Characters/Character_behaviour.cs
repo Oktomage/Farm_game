@@ -1,5 +1,6 @@
 using Game.Characters.Data;
 using Game.Characters.Shopper;
+using Game.Crafting;
 using Game.Effects;
 using Game.Events;
 using Game.Grids;
@@ -420,6 +421,12 @@ namespace Game.Characters
                 {
                     if(Inventory.Count > 0)
                         cristal_ctrl.Trade(Inventory[Selected_item_index]);
+                }
+
+                if(other_objects.TryGetComponent<Crafting_controller>(out Crafting_controller crafting_ctrl))
+                {
+                    if (Inventory.Count > 0)
+                        crafting_ctrl.Put_item(Inventory[Selected_item_index], this);
                 }
             }
         }

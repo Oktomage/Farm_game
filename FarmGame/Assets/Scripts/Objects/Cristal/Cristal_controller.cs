@@ -17,11 +17,13 @@ namespace Game.Objects.Cristal
 
         internal void Trade(GameObject item_obj)
         {
-            if(item_obj == null) return;
+            if(item_obj == null) 
+                return;
 
             Item_behaviour item_bhv = item_obj.GetComponent<Item_behaviour>();
 
-            if (!item_bhv.ItemData.Can_trade) return;
+            if (!item_bhv.ItemData.Can_trade) 
+                return;
             
             int souls_trade_value = item_bhv.ItemData.Price;
 

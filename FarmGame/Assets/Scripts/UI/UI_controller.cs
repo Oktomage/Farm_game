@@ -160,13 +160,7 @@ namespace Game.UI
         }
 
         ///PLAYER CHARACTER UI METHODS
-        private void Update_player_character_stats_UI ()
-        {
-            if(Player_character == null) { return; }
-
-            //Update health bar
-            Slider_health.value = Player_character.Health / Player_character.Max_health;
-        }
+        private void Update_player_character_stats_UI() => Update_player_character_stats_UI(0);
         private void Update_player_character_stats_UI(float health_regen_ammount)
         {
             if (Player_character == null) { return; }
@@ -175,11 +169,7 @@ namespace Game.UI
             Slider_health.value = Player_character.Health / Player_character.Max_health;
         }
 
-        private void Update_player_character_inventory_UI()
-        {
-            // Go to
-            Update_player_character_inventory_UI(0, null);
-        }
+        private void Update_player_character_inventory_UI() => Update_player_character_inventory_UI(0, null);
         private void Update_player_character_inventory_UI(int itemIndex, Item_behaviour item)
         {
             if(Player_character == null) { return; }

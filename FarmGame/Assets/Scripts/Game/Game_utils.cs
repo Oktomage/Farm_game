@@ -22,13 +22,23 @@ namespace Game.Utils
         }
 
         /// GAME ASSETS
+        public GameObject Create_gameObject() => Create_gameObject(null);
+        public GameObject Create_gameObject(GameObject parent)
+        {
+            GameObject new_obj = new GameObject();
+
+            if(parent != null)
+                new_obj.transform.SetParent(parent.transform, false);
+
+            return new_obj;
+        }
+
         public GameObject Create_prefab_from_resources(string path)
         {
             GameObject prefab = Instantiate(Resources.Load<GameObject>(path));
 
             return prefab;
         }
-
         public GameObject Create_prefab_from_resources(string path, GameObject parent)
         {
             GameObject prefab = Instantiate(Resources.Load<GameObject>(path));
@@ -77,7 +87,6 @@ namespace Game.Utils
             ScriptableObject scriptable = Resources.Load<ScriptableObject>(path);
             return scriptable;
         }
-        
         public ScriptableObject[] Get_all_scriptable(string path)
         {
             ScriptableObject[] scriptables = Resources.LoadAll<ScriptableObject>(path);

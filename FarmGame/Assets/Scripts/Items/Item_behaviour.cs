@@ -65,10 +65,12 @@ namespace Game.Items
             Destroy(this.gameObject);
         }
 
+        internal void Set_collected_settings() => Set_collected_settings(null);
         internal void Set_collected_settings(Character_behaviour character)
         {
             //Set
-            Character = character;
+            if(character != null)
+                Character = character;
 
             IsCollectable = false;
             

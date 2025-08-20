@@ -20,7 +20,8 @@ namespace Game.Items.Tools
             Scythe,
             Hammer,
             Sword,
-            Seeds
+            Seeds,
+            Staff
         }
 
         [Header("Data")]
@@ -59,11 +60,14 @@ namespace Game.Items.Tools
                     break;
 
                 case ToolType.Sword:
-                    Attack();
+                    Melee_attack();
                     break;
 
                 case ToolType.Seeds:
                     Plant();
+                    break;
+
+                case ToolType.Staff:
                     break;
             }
         }
@@ -131,7 +135,7 @@ namespace Game.Items.Tools
             }
         }
 
-        private void Attack()
+        private void Melee_attack()
         {
             if (Character.Characters_nearby.Count > 0)
             {
@@ -153,6 +157,11 @@ namespace Game.Items.Tools
                     break;
                 }
             }
+        }
+
+        private void Magic_attack(Vector2 dir)
+        {
+
         }
 
         private void Plow(Grid_controller grid)

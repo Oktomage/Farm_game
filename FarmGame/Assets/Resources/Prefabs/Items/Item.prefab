@@ -290,7 +290,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98d15af43611511448354983ade9387a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemData: {fileID: 11400000, guid: 76b0f738960564741a7fa06e10bce367, type: 2}
+  ItemData: {fileID: 11400000, guid: 37f31604e59e3c14f8885f968139706c, type: 2}
+  Character: {fileID: 0}
   Render: {fileID: 206103803690272636}
   Render_shadow: {fileID: 4811979365222031772}
   Collider: {fileID: 7415438567897879011}
@@ -308,4 +309,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectType: 1
-  Render: {fileID: 0}
+  Souls_aura: 0
+  Souls_aura_color: {r: 1, g: 1, b: 1, a: 1}

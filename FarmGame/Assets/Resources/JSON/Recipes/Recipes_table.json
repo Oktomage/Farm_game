@@ -1,0 +1,11 @@
+[
+  {
+    "Recipe_name": "Gold wand",
+    "Materials_resources_path": [
+      "Scriptables/Items/Materials/Wood_log",
+      "Scriptables/Items/Materials/Wood_log",
+      "Scriptables/Items/Materials/Gold_chunk"
+    ],
+    "Craft_result_resources_path": "Prefabs/Items/Sword_tool"
+  }
+]
