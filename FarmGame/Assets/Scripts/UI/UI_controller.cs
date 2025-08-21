@@ -140,23 +140,40 @@ namespace Game.UI
             Game_utils.Instance.Do_UI_fade_effect(Shop_UI);
         }
 
+        private List<string> Warning_queue = new List<string>();
+        private Coroutine Warning_routine;
+
         private void Show_warning_panel_UI(string warning)
         {
             // Set
-            Text_warning.text = warning;
-
-            // Effects
-            Game_utils.Instance.Do_UI_fade_effect(Warning_panel_UI);
-            Game_utils.Instance.Do_UI_pop_effect(Warning_panel_UI);
-
-            StartCoroutine(Warning_panel_timer(time: 3f));
+            Warning_queue.Add(warning);
+            
+            if(Warning_routine == null)
+                Warning_routine = StartCoroutine(Warning_panel_timer(time: 3f));
         }
         private IEnumerator Warning_panel_timer(float time)
         {
-            yield return new WaitForSeconds(time);
+            while(Warning_queue.Count > 0)
+            {
+                // Set
+                Text_warning.text = Warning_queue[0];
 
-            // Effects
-            Game_utils.Instance.Do_UI_fade_effect(Warning_panel_UI);
+                // Effects
+                Game_utils.Instance.Do_UI_fade_effect(Warning_panel_UI);
+                Game_utils.Instance.Do_UI_pop_effect(Warning_panel_UI);
+
+                yield return new WaitForSeconds(time);
+
+                Warning_queue.RemoveAt(0);
+
+                // Effects
+                Game_utils.Instance.Do_UI_fade_effect(Warning_panel_UI);
+
+                yield return new WaitForSeconds(time / 2);
+            }
+
+            // Clear
+            Warning_routine = null;
         }
 
         ///PLAYER CHARACTER UI METHODS

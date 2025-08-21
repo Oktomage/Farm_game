@@ -6,6 +6,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using static Game.Map.Controller.World_generator_controller;
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -19,6 +21,11 @@ namespace Game.Utils
         private void Awake()
         {
             Instance = this;
+        }
+
+        private void Start()
+        {
+            Get_all_recipes();
         }
 
         /// GAME ASSETS
@@ -168,25 +175,39 @@ namespace Game.Utils
         }
 
         /// UI
-        Coroutine Pop_effect_routine;
+        private Coroutine Pop_effect_routine;
+        private List<GameObject> Pop_queue_objects = new List<GameObject>();
 
         public void Do_UI_pop_effect(GameObject UI_obj)
         {
-            RectTransform rect = UI_obj.GetComponent<RectTransform>();
+            // Set
+            Pop_queue_objects.Add(UI_obj);
+
+            if (Pop_effect_routine != null)
+                return;
 
             float Duration = 0.08f;
             float scaleMultiplier = 1.1f;
-            Vector3 baseScale = rect.localScale;
-
+           
             AnimationCurve Anim_curve = AnimationCurve.EaseInOut(0, 0, 1, 1);
 
-            Pop_effect_routine = StartCoroutine(PopRoutine(rect, baseScale, scaleMultiplier, Duration, Anim_curve));
+            // Call
+            Pop_effect_routine = StartCoroutine(PopRoutine(scaleMultiplier, Duration, Anim_curve));
         }
 
-        IEnumerator PopRoutine(RectTransform rect, Vector3 bs_scale, float sc_mult, float dur, AnimationCurve curve)
+        IEnumerator PopRoutine(float sc_mult, float dur, AnimationCurve curve)
         {
-            yield return ScaleTo(rect, bs_scale * sc_mult, dur, curve);
-            yield return ScaleTo(rect, bs_scale, dur, curve);
+            while (Pop_queue_objects.Count > 0)
+            {
+                RectTransform rect = Pop_queue_objects[0].GetComponent<RectTransform>();
+                Vector3 baseScale = rect.localScale;
+
+                yield return ScaleTo(rect, baseScale * sc_mult, dur, curve);
+                yield return ScaleTo(rect, baseScale, dur, curve);
+
+                // Set
+                Pop_queue_objects.RemoveAt(0);
+            }
 
             Pop_effect_routine = null;
         }
@@ -211,9 +232,15 @@ namespace Game.Utils
         }
 
         Coroutine Fade_effect_routine;
+        private List<GameObject> Fade_queue_objects = new List<GameObject>();
+
         public void Do_UI_fade_effect(GameObject UI_obj)
         {
-            if(Fade_effect_routine != null) { return; }
+            // Set
+            Fade_queue_objects.Add(UI_obj);
+
+            if(Fade_effect_routine != null)
+                return;
 
             float Duration = 0.25f;
 
@@ -222,40 +249,41 @@ namespace Game.Utils
                 switch(cvn_gp.alpha)
                 {
                     case 0f:
-                        Fade_effect_routine = StartCoroutine(FadeCoroutine(cvn_gp, 0f, 1f, Duration));
+                        Fade_effect_routine = StartCoroutine(FadeCoroutine(startAlpha: 0f, endAlpha: 1f, Duration));
                         break;
                     case 1f:
-                        Fade_effect_routine = StartCoroutine(FadeCoroutine(cvn_gp, 1f, 0f, Duration));
-                        break;
-
-                    default:
+                        Fade_effect_routine = StartCoroutine(FadeCoroutine(startAlpha: 1f, endAlpha: 0f, Duration));
                         break;
                 }
             }
-            // Cant find CanvasGroup
-            else
-            {
-                return;
-            }
         }
 
-        private IEnumerator FadeCoroutine(CanvasGroup canvasGroup, float startAlpha, float endAlpha, float duration)
+        private IEnumerator FadeCoroutine(float startAlpha, float endAlpha, float duration)
         {
-            float time = 0f;
-            canvasGroup.alpha = startAlpha;
-
-            while (time < duration)
+            while(Fade_queue_objects.Count > 0)
             {
-                time += Time.deltaTime;
+                CanvasGroup canvas_gp = Fade_queue_objects[0].GetComponent<CanvasGroup>();
+                float time = 0f;
 
-                canvasGroup.alpha = Mathf.Lerp(startAlpha, endAlpha, time / duration);
-                yield return null;
+                // Set
+                canvas_gp.alpha = startAlpha;
+
+                while (time < duration)
+                {
+                    time += Time.deltaTime;
+
+                    canvas_gp.alpha = Mathf.Lerp(startAlpha, endAlpha, time / duration);
+                    yield return null;
+                }
+
+                // Ensure the final alpha is set
+                canvas_gp.alpha = endAlpha;
+
+                // Remove from queue
+                Fade_queue_objects.RemoveAt(0);
             }
 
-            // Ensure the final alpha is set
-            canvasGroup.alpha = endAlpha;
-
-            // Clean up the routine reference
+            // Clear
             Fade_effect_routine = null;
         }
 
@@ -278,6 +306,61 @@ namespace Game.Utils
             });
 
             return enemies;
+        }
+
+        [System.Serializable]
+        public class Recipe
+        {
+            public string Recipe_name;
+            public List<string> Materials_resources_path = new List<string>();
+            public string Craft_result_resources_path;
+        }
+
+        private List<Recipe> Primitive_recipes_table;
+
+        [System.Serializable]
+        public class Converted_recipe
+        {
+            public string Recipe_name;
+            public List<Item_scriptable> Recipe_materials = new List<Item_scriptable>();
+            public Item_scriptable Craft_result;
+        }
+
+        [SerializeField] internal List<Converted_recipe> Recipes_table = new List<Converted_recipe>();
+
+        // Save to JSON
+        //Game_utils.Instance.Export_to_Json(Recipes_table, folder_path: "Resources/JSON/Recipes", file_name: "Recipes_table");
+
+        private void Get_all_recipes()
+        {
+            // Get JSON
+            Primitive_recipes_table = Read_from_Json<List<Recipe>>("JSON/Recipes/Recipes_table");
+
+            foreach(Recipe recipe in Primitive_recipes_table)
+            {
+                Converted_recipe converted_Recipe = new Converted_recipe();
+
+                // Set
+                converted_Recipe.Recipe_name = recipe.Recipe_name;
+
+                foreach(string material_path in recipe.Materials_resources_path)
+                {
+                    converted_Recipe.Recipe_materials.Add(Get_scriptable(material_path) as Item_scriptable);
+                }
+
+                converted_Recipe.Craft_result = Get_scriptable(recipe.Craft_result_resources_path) as Item_scriptable;
+
+                // Add
+                Recipes_table.Add(converted_Recipe);
+            }
+        }
+
+        public Recipe Get_recipe_result(List<GameObject> materials_list)
+        {
+            if (materials_list == null || materials_list.Count == 0)
+                return null;
+
+            return null;
         }
 
         /// SCRIPTING

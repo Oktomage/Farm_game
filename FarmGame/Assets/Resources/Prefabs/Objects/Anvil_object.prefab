@@ -219,6 +219,7 @@ GameObject:
   - component: {fileID: 7466972151202740585}
   - component: {fileID: 7736638763156289140}
   - component: {fileID: 1508009039244980257}
+  - component: {fileID: 4747733505335601300}
   m_Layer: 6
   m_Name: Anvil_object
   m_TagString: Untagged
@@ -279,6 +280,26 @@ MonoBehaviour:
     - Scriptables/Items/Materials/Gold_chunk
     Craft_result_resources_path: Prefabs/Items/Sword_tool
   Current_materials_inside: []
+--- !u!114 &4747733505335601300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7098412890384059003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76b301797a98bd54bbb799158ef98cf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Detector_range: 2.5
+  Object_in_range: 0
+  Character_in_range: 0
+  Player_in_range: 0
+  Interact_key_obj: {fileID: 0}
+  Detector_event_fire:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7901919905857594645
 GameObject:
   m_ObjectHideFlags: 0

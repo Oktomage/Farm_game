@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Background_pixel_resized_thinner_0: 3014926362385801590
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

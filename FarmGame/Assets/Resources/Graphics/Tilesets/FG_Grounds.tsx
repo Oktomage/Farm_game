@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset version="1.10" tiledversion="1.11.2" name="FG_Grounds" tilewidth="16" tileheight="16" tilecount="448" columns="28">
- <image source="C:\Users\copee\Desktop\Farm_game Github\FarmGame\Assets\Resources\Graphics\Tilesets/FG_Grounds.png" width="448" height="256"/>
+ <image source="C:\Users\copee\Desktop\Farm_game Github\Farm_game\FarmGame\Assets\Resources\Graphics\Tilesets/FG_Grounds.png" width="448" height="256"/>
  <wangsets>
   <wangset name="Grama" type="corner" tile="-1">
    <wangcolor name="DY" color="#ff0000" tile="-1" probability="1"/>

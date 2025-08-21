@@ -36,7 +36,7 @@ namespace Game.Characters.Player
             if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.KeypadEnter))
             {
                 Ask_collet();
-                Ask_interact();
+                Ask_interact(key: KeyCode.E);
             }
 
             if (Input.GetKeyDown(KeyCode.Space))
@@ -72,15 +72,15 @@ namespace Game.Characters.Player
             }
         }
 
-        private void Ask_interact()
+        private void Ask_interact(KeyCode key)
         {
             if(Character.Characters_nearby.Count > 0)
             {
-                Character.Interact();
+                Character.Interact(key);
             }
             else if (Character.Objects_nearby.Count > 0)
             {
-                Character.Interact();
+                Character.Interact(key);
             }
         }
     }

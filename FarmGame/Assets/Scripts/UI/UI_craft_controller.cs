@@ -24,6 +24,7 @@ namespace Game.UI.Craft
         private void Awake()
         {
             Game_events.Player_character_used_workbench.AddListener(Set_workbench);
+            Game_events.Player_character_closed_workbench.AddListener(Disable_UI);
         }
 
         private void Update()
@@ -60,7 +61,6 @@ namespace Game.UI.Craft
 
             UI_effects();
         }
-
         private void Disable_UI()
         {
             // Set
@@ -78,6 +78,7 @@ namespace Game.UI.Craft
 
             float speed = 10f;
 
+            // Set
             rect.position = Vector2.Lerp(rect.position, screenPos, speed * Time.deltaTime);
         }
 

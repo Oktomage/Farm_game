@@ -6,6 +6,15 @@
       "Scriptables/Items/Materials/Wood_log",
       "Scriptables/Items/Materials/Gold_chunk"
     ],
-    "Craft_result_resources_path": "Prefabs/Items/Sword_tool"
+    "Craft_result_resources_path": "Scriptables/Items/Tools/Sword_tool"
+  },
+  {
+    "Recipe_name": "Gold staff",
+    "Materials_resources_path": [
+      "Scriptables/Items/Materials/Wood_log",
+      "Scriptables/Items/Materials/Wood_log",
+      "Scriptables/Items/Materials/Gold_chunk"
+    ],
+    "Craft_result_resources_path": "Scriptables/Items/Tools/Sword_tool"
   }
 ]

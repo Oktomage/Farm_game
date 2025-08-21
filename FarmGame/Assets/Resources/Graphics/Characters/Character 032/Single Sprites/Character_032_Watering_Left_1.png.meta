@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Character_032_Watering_Left_1_0: 7718823275144026098
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

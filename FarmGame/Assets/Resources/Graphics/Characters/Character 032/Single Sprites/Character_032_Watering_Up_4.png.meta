@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Character_032_Watering_Up_4_0: -199470288031446718
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Character_032_Pickaxe_Right_2_0: 9069141144451199374
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

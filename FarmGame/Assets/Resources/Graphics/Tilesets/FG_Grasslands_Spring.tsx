@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset version="1.10" tiledversion="1.11.2" name="FG_Grasslands_Spring" tilewidth="16" tileheight="16" tilecount="1024" columns="32">
- <image source="C:\Users\copee\Desktop\Farm_game Github\FarmGame\Assets\Resources\Graphics\Tilesets/FG_Grasslands_Spring.png" width="512" height="512"/>
+ <image source="C:\Users\copee\Desktop\Farm_game Github\Farm_game\FarmGame\Assets\Resources\Graphics\Tilesets/FG_Grasslands_Spring.png" width="512" height="512"/>
  <wangsets>
   <wangset name="Chao" type="corner" tile="-1">
    <wangcolor name="Grama_VerdeLima" color="#ff0000" tile="98" probability="1"/>

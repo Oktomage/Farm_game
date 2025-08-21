@@ -24,7 +24,16 @@ namespace Game.Characters
         public float MoveSpeed = 5f;
         public float AttackDamage = 1f;
         public float detectionRadius = 1.5f;
+
+        [Space]
         public int Souls = 1;
+
+        [Space]
+        public int Combat_level = 0;
+        public int Magic_level = 0;
+        public int Farming_level = 0;
+        public int Mining_level = 0;
+        public int Harvest_level = 0;
 
         public enum Character_stances
         {
@@ -44,7 +53,7 @@ namespace Game.Characters
 
         [Space]
         internal bool IsUsingTool = false;
-        public bool IsAlive = true;
+        [SerializeField] internal bool IsAlive = true;
         internal bool IsMoving = false;
         internal bool IsPlowing = false;
         internal bool IsWatering = false;
@@ -54,10 +63,10 @@ namespace Game.Characters
         internal bool IsCutting = false;
 
         [Header("Inventory")]
-        public int InventorySize = 2;
+        internal int InventorySize = 2;
         public List<GameObject> Inventory = new List<GameObject>();
-        public Tool_behaviour Equipped_tool;
-        public int Selected_item_index = 0;
+        internal Tool_behaviour Equipped_tool;
+        internal int Selected_item_index = 0;
 
         [Header("Audio settings")]
         public AudioClip Idle_sound;
@@ -402,31 +411,46 @@ namespace Game.Characters
             }
         }
 
-        internal void Interact()
+        internal void Interact(KeyCode key)
         {
-            foreach (var other_character in Characters_nearby)
+            switch(key)
             {
-                if (other_character.TryGetComponent<Shopper_controller>(out Shopper_controller shopper_ctrl))
-                {
-                    shopper_ctrl.Call_shop();
+                case KeyCode.E:
+                    foreach (var other_character in Characters_nearby)
+                    {
+                        if (other_character.TryGetComponent<Shopper_controller>(out Shopper_controller shopper_ctrl))
+                        {
+                            shopper_ctrl.Call_shop();
 
+                            break;
+                        }
+                    }
+
+                    foreach (var other_objects in Objects_nearby)
+                    {
+                        if (other_objects.TryGetComponent<Cristal_controller>(out Cristal_controller cristal_ctrl))
+                        {
+                            if (Inventory.Count > 0)
+                                cristal_ctrl.Trade(Inventory[Selected_item_index]);
+                        }
+
+                        if (other_objects.TryGetComponent<Workbench_controller>(out Workbench_controller workbench_ctrl))
+                        {
+                            if (Inventory.Count > 0)
+                                workbench_ctrl.Put_item(Inventory[Selected_item_index], this);
+                        }
+                    }
                     break;
-                }
-            }
 
-            foreach(var other_objects in Objects_nearby)
-            {
-                if(other_objects.TryGetComponent<Cristal_controller>(out Cristal_controller cristal_ctrl))
-                {
-                    if(Inventory.Count > 0)
-                        cristal_ctrl.Trade(Inventory[Selected_item_index]);
-                }
-
-                if(other_objects.TryGetComponent<Workbench_controller>(out Workbench_controller workbench_ctrl))
-                {
-                    if (Inventory.Count > 0)
-                        workbench_ctrl.Put_item(Inventory[Selected_item_index], this);
-                }
+                case KeyCode.R:
+                    foreach (var other_objects in Objects_nearby)
+                    {
+                        if (other_objects.TryGetComponent<Workbench_controller>(out Workbench_controller workbench_ctrl))
+                        {
+                            workbench_ctrl.Craft(this);
+                        }
+                    }
+                    break;
             }
         }
 

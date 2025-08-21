@@ -12,7 +12,7 @@ namespace Game.Characters.Shopper
         public bool isShopOpen = false;
 
         [Header("Components")]
-        public Detector_manager Detector;
+        public Detector_manager Detector => this.gameObject.GetComponent<Detector_manager>();
 
         //Internal variables
         internal GameObject Player_character_obj => GameObject.FindGameObjectWithTag("Player");

@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Character_032_Axe_Left_3_0: -6854338781554577643
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

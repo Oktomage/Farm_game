@@ -503,7 +503,7 @@ MonoBehaviour:
   - {fileID: 6309289095421245605}
   - {fileID: 1025485526365257791}
   areaRadius: 2
-  speedRange: {x: 1.2, y: 2.2}
+  speedRange: {x: 0.6, y: 1.2}
   steerStrength: 4
   retargetIntervalMin: 1.5
   retargetIntervalMax: 3

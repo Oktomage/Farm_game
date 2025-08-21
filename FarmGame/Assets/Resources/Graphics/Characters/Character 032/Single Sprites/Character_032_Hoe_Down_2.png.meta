@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Character_032_Hoe_Down_2_0: -2488774248881309629
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
