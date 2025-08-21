@@ -1,6 +1,8 @@
 using Game.Crafting;
+using Game.Events;
 using Game.Items;
 using Game.Utils;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,21 +15,88 @@ namespace Game.UI.Craft
         public GameObject Panel_target;
 
         // Internal variables
-        internal GameObject Craft_workbench_obj;
-        internal Crafting_controller Crafting_ctrl => Craft_workbench_obj.GetComponent<Crafting_controller>();
+        internal bool IsVisible = false;
 
-        internal void Set_workbench(GameObject workbench)
+        internal GameObject Workbench_obj;
+        internal Workbench_controller Workbench_ctrl => Workbench_obj.GetComponent<Workbench_controller>();
+        internal List<GameObject> Images_objs = new List<GameObject>();
+
+        private void Awake()
         {
-            Craft_workbench_obj = workbench;
+            Game_events.Player_character_used_workbench.AddListener(Set_workbench);
+        }
+
+        private void Update()
+        {
+            if(Workbench_obj != null)
+                Move_UI();
+        }
+
+        /// CORE METHODS
+        private void Set_workbench(GameObject workbench)
+        {
+            // Set
+            if (workbench != Workbench_obj)
+                Workbench_obj = workbench;
+
+            if(!IsVisible)
+                Enable_UI();
 
             Put_items_to_craft_UI();
         }
 
+        /// MAIN METHODS
+        private void UI_effects()
+        {
+            // Effects
+            Game_utils.Instance.Do_UI_pop_effect(Panel_crafting);
+            Game_utils.Instance.Do_UI_fade_effect(Panel_crafting);
+        }
+
+        private void Enable_UI()
+        {
+            // Set
+            IsVisible = true;
+
+            UI_effects();
+        }
+
+        private void Disable_UI()
+        {
+            // Set
+            IsVisible = false;
+
+            UI_effects();
+        }
+
+        private void Move_UI()
+        {
+            RectTransform rect = Panel_crafting.GetComponent<RectTransform>();
+
+            Vector2 offset = new Vector2(0f, 0f);
+            Vector2 screenPos = Camera.main.WorldToScreenPoint(new Vector2(Workbench_obj.transform.position.x, Workbench_obj.transform.position.y) + offset);
+
+            float speed = 10f;
+
+            rect.position = Vector2.Lerp(rect.position, screenPos, speed * Time.deltaTime);
+        }
+
         private void Put_items_to_craft_UI()
         {
-            foreach(GameObject material in Crafting_ctrl.Current_materials_inside)
+            // Clear
+            if(Images_objs.Count > 0)
+            {
+                foreach(GameObject obj in Images_objs)
+                {
+                    Destroy(obj);
+                }
+            }
+
+            // Create
+            foreach(GameObject material in Workbench_ctrl.Current_materials_inside)
             {
                 GameObject image_obj = Game_utils.Instance.Create_gameObject(Panel_target);
+                Images_objs.Add(image_obj);
                 image_obj.AddComponent<Image>();
 
                 Item_behaviour item_bhv = material.GetComponent<Item_behaviour>();

@@ -1,4 +1,5 @@
 using Game.Characters;
+using Game.Events;
 using Game.Items;
 using Game.Utils;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using UnityEngine;
 
 namespace Game.Crafting
 {
-    public class Crafting_controller : MonoBehaviour
+    public class Workbench_controller : MonoBehaviour
     {
         [System.Serializable]
         public class Recipe
@@ -48,11 +49,17 @@ namespace Game.Crafting
         
             Current_materials_inside.Add(item_obj);
             item_bhv.Set_collected_settings();
+
+            // Events
+            if (character.IsPlayer)
+                Game_events.Player_character_used_workbench.Invoke(this.gameObject);
         }
 
-        internal void Craft()
+        internal void Craft(Character_behaviour character)
         {
-
+            // Events
+            if (character.IsPlayer)
+                Game_events.Player_character_crafted_item.Invoke();
         }
     }
 }

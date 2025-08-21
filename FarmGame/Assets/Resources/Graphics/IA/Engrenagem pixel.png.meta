@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9905b022a6d5816439d595c6d2845351
+guid: 882775a6b10a51a45bb449a9b7c7d0cc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8713523850608406868
-    second: 20250420manaSoul9SlicesA-Sheet_0
+      213: -3984237642931521416
+    second: Engrenagem pixel_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -126,23 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 20250420manaSoul9SlicesA-Sheet_0
+      name: Engrenagem pixel_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2
-        width: 91
-        height: 94
+        x: 10
+        y: 7
+        width: 564
+        height: 536
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 6, y: 0, z: 0, w: 4}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cae879e5938531780800000000000000
-      internalID: -8713523850608406868
+      spriteID: 878b35029f425b8c0800000000000000
+      internalID: -3984237642931521416
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 48d5ffa9625f33048a33cff8081e5c79
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      20250420manaSoul9SlicesA-Sheet_0: -8713523850608406868
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

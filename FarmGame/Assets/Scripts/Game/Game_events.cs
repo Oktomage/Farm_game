@@ -27,7 +27,8 @@ namespace Game.Events
         public static UnityEvent<Shopper_controller> Player_character_opened_shop = new UnityEvent<Shopper_controller>();
         public static UnityEvent Player_character_closed_shop = new UnityEvent();
 
-        public static UnityEvent Player_character_is_crafting = new UnityEvent();
+        public static UnityEvent<GameObject> Player_character_used_workbench = new UnityEvent<GameObject>();
+        public static UnityEvent Player_character_crafted_item = new UnityEvent();
 
         public static UnityEvent<Character_behaviour> Boss_battle_started = new UnityEvent<Character_behaviour>();
         public static UnityEvent<Character_behaviour> Boss_defeated = new UnityEvent<Character_behaviour>();

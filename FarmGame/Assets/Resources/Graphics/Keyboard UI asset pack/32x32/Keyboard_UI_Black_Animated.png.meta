@@ -3191,7 +3191,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_UI_Black_Animated_92
+      name: R_key
       rect:
         serializedVersion: 2
         x: 483
@@ -3235,7 +3235,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Keyboard_UI_Black_Animated_94
+      name: R_key_pressed
       rect:
         serializedVersion: 2
         x: 547
@@ -9176,14 +9176,14 @@ TextureImporter:
       Keyboard_UI_Black_Animated_89: 4734657004025518713
       Keyboard_UI_Black_Animated_9: 8681340578814624778
       Keyboard_UI_Black_Animated_91: 2469045289536357434
-      Keyboard_UI_Black_Animated_92: -5370534408649009351
       Keyboard_UI_Black_Animated_93: -7351052864367298559
-      Keyboard_UI_Black_Animated_94: -3753362784234259830
       Keyboard_UI_Black_Animated_95: 1217138865475531165
       Keyboard_UI_Black_Animated_96: -7042829328731945770
       Keyboard_UI_Black_Animated_97: -8797197378609243057
       Keyboard_UI_Black_Animated_98: 1129488044545624790
       Keyboard_UI_Black_Animated_99: -5720915165903769003
+      R_key: -5370534408649009351
+      R_key_pressed: -3753362784234259830
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -75,6 +75,7 @@ namespace Game.Characters
         [Space(30)]
         //Internal variables
         [SerializeField] internal bool IsGodMode = false; // For testing purposes
+
         [SerializeField] internal List<Item_behaviour> Items_nearby = new List<Item_behaviour>();
         [SerializeField] internal Grid_controller Current_grid;
         internal Vector3 Moving_dir = Vector3.zero;
@@ -378,9 +379,7 @@ namespace Game.Characters
 
                 // Events
                 if (IsPlayer)
-                {
                     Game_events.Player_character_changed_selected_item.Invoke(Selected_item_index, Inventory[Selected_item_index].GetComponent<Item_behaviour>());
-                }
             }
         }
 
@@ -423,10 +422,10 @@ namespace Game.Characters
                         cristal_ctrl.Trade(Inventory[Selected_item_index]);
                 }
 
-                if(other_objects.TryGetComponent<Crafting_controller>(out Crafting_controller crafting_ctrl))
+                if(other_objects.TryGetComponent<Workbench_controller>(out Workbench_controller workbench_ctrl))
                 {
                     if (Inventory.Count > 0)
-                        crafting_ctrl.Put_item(Inventory[Selected_item_index], this);
+                        workbench_ctrl.Put_item(Inventory[Selected_item_index], this);
                 }
             }
         }
