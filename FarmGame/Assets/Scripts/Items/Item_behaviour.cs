@@ -1,5 +1,4 @@
 using Game.Characters;
-using Game.Events;
 using Game.Items.Tools;
 using Game.Utils;
 using UnityEngine;
@@ -27,30 +26,49 @@ namespace Game.Items
         }
 
         /// CORE METHODS
-        private void Configure_item()
-        {
-            // Sprite
-            Render.sprite = ItemData.Icon;
-        
-            // Add essential scripts to item_obj
-            switch(ItemData.Type)
-            {
-                case Item_scriptable.ItemType.Seed:
-                    Tool_behaviour tool = this.gameObject.AddComponent<Tool_behaviour>();
-                    tool.Type = Tool_behaviour.ToolType.Seeds;
-
-                    Seeds_bag seeds_Bag = this.gameObject.AddComponent<Seeds_bag>();
-                    seeds_Bag.Set_crop_in_bag(ItemData.Crop);
-                    break;
-            }
-        }
-
         internal void Set_item_data(Item_scriptable data)
         {
             // Set
             ItemData = data;
 
             Configure_item();
+        }
+
+        private void Configure_item()
+        {
+            // Sprite
+            Render.sprite = ItemData.Icon;
+        
+            // Add essential scripts to item_obj
+            if(ItemData.Have_other_behaviours)
+            {
+                foreach (var ms in ItemData.Other_behaviours)
+                {
+                    if (ms == null) continue;
+                    var t = ms.GetClass();
+
+                    if (t != null && typeof(MonoBehaviour).IsAssignableFrom(t))
+                    {
+                        // evita duplicar
+                        if (this.gameObject.GetComponent(t) == null)
+                            this.gameObject.AddComponent(t);
+                    }
+                }
+            }
+
+            // Configure it
+            if (this.gameObject.TryGetComponent<Tool_behaviour>(out Tool_behaviour tool))
+
+            switch (ItemData.Type)
+            {
+                case Item_scriptable.ItemType.Tool:
+                    tool.Set_toolType(ItemData.ToolType);
+                    break;
+
+                case Item_scriptable.ItemType.Seed:
+                    tool.Set_toolType(Tool_behaviour.ToolType.Seeds);
+                    break;
+            }
         }
 
         /// MAIN METHODS
@@ -68,7 +86,7 @@ namespace Game.Items
         internal void Set_collected_settings() => Set_collected_settings(null);
         internal void Set_collected_settings(Character_behaviour character)
         {
-            //Set
+            // Set
             if(character != null)
                 Character = character;
 
@@ -80,13 +98,13 @@ namespace Game.Items
             if(Render_shadow != null)
                 Render_shadow.enabled = false;
 
-            //Audio
+            // Audio
             Game_utils.Instance.Create_sound("Item_collect_sound", "Audios/Items/Grab_item_1", this.transform.position);
         }
 
         internal void Set_dropped_settings()
         {
-            //Set
+            // Set
             Character = null;
 
             IsCollectable = true;
@@ -97,7 +115,7 @@ namespace Game.Items
             if (Render_shadow != null)
                 Render_shadow.enabled = true;
 
-            //Audio
+            // Audio
             Game_utils.Instance.Create_sound("Item_collect_sound", "Audios/Items/Grab_item_1", this.transform.position);
         }
     }

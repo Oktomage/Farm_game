@@ -9,6 +9,7 @@ using UnityEngine;
 
 namespace Game.Items.Tools
 {
+    [System.Serializable]
     public class Tool_behaviour : MonoBehaviour
     {
         public enum ToolType
@@ -21,7 +22,8 @@ namespace Game.Items.Tools
             Hammer,
             Sword,
             Seeds,
-            Staff
+            Staff,
+            Bow
         }
 
         [Header("Data")]
@@ -30,7 +32,15 @@ namespace Game.Items.Tools
         [Header("Tool Settings")]
         public ToolType Type = ToolType.Hoe;
 
-        public void Use(Character_behaviour character)
+        /// CORE METHODS
+        internal void Set_toolType (ToolType type)
+        {
+            // Set
+            Type = type;
+        }
+
+        /// MAIN METHODS
+        internal void Use(Character_behaviour character)
         {
             //Set
             Character = character;
@@ -157,6 +167,11 @@ namespace Game.Items.Tools
                     break;
                 }
             }
+        }
+
+        private void Fire_bow(Vector2 dir)
+        {
+
         }
 
         private void Magic_attack(Vector2 dir)

@@ -21,6 +21,11 @@ namespace Game.Crafting
         internal bool Crafting_UI_visible = false;
         internal GameObject Player_character_obj => GameObject.FindGameObjectWithTag("Player");
 
+        private void Clear_workbench()
+        {
+            Current_materials_inside.Clear();
+        }
+
         /// MAIN METHODS
         internal void Put_item(GameObject item_obj, Character_behaviour character)
         {
@@ -57,11 +62,17 @@ namespace Game.Crafting
             if(Current_materials_inside.Count == 0)
                 return;
 
+            // Create
+            Game_utils.Instance.Create_item(Game_utils.Instance.Get_recipe_result(Current_materials_inside, allowSuperset: false), this.gameObject.transform.position);
 
+            Clear_workbench();
 
             // Events
             if (character.IsPlayer)
                 Game_events.Player_character_crafted_item.Invoke();
+
+            // Audio
+            Game_utils.Instance.Create_sound("Craft_sound", "Audios/Objects/Anvil_1", transform.position);
         }
 
         private IEnumerator Read_detector_state()

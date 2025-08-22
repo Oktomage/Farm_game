@@ -25,6 +25,7 @@ namespace Game.UI.Craft
         {
             Game_events.Player_character_used_workbench.AddListener(Set_workbench);
             Game_events.Player_character_closed_workbench.AddListener(Disable_UI);
+            Game_events.Player_character_crafted_item.AddListener(Disable_UI);
         }
 
         private void Update()
@@ -56,6 +57,9 @@ namespace Game.UI.Craft
 
         private void Enable_UI()
         {
+            if (IsVisible)
+                return;
+
             // Set
             IsVisible = true;
 
@@ -63,6 +67,9 @@ namespace Game.UI.Craft
         }
         private void Disable_UI()
         {
+            if (!IsVisible)
+                return;
+
             // Set
             IsVisible = false;
 

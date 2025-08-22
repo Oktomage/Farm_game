@@ -6,7 +6,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using static Game.Map.Controller.World_generator_controller;
+using System.Linq;
+
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -345,7 +346,10 @@ namespace Game.Utils
 
                 foreach(string material_path in recipe.Materials_resources_path)
                 {
-                    converted_Recipe.Recipe_materials.Add(Get_scriptable(material_path) as Item_scriptable);
+                    Item_scriptable item_scpt = Get_scriptable(material_path) as Item_scriptable;
+
+                    // Add
+                    converted_Recipe.Recipe_materials.Add(item_scpt);
                 }
 
                 converted_Recipe.Craft_result = Get_scriptable(recipe.Craft_result_resources_path) as Item_scriptable;
@@ -355,12 +359,39 @@ namespace Game.Utils
             }
         }
 
-        public Recipe Get_recipe_result(List<GameObject> materials_list)
+        public Item_scriptable Get_recipe_result(List<GameObject> materials_list, bool allowSuperset)
         {
             if (materials_list == null || materials_list.Count == 0)
                 return null;
 
-            return null;
+            // Get
+            List<Item_scriptable> available_materials = materials_list.Select(m => m.GetComponent<Item_behaviour>().ItemData).ToList();
+            List<Converted_recipe> match_recipes = Recipes_table;
+
+            for(int i = 0; i < available_materials.Count; i++)
+            {
+                foreach(Converted_recipe recipe in match_recipes)
+                {
+                    bool have_material = false;
+
+                    // Test match
+                    for(int j = 0; j < available_materials.Count; j++)
+                    {
+                        if(recipe.Recipe_materials[j] == available_materials[i]) 
+                        { 
+                            have_material = true; 
+
+                            break; 
+                        }
+                    }
+
+                    // Remove
+                    if(!have_material)
+                        match_recipes.Remove(recipe);
+                }
+            }
+
+            return match_recipes[0].Craft_result;
         }
 
         /// SCRIPTING

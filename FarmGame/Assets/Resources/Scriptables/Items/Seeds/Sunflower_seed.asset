@@ -19,3 +19,7 @@ MonoBehaviour:
   Can_trade: 1
   Type: 3
   Crop: {fileID: 11400000, guid: 177c3b88b2f671345b620b25a6f84470, type: 2}
+  Have_other_behaviours: 1
+  Other_behaviours:
+  - {fileID: 11500000, guid: 8a43a9c25c1a3a343a6d9747f434bf56, type: 3}
+  - {fileID: 11500000, guid: 621e692c252f3bf43a7898fee4717357, type: 3}

@@ -38,6 +38,10 @@ namespace Game.Characters.Player
                 Ask_collet();
                 Ask_interact(key: KeyCode.E);
             }
+            else if (Input.GetKeyDown(KeyCode.R))
+            {
+                Ask_interact(key: KeyCode.R);
+            }
 
             if (Input.GetKeyDown(KeyCode.Space))
             {

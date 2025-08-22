@@ -1,6 +1,9 @@
 using UnityEngine;
 using NaughtyAttributes;
 using Game.Crops;
+using System.Collections.Generic;
+using UnityEditor;
+using Game.Items.Tools;
 
 namespace Game.Items
 {
@@ -29,8 +32,16 @@ namespace Game.Items
         [Header("Item Properties")]
         public ItemType Type = ItemType.Miscellaneous;
 
+        [ShowIf("IsTool")]
+        public Tool_behaviour.ToolType ToolType = Tool_behaviour.ToolType.Axe;
+
         [ShowIf("IsSeed")]
         public Crop_scriptable Crop = null;
+
+        [Space]
+        public bool Have_other_behaviours = false;
+        [ShowIf("Have_other_behaviours")]
+        public List<MonoScript> Other_behaviours = new List<MonoScript>();
 
         private bool IsConsumable() => Type == ItemType.Consumable;
         private bool IsEquipment() => Type == ItemType.Equipment;

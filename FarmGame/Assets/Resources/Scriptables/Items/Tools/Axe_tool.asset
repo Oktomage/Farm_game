@@ -19,3 +19,5 @@ MonoBehaviour:
   Can_trade: 0
   Type: 4
   Crop: {fileID: 0}
+  Have_other_behaviours: 0
+  Other_behaviours: []

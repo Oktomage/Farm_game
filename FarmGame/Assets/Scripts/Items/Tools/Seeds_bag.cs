@@ -7,10 +7,11 @@ using UnityEngine;
 
 namespace Game.Items.Tools
 {
+    [System.Serializable]
     public class Seeds_bag : MonoBehaviour
     {
         [Header("Data")]
-        public Crop_scriptable CropData;
+        public Crop_scriptable CropData => Item_behaviour.ItemData.Crop;
         internal Item_behaviour Item_behaviour => this.gameObject.GetComponent<Item_behaviour>();
         internal Tool_behaviour Tool_behaviour => this.gameObject.GetComponent<Tool_behaviour>();
 
@@ -21,11 +22,16 @@ namespace Game.Items.Tools
         [Header("State")]
         public int Seed_ammount = 0;
 
+        private void Start()
+        {
+            if(CropData != null)
+                Configure_bag();
+        }
+
         /// CORE METHODS
-        internal void Set_crop_in_bag(Crop_scriptable crop)
+        private void Configure_bag()
         {
             //Set
-            CropData = crop;
             Seed_ammount = Bag_capacity;
         }
 
