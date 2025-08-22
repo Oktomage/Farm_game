@@ -194,7 +194,11 @@ namespace Game.Characters
                 //Events
                 if (IsPlayer)
                 {
-                    Game_events.Player_character_took_damage.Invoke(Last_damaged_by_obj);
+                    Game_events.Player_character_took_damage.Invoke(dmg, Last_damaged_by_obj);
+                }
+                else
+                {
+                    Game_events.Enemy_took_damage.Invoke(dmg, this.gameObject);
                 }
 
                 //Effects
@@ -351,7 +355,17 @@ namespace Game.Characters
             if (Equipped_tool == null)
                 return;
 
-            Equipped_tool.Use(this);
+            if (IsPlayer)
+            {
+                Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector2 mouseDir = (mousePos - new Vector2(transform.position.x, transform.position.y)).normalized;
+
+                Equipped_tool.Use(this, mouseDir);
+            }
+            else
+            {
+                Equipped_tool.Use(this, dir: Vector2.zero);
+            }
         }
 
         internal void Hit_other_entity(GameObject obj)

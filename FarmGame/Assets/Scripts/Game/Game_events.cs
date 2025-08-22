@@ -18,7 +18,10 @@ namespace Game.Events
         public static InventoryEvent Player_character_changed_selected_item = new InventoryEvent();
         public static UnityEvent Player_character_used_item = new UnityEvent();
         public static UnityEvent Player_character_dropped_item = new UnityEvent();
-        public static UnityEvent<GameObject> Player_character_took_damage = new UnityEvent<GameObject>();
+
+        public class Player_character_took_damageEvent : UnityEvent<float, GameObject> { }
+        public static Player_character_took_damageEvent Player_character_took_damage = new Player_character_took_damageEvent();
+
         public static UnityEvent<GameObject> Player_character_killed_enemy = new UnityEvent<GameObject>();
         public static UnityEvent Player_character_died = new UnityEvent();
         public static UnityEvent<float> Player_character_regen = new UnityEvent<float>();
@@ -36,7 +39,9 @@ namespace Game.Events
 
         public static UnityEvent<string> Warning_panel_called = new UnityEvent<string>();
 
-        public static UnityEvent Enemy_took_damage = new UnityEvent();
+        public class Enemy_took_damageEvent : UnityEvent<float, GameObject> { }
+        public static Enemy_took_damageEvent Enemy_took_damage = new Enemy_took_damageEvent();
+
         public static UnityEvent Enemy_died = new UnityEvent();
 
         public static UnityEvent New_day = new UnityEvent();

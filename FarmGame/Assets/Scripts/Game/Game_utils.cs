@@ -54,6 +54,13 @@ namespace Game.Utils
 
             return prefab;
         }
+        public GameObject Create_prefab_from_resources(string path, Vector3 origin_pos)
+        {
+            GameObject prefab = Instantiate(Resources.Load<GameObject>(path));
+            prefab.transform.position = origin_pos;
+
+            return prefab;
+        }
 
         public GameObject Create_item(ScriptableObject item_scriptable, Vector2 origin_grid_pos)
         {

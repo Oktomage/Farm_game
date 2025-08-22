@@ -20,5 +20,6 @@ MonoBehaviour:
   Type: 4
   ToolType: 2
   Crop: {fileID: 0}
-  Have_other_behaviours: 0
-  Other_behaviours: []
+  Have_other_behaviours: 1
+  Other_behaviours:
+  - {fileID: 11500000, guid: 8a43a9c25c1a3a343a6d9747f434bf56, type: 3}

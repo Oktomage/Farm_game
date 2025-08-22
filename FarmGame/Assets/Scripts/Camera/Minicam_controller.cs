@@ -18,7 +18,7 @@ namespace Game.Cameras
         {
             Instance = this;
 
-            Game_events.Player_character_took_damage.AddListener(Set_target);
+            Game_events.Player_character_took_damage.AddListener((dmg, target) => Set_target(target));
         }
 
         void LateUpdate()

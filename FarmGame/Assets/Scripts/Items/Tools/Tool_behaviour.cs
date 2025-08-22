@@ -40,7 +40,7 @@ namespace Game.Items.Tools
         }
 
         /// MAIN METHODS
-        internal void Use(Character_behaviour character)
+        internal void Use(Character_behaviour character, Vector2 dir)
         {
             //Set
             Character = character;
@@ -78,6 +78,9 @@ namespace Game.Items.Tools
                     break;
 
                 case ToolType.Staff:
+                    break;
+
+                case ToolType.Bow:
                     break;
             }
         }

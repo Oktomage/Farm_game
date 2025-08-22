@@ -9,5 +9,11 @@ namespace Game.Objects
         [Space]
         public SpriteRenderer Render;
         public Collider2D Collider;
+
+        internal void Set_sprite(Sprite sprite)
+        {
+            // Set
+            Render.sprite = sprite;
+        }
     }
 }

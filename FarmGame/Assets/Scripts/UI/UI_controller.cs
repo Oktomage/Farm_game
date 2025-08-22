@@ -54,7 +54,7 @@ namespace Game.UI
         {
             Instance = this;
 
-            Game_events.Player_character_took_damage.AddListener(Show_enemy_stats);
+            Game_events.Player_character_took_damage.AddListener((dmg, enemy) => Show_enemy_stats(enemy));
             Game_events.Player_character_killed_enemy.AddListener(Hide_enemy_stats);
 
             Game_events.Player_character_died.AddListener(Update_player_character_stats_UI);
@@ -114,6 +114,7 @@ namespace Game.UI
                 Text_hour.color = Color.yellow;
         }
 
+        /// SHOP UI METHODS
         private void Move_shop_UI()
         {
             RectTransform rect = Shop_UI.GetComponent<RectTransform>();
@@ -140,6 +141,7 @@ namespace Game.UI
             Game_utils.Instance.Do_UI_fade_effect(Shop_UI);
         }
 
+        /// WARNING UI METHODS
         private List<string> Warning_queue = new List<string>();
         private Coroutine Warning_routine;
 

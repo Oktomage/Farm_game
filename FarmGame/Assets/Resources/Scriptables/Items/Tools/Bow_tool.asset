@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1aec353d74fa6ad4eaf64487aead53e3, type: 3}
-  m_Name: Sword_tool
+  m_Name: Bow_tool
   m_EditorClassIdentifier: 
-  ItemName: Sword
+  ItemName: Bow
   Description: Tool
-  Icon: {fileID: 5981016273891206374, guid: 8f96af051f41a4c4a9169823aa9ec712, type: 3}
+  Icon: {fileID: 2023257652412226957, guid: 10fd74191ea47194e884a36c1b33462c, type: 3}
   Price: 1
   Can_trade: 0
   Type: 4
-  ToolType: 6
+  ToolType: 9
   Crop: {fileID: 0}
   Have_other_behaviours: 1
   Other_behaviours:

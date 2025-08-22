@@ -52,6 +52,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -73,6 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -165,6 +168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3956066961699836076}
   - component: {fileID: 8071513959993899135}
+  - component: {fileID: 8950295862676780421}
   m_Layer: 0
   m_Name: Flowers_object
   m_TagString: Untagged
@@ -204,3 +208,19 @@ MonoBehaviour:
   ObjectData: {fileID: 11400000, guid: 847998aa75fa3974bb9ef0bbbd4ed815, type: 2}
   Render: {fileID: 890390470344670233}
   Collider: {fileID: 6493923307865542212}
+--- !u!114 &8950295862676780421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7715673446493231496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1849a3067499441841610f4eca783e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Objects.Entitys.Flowers_entity
+  Sprite_variations:
+  - {fileID: 545775591, guid: bcbe3fbf92506ce4a91421383221c6c4, type: 3}
+  - {fileID: 1468185377, guid: bcbe3fbf92506ce4a91421383221c6c4, type: 3}
+  - {fileID: -580558364, guid: bcbe3fbf92506ce4a91421383221c6c4, type: 3}
