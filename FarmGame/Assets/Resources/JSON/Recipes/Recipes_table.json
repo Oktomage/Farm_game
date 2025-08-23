@@ -6,15 +6,24 @@
       "Scriptables/Items/Materials/Wood_log",
       "Scriptables/Items/Materials/Gold_chunk"
     ],
-    "Craft_result_resources_path": "Scriptables/Items/Tools/Sword_tool"
+    "Craft_result_resources_path": "Scriptables/Items/Tools/Gold_wand_tool"
   },
   {
-    "Recipe_name": "Gold staff",
+    "Recipe_name": "Wooden bow",
     "Materials_resources_path": [
       "Scriptables/Items/Materials/Wood_log",
-      "Scriptables/Items/Materials/Gold_chunk",
-      "Scriptables/Items/Materials/Gold_chunk"
+      "Scriptables/Items/Materials/Wood_log",
+      "Scriptables/Items/Materials/Iron_chunk"
     ],
-    "Craft_result_resources_path": "Scriptables/Items/Tools/Sword_tool"
+    "Craft_result_resources_path": "Scriptables/Items/Tools/Wood_bow_tool"
+  },
+  {
+    "Recipe_name": "Iron sword",
+    "Materials_resources_path": [
+      "Scriptables/Items/Materials/Wood_log",
+      "Scriptables/Items/Materials/Iron_chunk",
+      "Scriptables/Items/Materials/Iron_chunk"
+    ],
+    "Craft_result_resources_path": "Scriptables/Items/Tools/Iron_sword_tool"
   }
 ]

@@ -1,5 +1,6 @@
 using Game.Characters;
 using Game.Items.Tools;
+using Game.Items.Weapons;
 using Game.Utils;
 using UnityEngine;
 
@@ -39,22 +40,9 @@ namespace Game.Items
             // Sprite
             Render.sprite = ItemData.Icon;
         
-            // Add essential scripts to item_obj
-            if(ItemData.Have_other_behaviours)
-            {
-                foreach (var ms in ItemData.Other_behaviours)
-                {
-                    if (ms == null) continue;
-                    var t = ms.GetClass();
-
-                    if (t != null && typeof(MonoBehaviour).IsAssignableFrom(t))
-                    {
-                        // evita duplicar
-                        if (this.gameObject.GetComponent(t) == null)
-                            this.gameObject.AddComponent(t);
-                    }
-                }
-            }
+            // Add tool type
+            if(ItemData.Type == Item_scriptable.ItemType.Tool)
+                this.gameObject.AddComponent<Tool_behaviour>();
 
             // Configure it
             if (this.gameObject.TryGetComponent<Tool_behaviour>(out Tool_behaviour tool))
@@ -67,6 +55,17 @@ namespace Game.Items
 
                 case Item_scriptable.ItemType.Seed:
                     tool.Set_toolType(Tool_behaviour.ToolType.Seeds);
+                    break;
+            }
+
+            switch(ItemData.ToolType)
+            {
+                case Tool_behaviour.ToolType.Bow:
+                    this.gameObject.AddComponent<Bow>();
+                    break;
+
+                case Tool_behaviour.ToolType.Staff:
+                    this.gameObject.AddComponent<Magic_wand>();
                     break;
             }
         }

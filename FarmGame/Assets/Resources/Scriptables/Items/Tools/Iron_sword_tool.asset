@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1aec353d74fa6ad4eaf64487aead53e3, type: 3}
-  m_Name: Sword_tool
+  m_Name: Iron_sword_tool
   m_EditorClassIdentifier: 
-  ItemName: Sword
+  ItemName: Iron sword
   Description: Tool
   Icon: {fileID: 5981016273891206374, guid: 8f96af051f41a4c4a9169823aa9ec712, type: 3}
   Price: 1
@@ -20,6 +20,8 @@ MonoBehaviour:
   Type: 4
   ToolType: 6
   Crop: {fileID: 0}
+  Arrow_sprite: {fileID: 0}
+  Magic_sprite: {fileID: 0}
   Have_other_behaviours: 1
   Other_behaviours:
   - {fileID: 11500000, guid: 8a43a9c25c1a3a343a6d9747f434bf56, type: 3}

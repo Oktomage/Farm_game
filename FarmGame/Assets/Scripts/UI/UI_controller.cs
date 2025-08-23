@@ -46,6 +46,9 @@ namespace Game.UI
         [Space]
         public GameObject Shop_UI;
 
+        [Space]
+        public TextMeshProUGUI Text_fps;
+
         //Internal variables
         internal Vector2 shop_ui_target_position;
         internal GameObject current_enemy_target_obj;
@@ -92,6 +95,11 @@ namespace Game.UI
 
         private void Update()
         {
+            float fps = 1f / Time.unscaledDeltaTime;
+
+            if (Text_fps != null)
+                Text_fps.text = $"FPS: {Mathf.RoundToInt(fps)}";
+
             //FOR NOWWWW !!!!!!!
             Move_shop_UI();
         }

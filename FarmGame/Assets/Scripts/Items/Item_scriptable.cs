@@ -2,7 +2,6 @@ using UnityEngine;
 using NaughtyAttributes;
 using Game.Crops;
 using System.Collections.Generic;
-using UnityEditor;
 using Game.Items.Tools;
 
 namespace Game.Items
@@ -43,11 +42,6 @@ namespace Game.Items
 
         [ShowIf("IsStaff")]
         public Sprite Magic_sprite;
-
-        [Space]
-        public bool Have_other_behaviours = false;
-        [ShowIf("Have_other_behaviours")]
-        public List<MonoScript> Other_behaviours = new List<MonoScript>();
 
         private bool IsConsumable() => Type == ItemType.Consumable;
         private bool IsEquipment() => Type == ItemType.Equipment;

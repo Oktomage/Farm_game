@@ -49,5 +49,8 @@ namespace Game.Events
         public static UnityEvent New_season = new UnityEvent();
 
         public static UnityEvent<Game_controller.Day_stages> Day_stage_changed = new UnityEvent<Game_controller.Day_stages>();
+
+        public static UnityEvent Rain_started = new UnityEvent();
+        public static UnityEvent Storm_started = new UnityEvent();
     }
 }
