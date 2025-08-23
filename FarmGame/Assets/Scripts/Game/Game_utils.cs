@@ -382,6 +382,13 @@ namespace Game.Utils
                     bool have_material = false;
 
                     // Test match
+                    if(available_materials.Count > recipe.Recipe_materials.Count)
+                    {
+                        match_recipes.Remove(recipe);
+
+                        continue;
+                    }
+
                     for(int j = 0; j < available_materials.Count; j++)
                     {
                         if(recipe.Recipe_materials[j] == available_materials[i]) 

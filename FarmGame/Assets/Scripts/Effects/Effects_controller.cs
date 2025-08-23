@@ -28,6 +28,8 @@ namespace Game.Effects
         public SpriteRenderer Render => GetComponentInChildren<SpriteRenderer>();
 
         //Internals
+        internal Vector3 default_baseScale;
+
         internal Coroutine Pulse_effect_routine;
         internal Coroutine Boing_effect_routine;
         internal Coroutine SquashStretch_effect_routine;
@@ -37,6 +39,8 @@ namespace Game.Effects
 
         private void Start()
         {
+            default_baseScale = transform.localScale;
+
             Read_effect();
             Create_secunday_effects();
         }
@@ -124,7 +128,7 @@ namespace Game.Effects
             float scaleAmount = 1.2f;
             float duration = 0.1f;
 
-            Vector3 originalScale = transform.localScale;
+            Vector3 originalScale = default_baseScale;
             Vector3 targetScale = originalScale * scaleAmount;
 
             // Scaling up
@@ -147,6 +151,10 @@ namespace Game.Effects
                 yield return null;
             }
 
+            // Set base scale
+            transform.localScale = default_baseScale;
+
+            // Free routine
             Boing_effect_routine = null;
         }
 
@@ -190,8 +198,10 @@ namespace Game.Effects
                 yield return null;
             }
 
-            transform.localScale = baseScale;
+            // Set base scale
+            transform.localScale = default_baseScale;
 
+            // Free routine
             SquashStretch_effect_routine = null;
         }
 

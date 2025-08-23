@@ -14,10 +14,10 @@ namespace Game.Items
         [Header("Components")]
         public SpriteRenderer Render;
         public SpriteRenderer Render_shadow;
-        public Collider2D Collider;
+        public Collider2D Collider => this.gameObject.GetComponentInChildren<Collider2D>();
 
         [Header("Settings")]
-        public bool IsCollectable = true;
+        [SerializeField] internal bool IsCollectable = true;
 
         private void Start()
         {

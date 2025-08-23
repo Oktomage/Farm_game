@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aec353d74fa6ad4eaf64487aead53e3, type: 3}
+  m_Name: Wood_bow_tool
+  m_EditorClassIdentifier: 
+  ItemName: Bow
+  Description: Tool
+  Icon: {fileID: 2023257652412226957, guid: 10fd74191ea47194e884a36c1b33462c, type: 3}
+  Price: 1
+  Can_trade: 0
+  Type: 4
+  ToolType: 9
+  Crop: {fileID: 0}
+  Arrow_sprite: {fileID: 9172212051362439745, guid: 6be5257e240075b48a060278ba559ede, type: 3}
+  Magic_sprite: {fileID: 0}
+  Have_other_behaviours: 1
+  Other_behaviours:
+  - {fileID: 11500000, guid: 8a43a9c25c1a3a343a6d9747f434bf56, type: 3}
+  - {fileID: 11500000, guid: 868e0522e6299434c8e97a96dbbc7928, type: 3}

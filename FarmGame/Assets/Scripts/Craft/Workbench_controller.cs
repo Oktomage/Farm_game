@@ -27,7 +27,7 @@ namespace Game.Crafting
         }
 
         /// MAIN METHODS
-        internal void Put_item(GameObject item_obj, Character_behaviour character)
+        internal void Put_item (GameObject item_obj, Character_behaviour character)
         {
             // Checks
             if (item_obj == null) 
@@ -57,7 +57,7 @@ namespace Game.Crafting
             }
         }
 
-        internal void Craft(Character_behaviour character)
+        internal void Craft (Character_behaviour character)
         {
             if(Current_materials_inside.Count == 0)
                 return;
@@ -73,6 +73,9 @@ namespace Game.Crafting
 
             // Audio
             Game_utils.Instance.Create_sound("Craft_sound", "Audios/Objects/Anvil_1", transform.position);
+
+            // Effects
+            Game_utils.Instance.Create_particle_from_resources("Prefabs/Particles/Workbench_gears", transform.position);
         }
 
         private IEnumerator Read_detector_state()

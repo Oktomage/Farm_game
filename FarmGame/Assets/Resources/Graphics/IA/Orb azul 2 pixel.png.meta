@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 27aa59535e1023f42a1bec4a97f9605e
+guid: e5bb074d5d474884b9749687c664f74c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3521160242810018713
-    second: Golden wand pixel_0
+      213: -7458200499519444564
+    second: Orb azul 2 pixel_0
+  - first:
+      213: -482867074673046754
+    second: Orb azul 2 pixel_1
+  - first:
+      213: 5290075750187173022
+    second: Orb azul 2 pixel_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 800
+  spritePixelsToUnits: 1200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -126,13 +132,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Golden wand pixel_0
+      name: Orb azul 2 pixel_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 3
-        width: 557
-        height: 618
+        x: 0
+        y: 419
+        width: 13
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +147,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 99b5bedb59cadd030800000000000000
-      internalID: 3521160242810018713
+      spriteID: ca9a08239262f7890800000000000000
+      internalID: -7458200499519444564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orb azul 2 pixel_1
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 3
+        width: 590
+        height: 573
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1b816434f28c49f0800000000000000
+      internalID: -482867074673046754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orb azul 2 pixel_2
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 0
+        width: 22
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9480d4eddf1a6940800000000000000
+      internalID: 5290075750187173022
       vertices: []
       indices: 
       edges: []
@@ -161,7 +211,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Golden wand pixel_0: 3521160242810018713
+      Orb azul 2 pixel_0: -7458200499519444564
+      Orb azul 2 pixel_1: -482867074673046754
+      Orb azul 2 pixel_2: 5290075750187173022
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

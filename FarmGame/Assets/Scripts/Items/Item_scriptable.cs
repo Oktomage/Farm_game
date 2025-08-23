@@ -38,6 +38,12 @@ namespace Game.Items
         [ShowIf("IsSeed")]
         public Crop_scriptable Crop = null;
 
+        [ShowIf("IsBow")]
+        public Sprite Arrow_sprite;
+
+        [ShowIf("IsStaff")]
+        public Sprite Magic_sprite;
+
         [Space]
         public bool Have_other_behaviours = false;
         [ShowIf("Have_other_behaviours")]
@@ -48,5 +54,7 @@ namespace Game.Items
         private bool IsMaterial() => Type == ItemType.Material;
         private bool IsSeed() => Type == ItemType.Seed;
         private bool IsTool() => Type == ItemType.Tool;
+        private bool IsBow() => Type == ItemType.Tool && ToolType == Tool_behaviour.ToolType.Bow;
+        private bool IsStaff() => Type == ItemType.Tool && ToolType == Tool_behaviour.ToolType.Staff;
     }
 }

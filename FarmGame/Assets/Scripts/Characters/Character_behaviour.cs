@@ -174,7 +174,7 @@ namespace Game.Characters
             Destroy(this.gameObject);
         }
 
-        private void TakeDamage(float dmg, GameObject attacker)
+        internal void TakeDamage(float dmg, GameObject attacker)
         {
             if (IsAlive)
             {

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 27aa59535e1023f42a1bec4a97f9605e
+guid: f16b24253cd400f4facfbbce4e5ee17a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3521160242810018713
-    second: Golden wand pixel_0
+      213: -2072937424776381933
+    second: Metal gear pixel_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 800
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Golden wand pixel_0
+      name: Metal gear pixel_0
       rect:
         serializedVersion: 2
-        x: 10
+        x: 5
         y: 3
-        width: 557
-        height: 618
+        width: 315
+        height: 321
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 99b5bedb59cadd030800000000000000
-      internalID: 3521160242810018713
+      spriteID: 31a379225627b33e0800000000000000
+      internalID: -2072937424776381933
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Golden wand pixel_0: 3521160242810018713
+      Metal gear pixel_0: -2072937424776381933
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -6,9 +6,8 @@ namespace Game.Objects
     {
         [Header("Components")]
         public Object_scriptable ObjectData;
-        [Space]
-        public SpriteRenderer Render;
-        public Collider2D Collider;
+        public SpriteRenderer Render => this.gameObject.GetComponentInChildren<SpriteRenderer>();
+        public Collider2D Collider => this.gameObject.GetComponentInChildren<Collider2D>();
 
         internal void Set_sprite(Sprite sprite)
         {
