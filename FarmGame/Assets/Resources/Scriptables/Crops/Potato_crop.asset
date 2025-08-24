@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67f4df1bbf9512a49aa58e9c7032ecac, type: 3}
+  m_Name: Potato_crop
+  m_EditorClassIdentifier: 
+  CropName: Potato
+  Description: 
+  Crop_stages:
+  - {fileID: 8107213398063406490, guid: 17eee21ecdd89834bb3ae4cbc0a8b2b5, type: 3}
+  - {fileID: 2643545104475924761, guid: 17eee21ecdd89834bb3ae4cbc0a8b2b5, type: 3}
+  - {fileID: 2197468376076439427, guid: 17eee21ecdd89834bb3ae4cbc0a8b2b5, type: 3}
+  - {fileID: -2538609009961244378, guid: 17eee21ecdd89834bb3ae4cbc0a8b2b5, type: 3}
+  Type: 0
+  Crop_item: {fileID: 11400000, guid: 706097d60feabba418f5d6914908a557, type: 2}

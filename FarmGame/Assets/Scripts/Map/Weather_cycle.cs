@@ -22,7 +22,7 @@ namespace Game.Map.Controller
         public float Storm_weather_chance;
 
         [Header("State")]
-        public Weathers Weather;
+        public static Weathers Weather = Weathers.Sunny;
 
         //Internal variables
         private GameObject Player_character_obj => GameObject.FindGameObjectWithTag("Player");
@@ -36,7 +36,7 @@ namespace Game.Map.Controller
 
         private void Start()
         {
-            Start_rain();
+            Start_sunny();
             StartCoroutine(Move_water_drops());
         }
 
@@ -47,18 +47,38 @@ namespace Game.Map.Controller
             float storm_c = Random.value;
 
             // Rain
-            if (rain_c <= Rain_weather_chance)
+            switch(Weather)
             {
-                // Storm
-                if (storm_c <= Rain_weather_chance)
-                    Start_storm();
-                // Rain
-                else
-                    Start_rain();
+                case Weathers.Sunny:
+                    if (rain_c <= Rain_weather_chance)
+                    {
+                        // Storm
+                        if (storm_c <= Rain_weather_chance)
+                            Start_storm();
+                        // Rain
+                        else
+                            Start_rain();
+                    }
+                    break;
+
+                // Back to normal
+                case Weathers.Rain:
+                case Weathers.Storm:
+                    Start_sunny();
+                    break;
             }
         }
 
         /// MAIN METHODS
+        private void Start_sunny()
+        {
+            // Set
+            Weather = Weathers.Sunny;
+
+            // Events
+            Game_events.Sunny_day_started.Invoke();
+        }
+
         private void Start_rain()
         {
             // Set
@@ -67,7 +87,7 @@ namespace Game.Map.Controller
             Rain_routine = StartCoroutine(Rain_particles_routine());
 
             // Events
-            Game_events.Rain_started.Invoke();
+            Game_events.Rain_day_started.Invoke();
         }
 
         private void Start_storm()
@@ -78,7 +98,7 @@ namespace Game.Map.Controller
             Rain_routine = StartCoroutine(Rain_particles_routine());
 
             // Events
-            Game_events.Storm_started.Invoke();
+            Game_events.Storm_day_started.Invoke();
         }
 
         private Coroutine Rain_routine;

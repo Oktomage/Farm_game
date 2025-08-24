@@ -16,5 +16,5 @@ MonoBehaviour:
   tabIcon: {fileID: 7733612972463391870, guid: f4d455ba2a71f654bbb001ae0b94f3dc, type: 3}
   tabItemsData:
   - {fileID: 11400000, guid: e139d2affc2bf2541adce57b0614c2ff, type: 2}
-  - {fileID: 11400000, guid: 76b0f738960564741a7fa06e10bce367, type: 2}
-  - {fileID: 11400000, guid: 20e4223540e2d0d47820607ad23ba6eb, type: 2}
+  - {fileID: 11400000, guid: e139d2affc2bf2541adce57b0614c2ff, type: 2}
+  - {fileID: 11400000, guid: e139d2affc2bf2541adce57b0614c2ff, type: 2}

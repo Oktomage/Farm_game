@@ -1,4 +1,5 @@
 using Game.Events;
+using Game.Map.Controller;
 using Game.Utils;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace Game.Controller.Audio
             B
         }
 
-        [Header("Settings")]
+        [Header("Music - Settings")]
         [Range(0, 1f)]
         public float Volume_target = 0.4f;
 
@@ -23,11 +24,24 @@ namespace Game.Controller.Audio
         {
             public string Music_name;
             public AudioClip Clip;
+            [Range(0f, 1f)]
             public float Volume;
         }
 
         [Header("Musics")]
         public List<Music_settings> Musics = new List<Music_settings>();
+
+        [System.Serializable]
+        public class Ambiance_settings
+        {
+            public string Sound_name;
+            public AudioClip Clip;
+            [Range(0f, 1f)]
+            public float Volume;
+        }
+
+        [Header("Ambiance sounds")]
+        public List<Ambiance_settings> Ambiance_sounds = new List<Ambiance_settings>();
 
         [Header("State")]
         public Audio_souces Active_source = Audio_souces.A;
@@ -35,6 +49,7 @@ namespace Game.Controller.Audio
         [Header("Components")]
         public AudioSource Music_source_A;
         public AudioSource Music_source_B;
+        public AudioSource Ambiance_source;
 
         //Internal variables
         internal bool IsTransitioning = false;
@@ -43,6 +58,10 @@ namespace Game.Controller.Audio
         private void Awake()
         {
             Game_events.Day_stage_changed.AddListener(Update_music);
+
+            Game_events.Sunny_day_started.AddListener(Update_ambiance);
+            Game_events.Rain_day_started.AddListener(Update_ambiance);
+            Game_events.Storm_day_started.AddListener(Update_ambiance);
         }
 
         private AudioClip Get_music_by_name(string name)
@@ -52,6 +71,15 @@ namespace Game.Controller.Audio
             clip = Musics.Find(m => string.Equals(m.Music_name, name, System.StringComparison.OrdinalIgnoreCase)).Clip;
 
             return clip;
+        }
+
+        private Ambiance_settings Get_ambiance_sound_settings_by_name(string name)
+        {
+            Ambiance_settings settings = null;
+
+            settings = Ambiance_sounds.Find(m => string.Equals(m.Sound_name, name, System.StringComparison.OrdinalIgnoreCase));
+
+            return settings;
         }
 
         private void Update_music(Game_controller.Day_stages stage)
@@ -85,14 +113,14 @@ namespace Game.Controller.Audio
             {
                 case Audio_souces.A:
                     Active_source = Audio_souces.B;
-                    Set_music_to_audio_source(Music_source_B, target_clip);
+                    Set_music_to_audioSource(Music_source_B, target_clip);
 
                     StartCoroutine(FadeOut(Music_source_A, Fade_time, 0f));
                     break;
 
                 case Audio_souces.B:
                     Active_source = Audio_souces.A;
-                    Set_music_to_audio_source(Music_source_A, target_clip);
+                    Set_music_to_audioSource(Music_source_A, target_clip);
 
                     StartCoroutine(FadeOut(Music_source_B, Fade_time, 0f));
                     break;
@@ -101,7 +129,23 @@ namespace Game.Controller.Audio
             //Debug.LogWarning("Music updated to " + target_clip.name);
         }
 
-        private void Set_music_to_audio_source(AudioSource source, AudioClip clip)
+        private void Update_ambiance ()
+        {
+            switch (Weather_cycle.Weather)
+            {
+                case Weather_cycle.Weathers.Sunny:
+                    Set_ambiance_audio_to_audioSource(Get_ambiance_sound_settings_by_name("Wind"));
+                    break;
+
+                case Weather_cycle.Weathers.Rain:
+                case Weather_cycle.Weathers.Storm:
+                    Set_ambiance_audio_to_audioSource(Get_ambiance_sound_settings_by_name("Rain"));
+                    break;
+            }
+        }
+
+        /// MUSIC METHODS
+        private void Set_music_to_audioSource(AudioSource source, AudioClip clip)
         {
             source.clip = clip;
 
@@ -153,6 +197,16 @@ namespace Game.Controller.Audio
             a.volume = vol;
 
             IsTransitioning = false;
+        }
+    
+        // AMBIANCE SOUNDS METHODS
+        private void Set_ambiance_audio_to_audioSource(Ambiance_settings settings)
+        {
+            // Set
+            Ambiance_source.clip = settings.Clip;
+            Ambiance_source.volume = settings.Volume;
+
+            Ambiance_source.Play();
         }
     }
 }
