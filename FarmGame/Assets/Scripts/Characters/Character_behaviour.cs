@@ -172,6 +172,9 @@ namespace Game.Characters
             Game_utils.Instance.Create_particle_from_resources("Prefabs/Particles/Death_souls", transform.position);
 
             Destroy(this.gameObject);
+
+            if(IsPlayer)
+                Application.Quit();
         }
 
         internal void TakeDamage(float dmg, GameObject attacker)

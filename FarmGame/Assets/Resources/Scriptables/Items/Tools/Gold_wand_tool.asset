@@ -15,14 +15,10 @@ MonoBehaviour:
   ItemName: Gold wand
   Description: Tool
   Icon: {fileID: 3521160242810018713, guid: 27aa59535e1023f42a1bec4a97f9605e, type: 3}
-  Price: 1
+  Price: 50
   Can_trade: 0
   Type: 4
   ToolType: 8
   Crop: {fileID: 0}
   Arrow_sprite: {fileID: 9172212051362439745, guid: 6be5257e240075b48a060278ba559ede, type: 3}
   Magic_sprite: {fileID: -826910149578876663, guid: 4d5cd36823fa25847901ef93ac516ce2, type: 3}
-  Have_other_behaviours: 1
-  Other_behaviours:
-  - {fileID: 11500000, guid: 8a43a9c25c1a3a343a6d9747f434bf56, type: 3}
-  - {fileID: 11500000, guid: 3864aee43de42444bb155aec051e00ab, type: 3}

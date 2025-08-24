@@ -62,20 +62,31 @@ namespace Game.Crafting
             if(Current_materials_inside.Count == 0)
                 return;
 
-            // Create
-            Game_utils.Instance.Create_item(Game_utils.Instance.Get_recipe_result(Current_materials_inside, allowSuperset: false), this.gameObject.transform.position);
+            // Get
+            Item_scriptable craft_result = Game_utils.Instance.Get_recipe_result(Current_materials_inside, allowSuperset: false);
 
             Clear_workbench();
 
-            // Events
-            if (character.IsPlayer)
-                Game_events.Player_character_crafted_item.Invoke();
+            if (craft_result != null)
+            {
+                // Create
+                GameObject craft_obj = Game_utils.Instance.Create_item(craft_result, this.gameObject.transform.position);
 
-            // Audio
-            Game_utils.Instance.Create_sound("Craft_sound", "Audios/Objects/Anvil_1", transform.position);
+                // Events
+                if (character.IsPlayer)
+                    Game_events.Player_character_crafted_item.Invoke();
 
-            // Effects
-            Game_utils.Instance.Create_particle_from_resources("Prefabs/Particles/Workbench_gears", transform.position);
+                // Audio
+                Game_utils.Instance.Create_sound("Craft_sound", "Audios/Objects/Anvil_1", transform.position);
+
+                // Effects
+                Game_utils.Instance.Create_particle_from_resources("Prefabs/Particles/Workbench_gears", transform.position);
+            }
+            else
+            {
+                // Audio
+                Game_utils.Instance.Create_2d_sound("Fail_sound", "Audios/UI/Fail_1");
+            }
         }
 
         private IEnumerator Read_detector_state()

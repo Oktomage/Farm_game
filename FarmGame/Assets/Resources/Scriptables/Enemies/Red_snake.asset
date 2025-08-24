@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36fb45de3db820b4aadef4c9c5fa640d, type: 3}
+  m_Name: Red_snake
+  m_EditorClassIdentifier: 
+  Name: Red snake
+  Size_multiplier: 1
+  Max_health: 1.5
+  Move_speed: 3
+  Damage: 0.25
+  Souls_reward: 1
+  IsBoss: 0
+  Menance_class: 0
+  Icon: {fileID: 6600719341818581406, guid: dc93112e18c553547826769a0c845214, type: 3}
+  Item_drop: {fileID: 0}
+  Drop_chance: 0.5
+  Idle_sound: {fileID: 0}
+  Move_sound: {fileID: 8300000, guid: 27b495272ba7c9d48a8398852b4ccb6f, type: 3}
+  Attack_sound: {fileID: 0}
+  Hurt_sound: {fileID: 8300000, guid: bb0587b6dfef3b84d946c92daf95c4c2, type: 3}
+  Death_sound: {fileID: 8300000, guid: 67b3ae135b8fcb347968f5bacd46b710, type: 3}

@@ -15,11 +15,10 @@ MonoBehaviour:
   ItemName: Watering can
   Description: Water
   Icon: {fileID: 1012316837267210549, guid: e4e53c414270a5140896dcf1371262f9, type: 3}
-  Price: 1
+  Price: 50
   Can_trade: 0
   Type: 4
   ToolType: 3
   Crop: {fileID: 0}
-  Have_other_behaviours: 1
-  Other_behaviours:
-  - {fileID: 11500000, guid: 8a43a9c25c1a3a343a6d9747f434bf56, type: 3}
+  Arrow_sprite: {fileID: 0}
+  Magic_sprite: {fileID: 0}

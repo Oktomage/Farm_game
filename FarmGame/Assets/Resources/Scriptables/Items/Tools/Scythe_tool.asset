@@ -15,11 +15,10 @@ MonoBehaviour:
   ItemName: Scythe
   Description: Tool
   Icon: {fileID: 2119056217517678423, guid: 12f4648ce0a73fc40a5b363be4b0c884, type: 3}
-  Price: 1
+  Price: 50
   Can_trade: 0
   Type: 4
   ToolType: 4
   Crop: {fileID: 0}
-  Have_other_behaviours: 1
-  Other_behaviours:
-  - {fileID: 11500000, guid: 8a43a9c25c1a3a343a6d9747f434bf56, type: 3}
+  Arrow_sprite: {fileID: 0}
+  Magic_sprite: {fileID: 0}

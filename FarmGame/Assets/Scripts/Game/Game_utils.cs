@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using System.Linq;
+using static Game.Utils.Game_utils;
+
 
 
 #if UNITY_EDITOR
@@ -373,39 +375,41 @@ namespace Game.Utils
 
             // Get
             List<Item_scriptable> available_materials = materials_list.Select(m => m.GetComponent<Item_behaviour>().ItemData).ToList();
-            List<Converted_recipe> match_recipes = Recipes_table;
-
-            for(int i = 0; i < available_materials.Count; i++)
-            {
-                foreach(Converted_recipe recipe in match_recipes)
+            List<Converted_recipe> match_recipes = Recipes_table
+                .Select(r => new Converted_recipe
                 {
-                    bool have_material = false;
+                    Recipe_name = r.Recipe_name,
+                    Recipe_materials = new List<Item_scriptable>(r.Recipe_materials),
+                    Craft_result = r.Craft_result
+                })
+                .ToList();
 
-                    // Test match
-                    if(available_materials.Count > recipe.Recipe_materials.Count)
-                    {
-                        match_recipes.Remove(recipe);
-
-                        continue;
-                    }
-
-                    for(int j = 0; j < available_materials.Count; j++)
-                    {
-                        if(recipe.Recipe_materials[j] == available_materials[i]) 
-                        { 
-                            have_material = true; 
-
-                            break; 
-                        }
-                    }
-
+            for (int i = Recipes_table.Count - 1; i >= 0; i--)
+            {
+                // Test recipe size
+                if (available_materials.Count != match_recipes[i].Recipe_materials.Count)
+                {
                     // Remove
-                    if(!have_material)
-                        match_recipes.Remove(recipe);
+                    match_recipes.RemoveAt(i);
+                    continue;
+                }
+
+                foreach (Item_scriptable item in available_materials)
+                {
+                    if (!match_recipes[i].Recipe_materials.Contains(item))
+                    {
+                        match_recipes.RemoveAt(i);
+                        break;
+                    }      
                 }
             }
 
-            return match_recipes[0].Craft_result;
+            Debug.LogWarning(string.Join(", ", match_recipes.Select(r => r.Recipe_name)));
+
+            if (match_recipes.Count == 0)
+                return null;
+            else
+                return match_recipes[0].Craft_result;
         }
 
         /// SCRIPTING
