@@ -13,16 +13,21 @@ MonoBehaviour:
   m_Name: Ant_king
   m_EditorClassIdentifier: 
   Name: Ant king
-  Size_multiplier: 1.2
-  Max_health: 20
-  Move_speed: 2
-  Damage: 2
+  Size_multiplier: 1
+  Max_health: 15
+  Move_speed: 1.5
+  Damage: 1
   Souls_reward: 1
+  IsExtraStrong: 1
+  IsExtraFast: 1
+  HaveMagicalResistance: 0
+  HavePhisicalResistance: 0
   IsBoss: 1
   Menance_class: 1
   Icon: {fileID: 5859336592426497548, guid: 19916b7b830d22441a99d389bb0083be, type: 3}
   Item_drop: {fileID: 0}
   Drop_chance: 0.5
+  Idle_sound: {fileID: 0}
   Move_sound: {fileID: 8300000, guid: 27b495272ba7c9d48a8398852b4ccb6f, type: 3}
   Attack_sound: {fileID: 0}
   Hurt_sound: {fileID: 8300000, guid: 7c98064b9ef99ae40b482947dadcd84e, type: 3}

@@ -29,6 +29,12 @@ namespace Game.Characters
 
         public int Souls_reward = 1;
 
+        [Space(10)]
+        public bool IsExtraStrong;
+        public bool IsExtraFast;
+        public bool HaveMagicalResistance;
+        public bool HavePhysicalResistance;
+
         [Header("Class settings")]
         public bool IsBoss = false;
         public Character_menance_class Menance_class = Character_menance_class.Common;

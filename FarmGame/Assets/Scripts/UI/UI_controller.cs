@@ -36,10 +36,6 @@ namespace Game.UI
         public TextMeshProUGUI Text_day;
 
         [Space]
-        public GameObject Enemy_stats_UI;
-        public Slider Slider_enemy_health;
-
-        [Space]
         public GameObject Warning_panel_UI;
         public TextMeshProUGUI Text_warning;
 
@@ -49,17 +45,19 @@ namespace Game.UI
         [Space]
         public TextMeshProUGUI Text_fps;
 
+#if UNITY_EDITOR
+        [Space]
+        public GameObject Panel_devBar;
+#endif
+
         //Internal variables
         internal Vector2 shop_ui_target_position;
-        internal GameObject current_enemy_target_obj;
 
         private void Awake()
         {
             Instance = this;
 
-            Game_events.Player_character_took_damage.AddListener((dmg, enemy) => Show_enemy_stats(enemy));
-            Game_events.Player_character_killed_enemy.AddListener(Hide_enemy_stats);
-
+            Game_events.Player_character_took_damage.AddListener((dmg, enemy) => Update_player_character_stats_UI());
             Game_events.Player_character_died.AddListener(Update_player_character_stats_UI);
             Game_events.Player_character_regen.AddListener(Update_player_character_stats_UI);
 
@@ -86,11 +84,18 @@ namespace Game.UI
             // Cursor
             Cursor.SetCursor(CustomCursor, Vector2.zero, CursorMode.Auto);
 
+            // Set
+            Panel_devBar.SetActive(false);
+
             Update_game_UI();
 
             Update_player_character_stats_UI(health_regen_ammount: 0);
             Update_player_character_inventory_UI(itemIndex: 0, null);
             Update_player_souls_panel_UI(changed_ammount: 0);
+
+#if UNITY_EDITOR
+            Panel_devBar.SetActive(true);
+#endif
         }
 
         private void Update()
@@ -190,7 +195,8 @@ namespace Game.UI
         private void Update_player_character_stats_UI() => Update_player_character_stats_UI(0);
         private void Update_player_character_stats_UI(float health_regen_ammount)
         {
-            if (Player_character == null) { return; }
+            if (Player_character == null)
+                return;
 
             //Update health bar
             Slider_health.value = Player_character.Health / Player_character.Max_health;
@@ -227,41 +233,6 @@ namespace Game.UI
 
             //Effects
             Game_utils.Instance.Do_UI_pop_effect(Text_souls.gameObject);
-        }
-    
-        ///ENEMY STATS UI METHODS
-        private void Show_enemy_stats(GameObject enemy_obj)
-        {
-            //Set
-            current_enemy_target_obj = enemy_obj;
-
-            Enemy_stats_UI.GetComponent<CanvasGroup>().alpha = 1f;
-
-            StartCoroutine(Update_enemy_stats_UI());
-            Update_player_character_stats_UI();
-        }
-        private IEnumerator Update_enemy_stats_UI()
-        {
-            while(current_enemy_target_obj != null)
-            {
-                yield return new WaitForSeconds(0.1f);
-
-                if(current_enemy_target_obj == null) { break; }
-
-                Character_behaviour character_behaviour = current_enemy_target_obj.GetComponent<Character_behaviour>();
-
-                //Update health bar
-                Slider_enemy_health.value = character_behaviour.Health / character_behaviour.Max_health;
-            }
-        }
-
-        private void Hide_enemy_stats(GameObject enemy_obj)
-        {
-            if(enemy_obj == current_enemy_target_obj)
-            {
-                //Set
-                Enemy_stats_UI.GetComponent<CanvasGroup>().alpha = 0f;
-            }
         }
     }
 }

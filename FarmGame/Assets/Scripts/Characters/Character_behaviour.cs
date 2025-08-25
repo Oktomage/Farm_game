@@ -20,6 +20,7 @@ namespace Game.Characters
     public class Character_behaviour : MonoBehaviour
     {
         [Header("Character Settings")]
+        public string Name;
         public float Health = 5f;
         public float Max_health = 5f;
         public float MoveSpeed = 5f;
@@ -30,11 +31,17 @@ namespace Game.Characters
         public int Souls = 1;
 
         [Space]
-        public int Combat_level = 0;
-        public int Magic_level = 0;
-        public int Farming_level = 0;
-        public int Mining_level = 0;
-        public int Harvest_level = 0;
+        internal int Combat_level = 0;
+        internal int Magic_level = 0;
+        internal int Farming_level = 0;
+        internal int Mining_level = 0;
+        internal int Harvest_level = 0;
+
+        [Space]
+        public bool IsExtraStrong;
+        public bool IsExtraFast;
+        public bool HaveMagicalResistance;
+        public bool HavePhysicalResistance;
 
         public enum Character_stances
         {
@@ -129,15 +136,32 @@ namespace Game.Characters
             IsGodMode = true;
         }
 
+        private void Recieve_extra_bonuses()
+        {
+            if (IsExtraStrong)
+                AttackDamage *= 1.3f;
+
+            if (IsExtraFast)
+                MoveSpeed *= 1.3f;
+        }
+
         internal void Configure(Character_scriptable character_scriptable)
         {
             //Set
             transform.localScale *= character_scriptable.Size_multiplier;
 
+            Name = character_scriptable.Name;
+
             Max_health = character_scriptable.Max_health;
             Health = Max_health;
             MoveSpeed = character_scriptable.Move_speed;
             AttackDamage = character_scriptable.Damage;
+
+            IsExtraStrong = character_scriptable.IsExtraStrong;
+            IsExtraFast = character_scriptable.IsExtraFast;
+            HaveMagicalResistance = character_scriptable.HaveMagicalResistance;
+            HavePhysicalResistance = character_scriptable.HavePhysicalResistance;
+            Recieve_extra_bonuses();
 
             Current_stance = Character_stances.Idle;
 

@@ -8,7 +8,7 @@ namespace Game.Cameras
         public static Minicam_controller Instance;
 
         [Header("Components")]
-        public Camera Minicam_camera;
+        public Camera Minicam_camera => this.gameObject.GetComponent<Camera>();
 
         [Header("Camera Settings")]
         public Transform Target;
@@ -23,7 +23,8 @@ namespace Game.Cameras
 
         void LateUpdate()
         {
-            if (Target == null) return;
+            if (Target == null) 
+                return;
 
             Vector3 desiredPosition = Target.position;
             desiredPosition.z = transform.position.z;
