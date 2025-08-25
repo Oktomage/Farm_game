@@ -41,11 +41,20 @@ namespace Game.Items
             Render.sprite = ItemData.Icon;
         
             // Add tool type
-            if(ItemData.Type == Item_scriptable.ItemType.Tool)
-                this.gameObject.AddComponent<Tool_behaviour>();
+            switch (ItemData.Type)
+            {
+                case Item_scriptable.ItemType.Tool:
+                    this.gameObject.AddComponent<Tool_behaviour>();
+                    break;
+
+                case Item_scriptable.ItemType.Seed:
+                    this.gameObject.AddComponent<Tool_behaviour>();
+                    this.gameObject.AddComponent<Seeds_bag>();
+                    break;
+            }
 
             // Configure it
-            if (this.gameObject.TryGetComponent<Tool_behaviour>(out Tool_behaviour tool))
+            this.gameObject.TryGetComponent<Tool_behaviour>(out Tool_behaviour tool);
 
             switch (ItemData.Type)
             {

@@ -1213,7 +1213,7 @@ GameObject:
   - component: {fileID: 7790889622910031093}
   - component: {fileID: 6797894196487766466}
   m_Layer: 5
-  m_Name: Button_weaponTab
+  m_Name: Button_toolsTab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1670,7 +1670,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 474215665061929613, guid: 6c2b97efefab23e47b299fe0a28e7133, type: 3}
+  m_Sprite: {fileID: -4482447794406525701, guid: 5260b456d06dbfe48a1de1331df9fd46, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

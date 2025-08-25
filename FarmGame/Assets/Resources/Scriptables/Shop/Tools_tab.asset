@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Tools_tab
   m_EditorClassIdentifier: 
   tabName: Tools
-  tabIcon: {fileID: 474215665061929613, guid: 6c2b97efefab23e47b299fe0a28e7133, type: 3}
+  tabIcon: {fileID: -4482447794406525701, guid: 5260b456d06dbfe48a1de1331df9fd46, type: 3}
   tabItemsData:
   - {fileID: 11400000, guid: 9f00d75170bc3024a9457b6374148a1d, type: 2}
   - {fileID: 11400000, guid: 1b20f5a217f5a4040a9a62e86e9133ba, type: 2}

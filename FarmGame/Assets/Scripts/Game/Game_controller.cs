@@ -49,7 +49,7 @@ namespace Game.Controller
         private void Start()
         {
 #if UNITY_EDITOR
-            Seconds_per_hour = 1f;
+            Seconds_per_hour = 5f;
 #endif
 
             Set_day_stage(Day_stages.Day);
@@ -118,7 +118,7 @@ namespace Game.Controller
 
         private void New_night()
         {
-            StartCoroutine(Night_timer(Seconds_per_hour * 3));
+            StartCoroutine(Night_timer(Seconds_per_hour * 2.5f));
         }
 
         private void New_hour()

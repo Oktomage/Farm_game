@@ -1,4 +1,5 @@
 using Game.Items;
+using Game.Utils;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,26 +9,39 @@ namespace Game.UI
     {
         [Header("Components")]
         public Image Icon;
+        public Image Hand_icon;
 
         //Internal variables
-        [SerializeField] internal GameObject Current_item;
+        internal GameObject Current_item;
 
-        public void Update_UI(GameObject item)
+        internal void Update_UI(GameObject item, bool selected)
         {
-            //Set
+            // Set
             Current_item = item;
+
+            Hand_icon.enabled = selected;
 
             if (item == null) 
             { 
                 Icon.enabled = false; 
-                Icon.sprite = null; 
+                Icon.sprite = null;
+
+                Hand_icon.enabled = false;
                 return; 
             }
 
+            // Set
             Icon.enabled = true;
 
-            //Image
+            // Image
             Icon.sprite = item.GetComponent<Item_behaviour>().ItemData.Icon;
+
+            
+            if(selected)
+            {
+                // Effects
+                Game_utils.Instance.Do_UI_pop_effect(this.gameObject);
+            }
         }
     }
 }

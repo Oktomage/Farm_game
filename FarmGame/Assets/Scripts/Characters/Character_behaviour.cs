@@ -12,6 +12,7 @@ using Game.UI.Notifications;
 using Game.Utils;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Game.Characters
@@ -50,6 +51,7 @@ namespace Game.Characters
         public bool IsAlly = false;
         public bool IsEnemy = false;
         public bool IsBoss = false;
+        public bool IsEnraged = false;
 
         [Space]
         internal bool IsUsingTool = false;
@@ -65,7 +67,7 @@ namespace Game.Characters
         [Header("Inventory")]
         internal int InventorySize = 2;
         public List<GameObject> Inventory = new List<GameObject>();
-        internal Tool_behaviour Equipped_tool;
+        [SerializeField] internal Tool_behaviour Equipped_tool;
         internal int Selected_item_index = 0;
 
         [Header("Audio settings")]
@@ -98,6 +100,11 @@ namespace Game.Characters
             if (IsPlayer)
                 Enable_editor_settings();
 #endif
+
+            if(IsEnemy)
+            {
+                Game_events.New_day.AddListener(Enrage);
+            }
         }
 
         private void Start()
@@ -234,10 +241,24 @@ namespace Game.Characters
             Current_stance = stance;
         }
 
+        private void Enrage()
+        {
+            if (IsEnraged)
+                return;
+
+            // Set
+            IsEnraged = true;
+
+            Max_health *= 1.5f;
+            MoveSpeed *= 2f;
+            AttackDamage *= 2f;
+        }
+
         ///  ACTIONS METHODS
         internal void Move(Vector3 dir)
         {
-            if(IsUsingTool) { return; }
+            if(IsUsingTool) 
+                return;
 
             if (!IsMoving)
             {
@@ -280,7 +301,7 @@ namespace Game.Characters
             {
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, MoveSpeed * Time.deltaTime);
 
-                //Effects
+                // Effects
                 t += Time.deltaTime;
 
                 if (t > 0.2f)
@@ -291,13 +312,13 @@ namespace Game.Characters
                     Game_utils.Instance.Create_particle_from_resources("Prefabs/Particles/Walk_grass", transform.position);
 
                     //Audio
-                    Game_utils.Instance.Create_sound("Move", Move_sound, this.transform.position);
+                    Game_utils.Instance.Create_sound("Move_sound", Move_sound, this.transform.position);
                 }
 
                 yield return null;
             }
 
-            //Clamp the position to the target position to avoid overshooting
+            // Clamp the position to the target position to avoid overshooting
             transform.position = targetPosition;
 
             IsMoving = false;
@@ -307,42 +328,33 @@ namespace Game.Characters
         {
             if (Inventory.Count < InventorySize)
             {
-                //Get closest item
-                float closest_distance = float.PositiveInfinity;
-                Item_behaviour item_behaviour = null;
+                // Get closest item
+                GameObject closest_item = Game_utils.Instance.Get_closest_obj(transform.position, Items_nearby.Select(gm => gm.gameObject).ToArray());
+                closest_item.TryGetComponent<Item_behaviour>(out Item_behaviour item_bhv);
 
-                foreach (Item_behaviour item in Items_nearby.ToArray())
-                {
-                    if (item.IsCollectable) 
-                    {
-                        float distance = Vector2.Distance(transform.position, item.transform.position);
+                if (!item_bhv.IsCollectable)
+                    return;
 
-                        if (distance < closest_distance)
-                        {
-                            closest_distance = distance;
+                if (item_bhv == null) 
+                    return;
 
-                            //Set
-                            item_behaviour = item;
-                        }
-                    }
-                }
+                // Add
+                Inventory.Add(item_bhv.gameObject);
 
-                if(item_behaviour == null) { return; }
+                item_bhv.Set_collected_settings(character: this);
 
-                //Add
-                Inventory.Add(item_behaviour.gameObject);
+                // Update equipped item
+                Select_item_from_inventory(Selected_item_index);
 
-                item_behaviour.Set_collected_settings(character: this);
-
-                //Events
+                // Events
                 if (IsPlayer)
                 {
                     Notifications_controller.Instance.Set_notification_task(new Notifications_controller.Notification
                     {
-                        Title = item_behaviour.ItemData.ItemName,
-                        Message = $"You collected {item_behaviour.ItemData.ItemName}.",
+                        Title = item_bhv.ItemData.ItemName,
+                        Message = $"You collected {item_bhv.ItemData.ItemName}.",
                         Duration = 1f,
-                        Icon = item_behaviour.ItemData.Icon
+                        Icon = item_bhv.ItemData.Icon
                     });
 
                     Game_events.Player_character_collected_item.Invoke();
@@ -374,34 +386,32 @@ namespace Game.Characters
         internal void Hit_other_entity(GameObject obj)
         {
             //Check if the object is a character
-            if (obj.TryGetComponent<Character_behaviour>(out Character_behaviour other_character))
-            {
+            obj.TryGetComponent<Character_behaviour>(out Character_behaviour other_character);
+
+            if(other_character != null)
                 other_character.TakeDamage(AttackDamage, this.gameObject);
-            }
         }
 
         internal void Select_item_from_inventory(int id)
         {
             if (Inventory.Count > 0)
             {
-                // Clamp the id to the inventory size
+                // Set
                 Selected_item_index = Mathf.Clamp(id, 0, Inventory.Count - 1);
                 
-                // Check if isnt null
                 if (Inventory[Selected_item_index] == null)
+                    Equipped_tool = null;
+
+                // Check for tool
+                Inventory[Selected_item_index].TryGetComponent<Tool_behaviour>(out Tool_behaviour tool);
+
+                if (tool == null)
                 {
                     Equipped_tool = null;
+                    return;
                 }
 
-                // Check if the selected item is a tool
-                if (Inventory[Selected_item_index].GetComponent<Tool_behaviour>())
-                {
-                    Equipped_tool = Inventory[Selected_item_index].GetComponent<Tool_behaviour>();
-                }
-                else
-                {
-                    Equipped_tool = null;
-                }
+                Equipped_tool = tool;
 
                 // Events
                 if (IsPlayer)
@@ -413,14 +423,18 @@ namespace Game.Characters
         {
             if (Inventory.Count > 0 && Selected_item_index < Inventory.Count && Inventory[Selected_item_index] != null)
             {
-                //Drop the item
+                // Drop the item
                 Inventory[Selected_item_index].transform.position = transform.position;
                 Inventory[Selected_item_index].GetComponent<Item_behaviour>().Set_dropped_settings();
 
                 Inventory.RemoveAt(Selected_item_index);
+
                 Equipped_tool = null;
 
-                //Events
+                // Update equipped item
+                Select_item_from_inventory(Selected_item_index);
+
+                // Events
                 if (IsPlayer)
                 {
                     Game_events.Player_character_dropped_item.Invoke();

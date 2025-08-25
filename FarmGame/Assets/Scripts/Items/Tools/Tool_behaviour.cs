@@ -237,9 +237,15 @@ namespace Game.Items.Tools
         {
             if(Character.Objects_nearby.Count > 0)
             {
+                // Get
+                this.gameObject.TryGetComponent<Seeds_bag>(out Seeds_bag seeds_bag);
+
+                if (seeds_bag == null)
+                    return;
+
                 List<Plantable_spot> spots_list = new List<Plantable_spot>();
 
-                //Get plantable spots from nearby objects
+                // Get plantable spots from nearby objects
                 foreach (var obj in Character.Objects_nearby)
                 {
                     if(obj.TryGetComponent<Plantable_spot>(out Plantable_spot plantable_spot))
@@ -253,17 +259,9 @@ namespace Game.Items.Tools
                 }
 
                 // Use seeds bag
-                if(this.gameObject.TryGetComponent<Seeds_bag>(out Seeds_bag seeds_bag))
-                {
-                    int plant_ammount = 1;
+                int plant_ammount = 1;
 
-                    //Plant seeds
-                    seeds_bag.Plant_seeds(plant_ammount, spots_list);
-                }
-                else
-                {
-                    Debug.LogError("Cant find seeds bag");
-                }
+                seeds_bag.Plant_seeds(plant_ammount, spots_list);
             }
         }
 

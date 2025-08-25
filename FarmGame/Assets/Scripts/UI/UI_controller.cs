@@ -199,10 +199,11 @@ namespace Game.UI
         private void Update_player_character_inventory_UI() => Update_player_character_inventory_UI(0, null);
         private void Update_player_character_inventory_UI(int itemIndex, Item_behaviour item)
         {
-            if(Player_character == null) { return; }
+            if(Player_character == null)
+                return;
 
-            //Update inventory slots
-            for(int i = 0; i < Player_character.InventorySize; i++)
+            // Update inventory slots
+            for (int i = 0; i < Player_character.InventorySize; i++)
             {
                 GameObject item_obj = null;
 
@@ -212,11 +213,8 @@ namespace Game.UI
                     item_obj = Player_character.Inventory[i];
                 }
 
-                UI_Inventory_slots[i].Update_UI(item_obj);
+                UI_Inventory_slots[i].Update_UI(item_obj, (i == itemIndex));
             }
-
-            //Effects
-            Game_utils.Instance.Do_UI_pop_effect(UI_Inventory_slots[itemIndex].gameObject);
         }
 
         private void Update_player_souls_panel_UI(int changed_ammount)

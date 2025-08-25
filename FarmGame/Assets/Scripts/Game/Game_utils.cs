@@ -8,6 +8,8 @@ using System.IO;
 using UnityEngine;
 using System.Linq;
 using static Game.Utils.Game_utils;
+using static UnityEditor.Progress;
+
 
 
 
@@ -120,6 +122,29 @@ namespace Game.Utils
         {
             Sprite sprite = Resources.Load<Sprite>(path);
             return sprite;
+        }
+
+        /// METRICS
+        public GameObject Get_closest_obj(Vector2 point, GameObject[] GmObjects)
+        {
+            // Get closest gameObject
+            float closest_distance = float.PositiveInfinity;
+            GameObject closest_obj = null;
+
+            foreach (GameObject obj in GmObjects)
+            {
+                float distance = Vector2.Distance(point, obj.transform.position);
+
+                if (distance < closest_distance)
+                {
+                    closest_distance = distance;
+
+                    // Set
+                    closest_obj = obj;
+                }
+            }
+
+            return closest_obj;
         }
 
         /// SOUNDS
@@ -318,6 +343,7 @@ namespace Game.Utils
             return enemies;
         }
 
+        /// CRAFT
         [System.Serializable]
         public class Recipe
         {

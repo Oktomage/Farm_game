@@ -36,6 +36,10 @@ namespace Game.Objects.Entitys
         ///MAIN METHODS
         public void Take_damage(float dmg)
         {
+            if (IsFalling) 
+                return;
+
+            // Set
             Health -= dmg;
 
             if (Health <= 0)
@@ -48,7 +52,7 @@ namespace Game.Objects.Entitys
                 }
             }
 
-            //Effects
+            // Effects
             if (this.gameObject.TryGetComponent<Effects_controller>(out Effects_controller effectController))
             {
                 effectController.Force_effect(Effects_controller.EffectType.Boing);
@@ -59,21 +63,21 @@ namespace Game.Objects.Entitys
         {
             if (Object.ObjectData.Item_drop == null) { return; }
 
-            //Check drop chance & drop items
+            // Check drop chance & drop items
             for (int i = 0; i < Object.ObjectData.Drop_amount; i++)
             {
-                //Create item
+                // Create item
                 GameObject item = Game_utils.Instance.Create_item(Object.ObjectData.Item_drop, this.transform.position);
             }
         }
 
         private IEnumerator Fall()
         {
-            //Create stump
+            // Create stump
             GameObject stump = Game_utils.Instance.Create_prefab_from_resources("Prefabs/Objects/Tree_stump_object");
             stump.transform.position = new Vector3(transform.position.x, transform.position.y, 0);
 
-            //Audio
+            // Audio
             Game_utils.Instance.Create_sound("Tree_falling_sound", "Audios/Objects/Tree_falling_1", this.transform.position);
 
             float startAngle = transform.localEulerAngles.z;
@@ -101,7 +105,7 @@ namespace Game.Objects.Entitys
 
             Drop_items();
 
-            //Particles
+            // Effects
             Game_utils.Instance.Create_particle_from_resources("Prefabs/Particles/Small_stone_break", this.transform.position);
 
             Destroy(this.gameObject);
