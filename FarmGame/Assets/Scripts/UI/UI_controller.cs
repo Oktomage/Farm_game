@@ -45,10 +45,8 @@ namespace Game.UI
         [Space]
         public TextMeshProUGUI Text_fps;
 
-#if UNITY_EDITOR
         [Space]
         public GameObject Panel_devBar;
-#endif
 
         //Internal variables
         internal Vector2 shop_ui_target_position;
@@ -219,7 +217,7 @@ namespace Game.UI
                     item_obj = Player_character.Inventory[i];
                 }
 
-                UI_Inventory_slots[i].Update_UI(item_obj, (i == itemIndex));
+                UI_Inventory_slots[i].Update_UI(item_obj, i == itemIndex);
             }
         }
 

@@ -7,11 +7,6 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using System.Linq;
-using static Game.Utils.Game_utils;
-using static UnityEditor.Progress;
-
-
-
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -158,7 +153,7 @@ namespace Game.Utils
             source.minDistance = 0;
             source.maxDistance = 12.5f;
         }
-        public void Create_sound(string name, string clip_path, Vector2 pos)
+        public GameObject Create_sound(string name, string clip_path, Vector2 pos)
         {
             //Create
             GameObject sound_obj = new GameObject(name);
@@ -172,8 +167,10 @@ namespace Game.Utils
             audio_source.pitch = Random.Range(0.9f, 1.1f);
 
             audio_source.Play();
+
+            return sound_obj;
         }
-        public void Create_sound(string name, AudioClip audio_clip, Vector2 pos)
+        public GameObject Create_sound(string name, AudioClip audio_clip, Vector2 pos)
         {
             //Create
             GameObject sound_obj = new GameObject(name);
@@ -187,6 +184,8 @@ namespace Game.Utils
             audio_source.pitch = Random.Range(0.9f, 1.1f);
 
             audio_source.Play();
+
+            return sound_obj;
         }
 
         public void Create_2d_sound(string name, string clip_path)

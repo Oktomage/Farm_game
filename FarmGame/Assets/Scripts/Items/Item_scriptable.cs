@@ -27,6 +27,13 @@ namespace Game.Items
 
         [Space]
         public bool Can_trade = false;
+        public bool Can_smelt = false;
+
+        [ShowIf("Can_smelt")]
+        public Item_scriptable Smelt_result;
+        [ShowIf("Can_smelt")]
+        [Range(0f, 10f)]
+        public float Smelt_time;
 
         [Header("Item Properties")]
         public ItemType Type = ItemType.Miscellaneous;

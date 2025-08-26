@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60746cd618fed2d43af36194875c110b, type: 3}
+  m_Name: Furnace
+  m_EditorClassIdentifier: 
+  ObjectName: Furnace
+  Description: Furnace
+  Object_sprite: {fileID: 5835426120236778464, guid: a98dd7e41e7b99d4ebff0a946ff551bc, type: 3}
+  Item_drop: {fileID: 0}
+  Drop_chance: 1
+  Drop_amount: 1

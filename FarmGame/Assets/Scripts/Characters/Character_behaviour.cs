@@ -430,12 +430,9 @@ namespace Game.Characters
                 Inventory[Selected_item_index].TryGetComponent<Tool_behaviour>(out Tool_behaviour tool);
 
                 if (tool == null)
-                {
                     Equipped_tool = null;
-                    return;
-                }
-
-                Equipped_tool = tool;
+                else
+                    Equipped_tool = tool;
 
                 // Events
                 if (IsPlayer)
@@ -483,16 +480,25 @@ namespace Game.Characters
 
                     foreach (var other_objects in Objects_nearby)
                     {
+                        // Cristal
                         if (other_objects.TryGetComponent<Cristal_controller>(out Cristal_controller cristal_ctrl))
                         {
                             if (Inventory.Count > 0)
                                 cristal_ctrl.Trade(Inventory[Selected_item_index]);
                         }
 
+                        // Workbench
                         if (other_objects.TryGetComponent<Workbench_controller>(out Workbench_controller workbench_ctrl))
                         {
                             if (Inventory.Count > 0)
                                 workbench_ctrl.Put_item(Inventory[Selected_item_index], this);
+                        }
+
+                        // Furnace
+                        if (other_objects.TryGetComponent<Furnace_controller>(out Furnace_controller furnace_ctrl))
+                        {
+                            if (Inventory.Count > 0)
+                                furnace_ctrl.Put_item(Inventory[Selected_item_index], this);
                         }
                     }
                     break;
@@ -500,6 +506,7 @@ namespace Game.Characters
                 case KeyCode.R:
                     foreach (var other_objects in Objects_nearby)
                     {
+                        // Workbench
                         if (other_objects.TryGetComponent<Workbench_controller>(out Workbench_controller workbench_ctrl))
                         {
                             workbench_ctrl.Craft(this);

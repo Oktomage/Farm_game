@@ -12463,7 +12463,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FG_Item_Icons_403
+      name: Cooper_chunk
       rect:
         serializedVersion: 2
         x: 320
@@ -12507,7 +12507,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FG_Item_Icons_405
+      name: Cooper_bar
       rect:
         serializedVersion: 2
         x: 352
@@ -13211,7 +13211,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FG_Item_Icons_437
+      name: Iron_bar
       rect:
         serializedVersion: 2
         x: 352
@@ -13915,7 +13915,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FG_Item_Icons_469
+      name: Silver_bar
       rect:
         serializedVersion: 2
         x: 352
@@ -14619,7 +14619,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FG_Item_Icons_501
+      name: Gold_bar
       rect:
         serializedVersion: 2
         x: 352
@@ -32785,6 +32785,8 @@ TextureImporter:
       ',,': 6676968136100255024
       ',,,': -8057295099927904749
       Big_soul: 8675884164445795304
+      Cooper_bar: -1496621087581136309
+      Cooper_chunk: 4758524348670379536
       FG_Item_Icons_0: -8971961018793184455
       FG_Item_Icons_1: 6809473691787854706
       FG_Item_Icons_10: 3039083581297197325
@@ -33435,9 +33437,7 @@ TextureImporter:
       FG_Item_Icons_400: 684336753062478802
       FG_Item_Icons_401: 7374890446348153190
       FG_Item_Icons_402: -762197701486273324
-      FG_Item_Icons_403: 4758524348670379536
       FG_Item_Icons_404: -3162465174261076876
-      FG_Item_Icons_405: -1496621087581136309
       FG_Item_Icons_406: -1888122580342436275
       FG_Item_Icons_407: -2874413931074179333
       FG_Item_Icons_408: 7659359518242448043
@@ -33471,7 +33471,6 @@ TextureImporter:
       FG_Item_Icons_433: 8412688367231644433
       FG_Item_Icons_434: -4713184223932132988
       FG_Item_Icons_436: 2024996539259467488
-      FG_Item_Icons_437: -5180710088993768516
       FG_Item_Icons_438: -794033958012133055
       FG_Item_Icons_439: -6301818370298055011
       FG_Item_Icons_44: 4905745705523302558
@@ -33505,7 +33504,6 @@ TextureImporter:
       FG_Item_Icons_465: -5534891272432554080
       FG_Item_Icons_466: 9101311957676839098
       FG_Item_Icons_468: -4305834383734528812
-      FG_Item_Icons_469: 3955286595716654376
       FG_Item_Icons_47: 5510050541157039610
       FG_Item_Icons_470: 3165012195048810342
       FG_Item_Icons_471: -243349992061809900
@@ -33541,7 +33539,6 @@ TextureImporter:
       FG_Item_Icons_5: 539333693186206344
       FG_Item_Icons_50: -2474088297557616214
       FG_Item_Icons_500: 1570703635896808591
-      FG_Item_Icons_501: 2586207762737447440
       FG_Item_Icons_502: -440980569471913514
       FG_Item_Icons_503: 6909043728218011554
       FG_Item_Icons_504: -6687391392138850817
@@ -34090,16 +34087,19 @@ TextureImporter:
       FG_Item_Icons_997: -2519174392257992175
       FG_Item_Icons_998: 517969197362367872
       FG_Item_Icons_999: 9011242368230150638
+      Gold_bar: 2586207762737447440
       Gold_chunk: 5498269093103653564
       Grape_common_seeds: -9000334656902443374
       Grape_item: -1239588314
       Huge_soul: 1975793307958704066
+      Iron_bar: -5180710088993768516
       Iron_chunk: -6994366154136683667
       Medium_soul: 6019032636454908568
       Onion_common_seeds: -6620768749319653241
       Onion_item: 3307507686919383740
       Potato_common_seeds: 1947310010223967155
       Potato_item: 3284400341411787445
+      Silver_bar: 3955286595716654376
       Silver_chunk: -1407649770735597421
       Silver_hoe: 7181817493855327126
       Silver_pickaxe: -793930069542727354

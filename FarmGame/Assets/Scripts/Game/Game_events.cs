@@ -34,6 +34,8 @@ namespace Game.Events
         public static UnityEvent Player_character_closed_workbench = new UnityEvent();
         public static UnityEvent Player_character_crafted_item = new UnityEvent();
 
+        public static UnityEvent Furnace_smelt_done = new UnityEvent();
+
         public static UnityEvent<Character_behaviour> Boss_battle_started = new UnityEvent<Character_behaviour>();
         public static UnityEvent<Character_behaviour> Boss_defeated = new UnityEvent<Character_behaviour>();
 
