@@ -1,5 +1,6 @@
 using Game.Characters;
 using Game.Events;
+using Game.Utils;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -13,17 +14,19 @@ namespace Game.UI
         public GameObject Panel_enemy_stats;
 
         [Space]
-        public Slider Slider_enemy_health;
+        public UI_filler Enemy_health_bar;
         public TextMeshProUGUI Text_enemy_name;
         public TextMeshProUGUI Text_enemy_bonuses;
 
         //Internal variables
+        internal bool IsEnabled = false;
         internal GameObject Current_enemy_target_obj;
 
         private void Awake()
         {
             Game_events.Player_character_took_damage.AddListener((dmg, enemy) => Show_enemy_stats(enemy));
             Game_events.Player_character_killed_enemy.AddListener(Hide_enemy_stats);
+            Game_events.Enemy_took_damage.AddListener((dmg, enemy) => Update_enemy_stats_UI());
         }
 
         /// CORE METHODS
@@ -72,34 +75,42 @@ namespace Game.UI
             Text_enemy_name.text = character.Name;
             Set_bonuses_text(character);
 
-            Panel_enemy_stats.GetComponent<CanvasGroup>().alpha = 1f;
+            Update_enemy_stats_UI();
 
-            StartCoroutine(Update_enemy_stats_UI());
+            if (IsEnabled)
+                return;
+
+            IsEnabled = true;
+
+            // Effects
+            Panel_enemy_stats.GetComponent<CanvasGroup>().alpha = 1f;
         }
 
         private void Hide_enemy_stats(GameObject enemy_obj)
         {
             if (enemy_obj == Current_enemy_target_obj)
             {
-                // Set
+                if (!IsEnabled)
+                    return;
+
+                IsEnabled = false;
+
+                // Effects
                 Panel_enemy_stats.GetComponent<CanvasGroup>().alpha = 0f;
             }
         }
 
-        private IEnumerator Update_enemy_stats_UI()
+        private void Update_enemy_stats_UI()
         {
-            while (Current_enemy_target_obj != null)
-            {
-                yield return new WaitForSeconds(0.1f);
+            if (Current_enemy_target_obj == null)
+                return;
 
-                if (Current_enemy_target_obj == null)
-                    break;
+            Character_behaviour character_behaviour = Current_enemy_target_obj.GetComponent<Character_behaviour>();
 
-                Character_behaviour character_behaviour = Current_enemy_target_obj.GetComponent<Character_behaviour>();
+            // Update health bar
+            float health = character_behaviour.Health / character_behaviour.Max_health;
 
-                // Update health bar
-                Slider_enemy_health.value = character_behaviour.Health / character_behaviour.Max_health;
-            }
+            Enemy_health_bar.Set_value(health);
         }
     }
 }

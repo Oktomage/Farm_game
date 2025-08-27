@@ -62,7 +62,7 @@ namespace Game.Characters
 
         [Space]
         internal bool IsUsingTool = false;
-        [SerializeField] internal bool IsAlive = true;
+        internal bool IsAlive = true;
         internal bool IsMoving = false;
         internal bool IsPlowing = false;
         internal bool IsWatering = false;

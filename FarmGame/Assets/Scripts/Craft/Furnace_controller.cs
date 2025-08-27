@@ -5,6 +5,7 @@ using Game.Utils;
 using Game.Utils.Misc;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 namespace Game.Crafting
 {
@@ -15,6 +16,7 @@ namespace Game.Crafting
 
         [Header("Components")]
         public Detector_manager Detector => this.gameObject.GetComponent<Detector_manager>();
+        public Light2D Light => this.gameObject.GetComponentInChildren<Light2D>();
 
         //Internal variables
         internal GameObject Player_character_obj => GameObject.FindGameObjectWithTag("Player");
@@ -27,7 +29,9 @@ namespace Game.Crafting
             // Clean
             Current_material_inside = null;
 
-            if(Smoke_particle_obj != null )
+            Light.enabled = false;
+
+            if (Smoke_particle_obj != null )
                 Destroy(Smoke_particle_obj);
 
             if(Furnace_sound_obj != null)
@@ -76,6 +80,7 @@ namespace Game.Crafting
             Current_material_inside.TryGetComponent<Item_behaviour>(out Item_behaviour item_bhv);
 
             // Audio & Effects
+            Light.enabled = true;
             Furnace_sound_obj = Game_utils.Instance.Create_sound("Furnace_sound", "Audios/Objects/Furnace_1", transform.position);
             Smoke_particle_obj = Game_utils.Instance.Create_particle_from_resources("Prefabs/Particles/Furnace_smoke", new Vector2(transform.position.x, transform.position.y + 0.5f));
 

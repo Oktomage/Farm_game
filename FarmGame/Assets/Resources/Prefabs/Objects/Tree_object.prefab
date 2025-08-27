@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1240794234934257255}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.8, z: 0}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -52,6 +52,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -73,10 +75,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -2063054786, guid: bcbe3fbf92506ce4a91421383221c6c4, type: 3}
+  m_Sprite: {fileID: 4941153429810944326, guid: a15463665c959de4ba5076ef529e87d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -137,8 +140,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectData: {fileID: 11400000, guid: 0215f056125b74d42a56dc679585f309, type: 2}
-  Render: {fileID: 1886138443216356741}
-  Collider: {fileID: 2473259125411642834}
 --- !u!114 &7853782262511315705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,7 +198,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2050882754908732956}
@@ -222,6 +223,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -243,10 +246,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 680736209, guid: bcbe3fbf92506ce4a91421383221c6c4, type: 3}
+  m_Sprite: {fileID: 4237543631302644647, guid: 9717233895739ef4cafe49a6a9daade1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -279,11 +283,11 @@ MonoBehaviour:
   m_AlphaCutoff: 0.1
   m_ApplyToSortingLayers: 00000000
   m_ShapePath:
-  - {x: -0.2746601, y: -0.029582977, z: 0}
-  - {x: -0.28178787, y: 0.371706, z: 0}
-  - {x: 0.19625664, y: 0.38595772, z: 0}
-  - {x: 0.21051216, y: -0.03671074, z: 0}
-  m_ShapePathHash: -1115298475
+  - {x: -0.18561937, y: -0.33673096, z: 0}
+  - {x: -0.17685646, y: 0.42510986, z: 0}
+  - {x: 0.16764341, y: 0.43493652, z: 0}
+  - {x: 0.16603033, y: -0.3482666, z: 0}
+  m_ShapePathHash: 1307304036
   m_InstanceId: 0
   m_ShadowShape2DComponent: {fileID: 0}
   m_ShadowShape2DProvider:
@@ -292,13 +296,13 @@ MonoBehaviour:
   m_ShadowMesh:
     m_Mesh: {fileID: 0}
     m_LocalBounds:
-      m_Center: {x: -0.035637856, y: 0.17462349, z: 0}
-      m_Extent: {x: 0.24615002, y: 0.21133423, z: 0}
+      m_Center: {x: -0.008987978, y: 0.04333496, z: 0}
+      m_Extent: {x: 0.17663139, y: 0.39160156, z: 0}
     m_EdgeProcessing: 1
     m_TrimEdge: 0.37
     m_FlipX: 0
     m_FlipY: 0
-    m_InitialTrim: 0.05
+    m_InitialTrim: 0
   m_CastingOption: 1
   m_PreviousTrimEdge: 0.37
   m_PreviousEdgeProcessing: 1

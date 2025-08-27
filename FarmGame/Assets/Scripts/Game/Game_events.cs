@@ -10,8 +10,11 @@ namespace Game.Events
     public class Game_events : MonoBehaviour
     {
         public static UnityEvent<Character_behaviour> Player_clicked_on_enemy = new UnityEvent<Character_behaviour>();
+        public static UnityEvent Player_clicked_on_recipe_book = new UnityEvent();
         public static UnityEvent<int> Player_collected_souls = new UnityEvent<int>();
         public static UnityEvent<int> Player_lost_souls = new UnityEvent<int>();
+
+        public static UnityEvent Close_Recipe_book = new UnityEvent();
 
         public static UnityEvent Player_character_collected_item = new UnityEvent();
         public class InventoryEvent : UnityEvent<int, Item_behaviour> { }

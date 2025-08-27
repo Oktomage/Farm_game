@@ -25,7 +25,7 @@ namespace Game.UI
         public Texture2D CustomCursor;
 
         [Header("Components UI")]
-        public Slider Slider_health;
+        public UI_filler Player_health_bar;
         public TextMeshProUGUI Text_souls;
         
         [Space]
@@ -197,7 +197,9 @@ namespace Game.UI
                 return;
 
             //Update health bar
-            Slider_health.value = Player_character.Health / Player_character.Max_health;
+            float health = Player_character.Health / Player_character.Max_health;
+
+            Player_health_bar.Set_value(health);
         }
 
         private void Update_player_character_inventory_UI() => Update_player_character_inventory_UI(0, null);
@@ -231,6 +233,19 @@ namespace Game.UI
 
             //Effects
             Game_utils.Instance.Do_UI_pop_effect(Text_souls.gameObject);
+        }
+   
+        /// RECIPE BOOK UI METHODS
+        public void Call_recipe_book()
+        {
+            // Events
+            Game_events.Player_clicked_on_recipe_book.Invoke();
+        }
+
+        public void Call_hide_recipe_book()
+        {
+            // Events
+            Game_events.Close_Recipe_book.Invoke();
         }
     }
 }
