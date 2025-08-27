@@ -18,12 +18,16 @@ MonoBehaviour:
   Move_speed: 3
   Damage: 0.25
   Souls_reward: 1
+  IsExtraStrong: 0
+  IsExtraFast: 0
+  HaveMagicalResistance: 0
+  HavePhysicalResistance: 0
   IsBoss: 0
   Menance_class: 0
   Icon: {fileID: 6626250619592642690, guid: c0afa54e090103d4a9b9b42ce6b4b8df, type: 3}
   Item_drop: {fileID: 0}
   Drop_chance: 0.5
-  Idle_sound: {fileID: 0}
+  Idle_sound: {fileID: 8300000, guid: e176202660e84924fb91249cedbed689, type: 3}
   Move_sound: {fileID: 8300000, guid: 27b495272ba7c9d48a8398852b4ccb6f, type: 3}
   Attack_sound: {fileID: 0}
   Hurt_sound: {fileID: 8300000, guid: bb0587b6dfef3b84d946c92daf95c4c2, type: 3}

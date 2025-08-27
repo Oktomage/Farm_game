@@ -21,14 +21,15 @@ namespace Game.Objects.Entitys
         }
 
         [Header("Data")]
-        public Object_behaviour Object => this.gameObject.GetComponent<Object_behaviour>();
+        public float Health = 5;
 
         [Header("Settings")]
         public Tree_Sizes Size = Tree_Sizes.Normal;
         public TreeTypes Type = TreeTypes.Spring;
 
-        [Header("Data")]
-        public float Health = 5;
+        [Header("Components")]
+        public SpriteRenderer Shadow_render;
+        public Object_behaviour Object => this.gameObject.GetComponent<Object_behaviour>();
 
         //Internal variables
         internal bool IsFalling = false;
@@ -73,6 +74,9 @@ namespace Game.Objects.Entitys
 
         private IEnumerator Fall()
         {
+            // Set
+            Shadow_render.enabled = false;
+
             // Create stump
             GameObject stump = Game_utils.Instance.Create_prefab_from_resources("Prefabs/Objects/Tree_stump_object");
             stump.transform.position = new Vector3(transform.position.x, transform.position.y, 0);

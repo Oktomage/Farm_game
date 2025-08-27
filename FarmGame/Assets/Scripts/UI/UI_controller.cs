@@ -143,13 +143,13 @@ namespace Game.UI
             shop_ui_target_position = shopper.transform.position;
 
             //Effects
-            Game_utils.Instance.Do_UI_fade_effect(Shop_UI);
             Game_utils.Instance.Do_UI_pop_effect(Shop_UI);
+            Game_utils.Instance.Switch_visibility_UI_panel(Shop_UI);
         }
         private void Hide_shop_UI()
         {
             //Effects
-            Game_utils.Instance.Do_UI_fade_effect(Shop_UI);
+            Game_utils.Instance.Switch_visibility_UI_panel(Shop_UI);
         }
 
         /// WARNING UI METHODS

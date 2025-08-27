@@ -114,17 +114,6 @@ namespace Game.Characters
             }
         }
 
-        private void Start()
-        {
-            //Routines
-            StartCoroutine(Regens());
-            StartCoroutine(Detect_items_nearby());
-            StartCoroutine(Animator_controller());
-            StartCoroutine(Detect_grid());
-            StartCoroutine(Detect_objects_nearby());
-            StartCoroutine(Detect_characters_nearby());
-        }
-
         private void LateUpdate()
         {
             Fix_character();
@@ -178,6 +167,15 @@ namespace Game.Characters
             Attack_sound = character_scriptable.Attack_sound;
             Hurt_sound = character_scriptable.Hurt_sound;
             Death_sound = character_scriptable.Death_sound;
+
+            //Routines
+            StartCoroutine(Regens());
+            StartCoroutine(Detect_items_nearby());
+            StartCoroutine(Animator_controller());
+            StartCoroutine(Detect_grid());
+            StartCoroutine(Detect_objects_nearby());
+            StartCoroutine(Detect_characters_nearby());
+            StartCoroutine(Idle_actions());
         }
 
         private void Die()
@@ -532,7 +530,10 @@ namespace Game.Characters
         {
             while(IsAlive)
             {
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(Random.Range(10f, 30f));
+
+                // Audio
+                Game_utils.Instance.Create_sound("Idle_sound", Idle_sound, transform.position);
             }
         }
 

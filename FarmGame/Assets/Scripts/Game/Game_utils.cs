@@ -209,6 +209,27 @@ namespace Game.Utils
         }
 
         /// UI
+        public void Switch_visibility_UI_panel(GameObject UI_obj)
+        {
+            if (UI_obj.TryGetComponent<CanvasGroup>(out CanvasGroup cvn_gp))
+            {
+                switch(cvn_gp.alpha)
+                {
+                    case 0f:
+                        cvn_gp.alpha = 1f;
+                        break;
+
+                    case 1f:
+                        cvn_gp.alpha = 0f;
+                        break;
+
+                    default:
+                        cvn_gp.alpha = 0f;
+                        break;
+                }
+            }
+        }
+
         private Coroutine Pop_effect_routine;
         private List<GameObject> Pop_queue_objects = new List<GameObject>();
 
@@ -393,48 +414,65 @@ namespace Game.Utils
             }
         }
 
-        public Item_scriptable Get_recipe_result(List<GameObject> materials_list, bool allowSuperset)
+        public Item_scriptable Get_recipe_result(List<GameObject> materials_list)
         {
             if (materials_list == null || materials_list.Count == 0)
                 return null;
 
-            // Get
-            List<Item_scriptable> available_materials = materials_list.Select(m => m.GetComponent<Item_behaviour>().ItemData).ToList();
-            List<Converted_recipe> match_recipes = Recipes_table
-                .Select(r => new Converted_recipe
-                {
-                    Recipe_name = r.Recipe_name,
-                    Recipe_materials = new List<Item_scriptable>(r.Recipe_materials),
-                    Craft_result = r.Craft_result
-                })
+            // Converte os objetos em Item_scriptable (os dados reais do item)
+            List<Item_scriptable> providedItems = materials_list
+                .Select(go => go != null ? go.GetComponent<Item_behaviour>() : null)
+                .Where(behaviour => behaviour != null && behaviour.ItemData != null)
+                .Select(behaviour => behaviour.ItemData)
                 .ToList();
 
-            for (int i = Recipes_table.Count - 1; i >= 0; i--)
+            // Função auxiliar para contar quantas vezes cada item aparece
+            Dictionary<Item_scriptable, int> CountItems(List<Item_scriptable> items)
             {
-                // Test recipe size
-                if (available_materials.Count != match_recipes[i].Recipe_materials.Count)
+                var counts = new Dictionary<Item_scriptable, int>();
+                foreach (var item in items)
                 {
-                    // Remove
-                    match_recipes.RemoveAt(i);
-                    continue;
+                    counts.TryGetValue(item, out int currentCount);
+                    counts[item] = currentCount + 1;
                 }
-
-                foreach (Item_scriptable item in available_materials)
-                {
-                    if (!match_recipes[i].Recipe_materials.Contains(item))
-                    {
-                        match_recipes.RemoveAt(i);
-                        break;
-                    }      
-                }
+                return counts;
             }
 
-            Debug.LogWarning(string.Join(", ", match_recipes.Select(r => r.Recipe_name)));
+            // Cria dicionário de quantidades do que o jogador forneceu
+            var providedCounts = CountItems(providedItems);
 
-            if (match_recipes.Count == 0)
-                return null;
-            else
-                return match_recipes[0].Craft_result;
+            // Percorre cada receita cadastrada
+            foreach (var recipe in Recipes_table)
+            {
+                // Conta quantos de cada item a receita pede
+                var recipeCounts = CountItems(recipe.Recipe_materials);
+
+                // Se não permite materiais extras, precisa ter mesma quantidade de itens
+                if (providedItems.Count != recipe.Recipe_materials.Count)
+                    continue;
+
+                bool recipeMatches = true;
+
+                // Checa se o jogador tem pelo menos a quantidade necessária de cada item
+                foreach (var required in recipeCounts)
+                {
+                    Item_scriptable requiredItem = required.Key;
+                    int requiredAmount = required.Value;
+
+                    if (!providedCounts.TryGetValue(requiredItem, out int providedAmount) || providedAmount < requiredAmount)
+                    {
+                        recipeMatches = false;
+                        break;
+                    }
+                }
+
+                // Se todos os itens bateram, retorna o resultado dessa receita
+                if (recipeMatches)
+                    return recipe.Craft_result;
+            }
+
+            // Nenhuma receita encontrada
+            return null;
         }
 
         /// SCRIPTING

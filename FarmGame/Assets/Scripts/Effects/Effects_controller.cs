@@ -1,5 +1,4 @@
 using Game.Utils;
-using NaughtyAttributes;
 using System.Collections;
 using UnityEngine;
 
@@ -19,10 +18,8 @@ namespace Game.Effects
         [Header("Settings")]
         public EffectType effectType = EffectType.None;
 
-        [Header("Secundary effects settings")]
-        public bool Souls_aura = false;
-        [ShowIf("Souls_aura")]
-        public Color Souls_aura_color = Color.white;
+        [Header("Extra settings")]
+        public Effects_secundary_settings_scriptable Extra_settings_scriptable;
 
         [Header("Components")]
         public SpriteRenderer Render => GetComponentInChildren<SpriteRenderer>();
@@ -85,7 +82,6 @@ namespace Game.Effects
             if(Pulse_effect_routine == null)
                 Pulse_effect_routine = StartCoroutine(Pulse_effect());
         }
-
         private IEnumerator Pulse_effect()
         {
             Vector3 minScale = new Vector3(0.9f, 0.9f, 1f);
@@ -101,7 +97,6 @@ namespace Game.Effects
                 yield return StartCoroutine(ScaleOverTime(transform, maxScale, minScale, duration));
             }
         }
-
         private IEnumerator ScaleOverTime(Transform target, Vector3 startScale, Vector3 endScale, float time)
         {
             float elapsed = 0f;
@@ -122,7 +117,6 @@ namespace Game.Effects
             if (Boing_effect_routine == null)
                 Boing_effect_routine = StartCoroutine(Boing());
         }
-
         IEnumerator Boing()
         {
             float scaleAmount = 1.2f;
@@ -163,7 +157,6 @@ namespace Game.Effects
             if(SquashStretch_effect_routine == null)
                 SquashStretch_effect_routine = StartCoroutine(SquashStretch());
         }
-
         private IEnumerator SquashStretch()
         {
             float stretchX = 0.2f;   // quanto estica na horizontal
@@ -210,7 +203,6 @@ namespace Game.Effects
             if(Flash_effect_routine == null)
                 Flash_effect_routine = StartCoroutine(Flash());
         }
-
         private IEnumerator Flash()
         {
             float flashDuration = 0.2f;
@@ -237,16 +229,33 @@ namespace Game.Effects
         /// SECUNDARY EFFECTS
         private void Create_secunday_effects()
         {
-            if (Souls_aura)
+            if(Extra_settings_scriptable == null)
+                return;
+
+            if (Extra_settings_scriptable.Have_souls_aura)
             {
+                // Create
                 GameObject aura = Game_utils.Instance.Create_particle_from_resources("Prefabs/Particles/Souls_aura", transform.position);
                 aura.transform.SetParent(transform);
                 aura.transform.localPosition = new Vector3(0, -0.5f, 0);
 
                 Souls_aura_particle = aura.GetComponent<ParticleSystem>();
 
+                // Set
                 var main = Souls_aura_particle.main;
-                main.startColor = Souls_aura_color;
+                main.startColor = Extra_settings_scriptable.Souls_aura_color;
+            }
+
+            if(Extra_settings_scriptable.Have_trail)
+            {
+                // Create
+                TrailRenderer trail = this.gameObject.AddComponent<TrailRenderer>();
+
+                // Set
+                trail.time = Extra_settings_scriptable.Trail_Effect.Trail_time;
+                trail.colorGradient = Extra_settings_scriptable.Trail_Effect.Trail_gradient;
+                trail.material = Extra_settings_scriptable.Trail_Effect.Trail_material;
+                trail.widthCurve = Extra_settings_scriptable.Trail_Effect.Trail_size_curve;
             }
         }
     }

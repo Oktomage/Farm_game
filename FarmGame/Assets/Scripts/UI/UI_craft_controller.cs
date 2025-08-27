@@ -24,6 +24,8 @@ namespace Game.UI.Craft
         private void Awake()
         {
             Game_events.Player_character_used_workbench.AddListener(Set_workbench);
+            Game_events.Player_character_nearby_workbench.AddListener(Set_workbench);
+
             Game_events.Player_character_closed_workbench.AddListener(Disable_UI);
             Game_events.Player_character_crafted_item.AddListener(Disable_UI);
         }
@@ -52,7 +54,7 @@ namespace Game.UI.Craft
         {
             // Effects
             Game_utils.Instance.Do_UI_pop_effect(Panel_crafting);
-            Game_utils.Instance.Do_UI_fade_effect(Panel_crafting);
+            Game_utils.Instance.Switch_visibility_UI_panel(Panel_crafting);
         }
 
         private void Enable_UI()

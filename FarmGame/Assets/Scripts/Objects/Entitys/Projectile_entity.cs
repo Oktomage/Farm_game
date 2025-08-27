@@ -1,4 +1,5 @@
 using Game.Characters;
+using Game.Effects;
 using System.Collections;
 using UnityEngine;
 
@@ -16,6 +17,7 @@ namespace Game.Entitys.Projectiles
         public Rigidbody2D Rb2d => this.gameObject.GetComponentInChildren<Rigidbody2D>();
         public SpriteRenderer Render => this.gameObject.GetComponentInChildren<SpriteRenderer>();
         public Collider2D Collider => this.gameObject.GetComponentInChildren<Collider2D>();
+        public Effects_controller Effects_ctrl => this.gameObject.GetComponent<Effects_controller>();
 
         //Internal variables
         internal GameObject Character_parent_obj;

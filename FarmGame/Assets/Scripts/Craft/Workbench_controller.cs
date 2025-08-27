@@ -21,9 +21,26 @@ namespace Game.Crafting
         internal bool Crafting_UI_visible = false;
         internal GameObject Player_character_obj => GameObject.FindGameObjectWithTag("Player");
 
+        private void Start()
+        {
+            StartCoroutine(Read_detector_state());
+        }
+
+        /// CORE METHODS
         private void Clear_workbench()
         {
             Current_materials_inside.Clear();
+        }
+
+        private void Fail_craft()
+        {
+            Crafting_UI_visible = false;
+
+            // Audio
+            Game_utils.Instance.Create_2d_sound("Fail_sound", "Audios/UI/Fail_1");
+
+            //Events
+            Game_events.Player_character_closed_workbench.Invoke();
         }
 
         /// MAIN METHODS
@@ -49,7 +66,6 @@ namespace Game.Crafting
                 if(!Crafting_UI_visible)
                 {
                     Crafting_UI_visible = true;
-                    StartCoroutine(Read_detector_state());
                 }
 
                 // Events
@@ -63,7 +79,7 @@ namespace Game.Crafting
                 return;
 
             // Get
-            Item_scriptable craft_result = Game_utils.Instance.Get_recipe_result(Current_materials_inside, allowSuperset: false);
+            Item_scriptable craft_result = Game_utils.Instance.Get_recipe_result(Current_materials_inside);
 
             Clear_workbench();
 
@@ -84,27 +100,41 @@ namespace Game.Crafting
             }
             else
             {
-                // Audio
-                Game_utils.Instance.Create_2d_sound("Fail_sound", "Audios/UI/Fail_1");
+                Fail_craft();
             }
         }
 
         private IEnumerator Read_detector_state()
         {
-            while (Crafting_UI_visible)
+            while (true)
             {
                 yield return new WaitForSeconds(0.1f);
-                if (Player_character_obj == null) { continue; }
+
+                if (Player_character_obj == null)
+                    yield return null;
 
                 // Out of range
                 if (!Detector.Player_in_range)
                 {
+                    // Close
                     if (Crafting_UI_visible)
                     {
                         Crafting_UI_visible = false;
 
                         //Events
                         Game_events.Player_character_closed_workbench.Invoke();
+                    }
+                }
+                // On range
+                else
+                {
+                    // Open
+                    if(!Crafting_UI_visible && Current_materials_inside.Count > 0)
+                    {
+                        Crafting_UI_visible = true;
+
+                        //Events
+                        Game_events.Player_character_nearby_workbench.Invoke(this.gameObject);
                     }
                 }
             }

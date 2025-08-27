@@ -33,6 +33,7 @@ namespace Game.Events
         public static UnityEvent<Shopper_controller> Player_character_opened_shop = new UnityEvent<Shopper_controller>();
         public static UnityEvent Player_character_closed_shop = new UnityEvent();
 
+        public static UnityEvent<GameObject> Player_character_nearby_workbench = new UnityEvent<GameObject>();
         public static UnityEvent<GameObject> Player_character_used_workbench = new UnityEvent<GameObject>();
         public static UnityEvent Player_character_closed_workbench = new UnityEvent();
         public static UnityEvent Player_character_crafted_item = new UnityEvent();

@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5123013031830904483}
-  - component: {fileID: 8916625992295732391}
   - component: {fileID: 189068287016430892}
+  - component: {fileID: 8916625992295732391}
+  - component: {fileID: -6240740987923921947}
   m_Layer: 0
   m_Name: Projectile_entity
   m_TagString: Untagged
@@ -35,21 +36,6 @@ Transform:
   - {fileID: 1886870160687098993}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8916625992295732391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1592304412369904179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 507d26abbb4d2344989a86254a30545d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Game.Entitys.Projectiles.Projectile_entity
-  Min_damage: 0
-  Max_damage: 0
-  Speed: 3
 --- !u!50 &189068287016430892
 Rigidbody2D:
   serializedVersion: 5
@@ -77,6 +63,36 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8916625992295732391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592304412369904179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 507d26abbb4d2344989a86254a30545d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Entitys.Projectiles.Projectile_entity
+  Min_damage: 0
+  Max_damage: 0
+  Speed: 3
+  Max_duration: 3
+--- !u!114 &-6240740987923921947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592304412369904179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 922f9dc1759f9df4c8f8b790992eab20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Effects.Effects_controller
+  effectType: 0
+  Extra_settings_scriptable: {fileID: 11400000, guid: 906d7c3aef6a6f948bda59b447ad5a97, type: 2}
 --- !u!1 &1801154797062147547
 GameObject:
   m_ObjectHideFlags: 0

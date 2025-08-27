@@ -54,8 +54,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectData: {fileID: 0}
-  Render: {fileID: 2929123996610439504}
-  Collider: {fileID: 2446763897401898153}
 --- !u!114 &4904145553070685771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,8 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectType: 0
-  Souls_aura: 1
-  Souls_aura_color: {r: 0, g: 0.18928123, b: 1, a: 1}
+  Extra_settings_scriptable: {fileID: 11400000, guid: ebc6311ecaf1f1245aaea7c72983f5c2, type: 2}
 --- !u!1 &750655456638016529
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,6 +154,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -178,6 +177,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
@@ -438,7 +438,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c1f2230dc7dfa1e4eb71e1ea1f99eb32, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: c1f2230dc7dfa1e4eb71e1ea1f99eb32, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -577,6 +577,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -598,6 +600,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0

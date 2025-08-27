@@ -13,14 +13,21 @@ MonoBehaviour:
   m_Name: Black_slime
   m_EditorClassIdentifier: 
   Name: Green slime
+  Size_multiplier: 1
   Max_health: 2
   Move_speed: 2
   Damage: 0.25
   Souls_reward: 1
+  IsExtraStrong: 0
+  IsExtraFast: 0
+  HaveMagicalResistance: 0
+  HavePhysicalResistance: 0
+  IsBoss: 0
   Menance_class: 0
   Icon: {fileID: 5686688232299483163, guid: 3a689cda63442664290bc6f30bfdecb2, type: 3}
   Item_drop: {fileID: 0}
   Drop_chance: 0.5
+  Idle_sound: {fileID: 8300000, guid: ca0362388cd3f354aa884a48966508fe, type: 3}
   Move_sound: {fileID: 8300000, guid: 27b495272ba7c9d48a8398852b4ccb6f, type: 3}
   Attack_sound: {fileID: 0}
   Hurt_sound: {fileID: 8300000, guid: 7c98064b9ef99ae40b482947dadcd84e, type: 3}
