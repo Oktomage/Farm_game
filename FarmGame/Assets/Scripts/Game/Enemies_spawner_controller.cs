@@ -32,9 +32,9 @@ namespace Game.Controller
         }
 
         /// CORE METHODS
-        private void Read_day_stage(Game_controller.Day_stages stage)
+        private void Read_day_stage()
         {
-            switch(stage)
+            switch(Game_controller.Current_day_stage)
             {
                 case Game_controller.Day_stages.Day:
                     Stop_spawner();

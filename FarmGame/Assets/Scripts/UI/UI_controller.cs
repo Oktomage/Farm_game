@@ -115,13 +115,13 @@ namespace Game.UI
             Text_hour.text = $"{Game_controller.Instance.Day_hour:00}:00";
         
             // Color
-            if(Game_controller.Instance.Current_day_stage == Game_controller.Day_stages.Day)
+            if(Game_controller.Current_day_stage == Game_controller.Day_stages.Day)
                 Text_hour.color = Color.white;
 
-            if (Game_controller.Instance.Current_day_stage == Game_controller.Day_stages.Night)
+            if (Game_controller.Current_day_stage == Game_controller.Day_stages.Night)
                 Text_hour.color = Color.red;
 
-            if (Game_controller.Instance.Current_day_stage == Game_controller.Day_stages.Rain || Game_controller.Instance.Current_day_stage == Game_controller.Day_stages.Storm)
+            if (Game_controller.Current_day_stage == Game_controller.Day_stages.Rain || Game_controller.Current_day_stage == Game_controller.Day_stages.Storm)
                 Text_hour.color = Color.yellow;
         }
 

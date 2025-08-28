@@ -23,7 +23,8 @@ namespace Game.Controller
             Night,
             Rain,
             Storm,
-            Blood_moon
+            Blood_moon,
+            Boss
         }
 
         [Header("Day - settings")]
@@ -35,7 +36,7 @@ namespace Game.Controller
         [Header("Day - states")]
         public int Total_days = 0;
         public int Day_hour = 8;
-        public Day_stages Current_day_stage = Day_stages.Day;
+        public static Day_stages Current_day_stage = Day_stages.Day;
 
         [Space]
         public Seasons Current_season = Seasons.Spring;
@@ -44,6 +45,11 @@ namespace Game.Controller
         private void Awake()
         {
             Instance = this;
+
+            Game_events.Sunny_day_started.AddListener(() => Set_day_stage(stage: Day_stages.Day));
+            Game_events.Rain_day_started.AddListener(() => Set_day_stage(stage: Day_stages.Rain));
+            Game_events.Storm_day_started.AddListener(() => Set_day_stage(stage: Day_stages.Storm));
+            Game_events.Boss_day_started.AddListener(() => Set_day_stage(stage: Day_stages.Boss));
         }
 
         private void Start()
@@ -52,7 +58,7 @@ namespace Game.Controller
             Seconds_per_hour = 5f;
 #endif
 
-            Set_day_stage(Day_stages.Day);
+            Init_new_day();
             StartCoroutine(Hour_timer());
 
             //Events
@@ -68,11 +74,7 @@ namespace Game.Controller
             }
             else if (Input.GetKeyDown(KeyCode.F2))
             {
-                New_day();
-            }
-            else if (Input.GetKeyDown(KeyCode.F5))
-            {
-                Game_utils.Instance.Create_enemy(Game_utils.Instance.Get_scriptable("Scriptables/Enemies/Ant_king"), new Vector2(15, 15));
+                Init_new_day();
             }
 #endif
         }
@@ -92,7 +94,7 @@ namespace Game.Controller
                     New_night();
                     break;
                 case Day_stages.Rain:
-                    // Handle rain start
+                    New_rain_day();
                     break;
                 case Day_stages.Storm:
                     // Handle storm start
@@ -100,25 +102,47 @@ namespace Game.Controller
                 case Day_stages.Blood_moon:
                     // Handle blood moon start
                     break;
+
+                case Day_stages.Boss:
+                    New_boss_day();
+                    break;
             }
 
             //Events
-            Game_events.Day_stage_changed.Invoke(Current_day_stage);
+            Game_events.Day_stage_changed.Invoke();
         }
 
-        private void New_day()
+        /// MAIN METHODS
+        private void Init_new_day()
         {
             //Set
             Total_days++;
             Day_of_season++;
 
+            Set_day_stage(Day_stages.Day);
+
             //Events
             Game_events.New_day.Invoke();
+        }
+
+        private void New_day()
+        {
+
         }
 
         private void New_night()
         {
             StartCoroutine(Night_timer(Seconds_per_hour * 2.5f));
+        }
+
+        private void New_rain_day()
+        {
+
+        }
+
+        private void New_boss_day()
+        {
+
         }
 
         private void New_hour()
@@ -159,7 +183,7 @@ namespace Game.Controller
             //End night
             Day_hour = 0;
 
-            Set_day_stage(Day_stages.Day);
+            Init_new_day();
         }
     }
 }

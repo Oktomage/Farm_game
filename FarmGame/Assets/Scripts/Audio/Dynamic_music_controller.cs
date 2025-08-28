@@ -3,6 +3,7 @@ using Game.Map.Controller;
 using Game.Utils;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Game.Controller.Audio
@@ -23,9 +24,9 @@ namespace Game.Controller.Audio
         public class Music_settings
         {
             public string Music_name;
-            public AudioClip Clip;
-            [Range(0f, 1f)]
-            public float Volume;
+            public List<AudioClip> Clips_variations = new List<AudioClip>();
+            //[Range(0f, 1f)]
+            //public float Volume;
         }
 
         [Header("Musics")]
@@ -58,17 +59,22 @@ namespace Game.Controller.Audio
         private void Awake()
         {
             Game_events.Day_stage_changed.AddListener(Update_music);
-
-            Game_events.Sunny_day_started.AddListener(Update_ambiance);
-            Game_events.Rain_day_started.AddListener(Update_ambiance);
-            Game_events.Storm_day_started.AddListener(Update_ambiance);
+            Game_events.Day_stage_changed.AddListener(Update_ambiance);
         }
 
+        /// CORE METHODS
         private AudioClip Get_music_by_name(string name)
         {
             AudioClip clip = null;
 
-            clip = Musics.Find(m => string.Equals(m.Music_name, name, System.StringComparison.OrdinalIgnoreCase)).Clip;
+            // Get
+            Music_settings music = Musics.Find(m => string.Equals(m.Music_name, name, System.StringComparison.OrdinalIgnoreCase));
+
+            if (music != null)
+            {
+                // Set
+                clip = music.Clips_variations[Random.Range(0, music.Clips_variations.Count)];
+            }
 
             return clip;
         }
@@ -82,13 +88,14 @@ namespace Game.Controller.Audio
             return settings;
         }
 
-        private void Update_music(Game_controller.Day_stages stage)
+        private void Update_music()
         {
-            if(IsTransitioning) { return; }
+            if (IsTransitioning)
+                return;
 
             AudioClip target_clip = null;
 
-            switch (stage)
+            switch (Game_controller.Current_day_stage)
             {
                 case Game_controller.Day_stages.Day:
                     target_clip = Get_music_by_name("Day");
@@ -99,12 +106,17 @@ namespace Game.Controller.Audio
                     break;
 
                 case Game_controller.Day_stages.Rain:
+                    target_clip = Get_music_by_name("Rain");
                     break;
 
                 case Game_controller.Day_stages.Storm:
                     break;
 
                 case Game_controller.Day_stages.Blood_moon:
+                    break;
+
+                case Game_controller.Day_stages.Boss:
+                    target_clip = Get_music_by_name("Boss");
                     break;
             }
 
@@ -131,14 +143,18 @@ namespace Game.Controller.Audio
 
         private void Update_ambiance ()
         {
-            switch (Weather_cycle.Weather)
+            switch (Game_controller.Current_day_stage)
             {
-                case Weather_cycle.Weathers.Sunny:
+                case Game_controller.Day_stages.Day:
                     Set_ambiance_audio_to_audioSource(Get_ambiance_sound_settings_by_name("Wind"));
                     break;
 
-                case Weather_cycle.Weathers.Rain:
-                case Weather_cycle.Weathers.Storm:
+                case Game_controller.Day_stages.Night:
+                    Set_ambiance_audio_to_audioSource(Get_ambiance_sound_settings_by_name("Night"));
+                    break;
+
+                case Game_controller.Day_stages.Rain:
+                case Game_controller.Day_stages.Storm:
                     Set_ambiance_audio_to_audioSource(Get_ambiance_sound_settings_by_name("Rain"));
                     break;
             }

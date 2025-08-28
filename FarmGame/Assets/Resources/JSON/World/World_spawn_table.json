@@ -7,7 +7,7 @@
   {
     "Entity_name": "Iron stone",
     "Entity_resources_path": "Prefabs/Objects/Iron_stone_object",
-    "Probability": 0.02
+    "Probability": 0.01
   },
   {
     "Entity_name": "Silver stone",
@@ -17,7 +17,7 @@
   {
     "Entity_name": "Gold stone",
     "Entity_resources_path": "Prefabs/Objects/Gold_stone_object",
-    "Probability": 0.01
+    "Probability": 0.005
   },
   {
     "Entity_name": "Tree",
