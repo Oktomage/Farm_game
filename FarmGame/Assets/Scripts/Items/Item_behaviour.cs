@@ -69,6 +69,10 @@ namespace Game.Items
 
             switch(ItemData.ToolType)
             {
+                case Tool_behaviour.ToolType.Sword:
+                    this.gameObject.AddComponent<Sword>();
+                    break;
+
                 case Tool_behaviour.ToolType.Bow:
                     this.gameObject.AddComponent<Bow>();
                     break;

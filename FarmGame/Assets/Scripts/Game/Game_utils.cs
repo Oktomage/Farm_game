@@ -304,9 +304,15 @@ namespace Game.Utils
                 switch(cvn_gp.alpha)
                 {
                     case 0f:
+                        // Set
+                        cvn_gp.blocksRaycasts = true;
+
                         Fade_effect_routine = StartCoroutine(FadeCoroutine(startAlpha: 0f, endAlpha: 1f, Duration));
                         break;
                     case 1f:
+                        // Set
+                        cvn_gp.blocksRaycasts = false;
+
                         Fade_effect_routine = StartCoroutine(FadeCoroutine(startAlpha: 1f, endAlpha: 0f, Duration));
                         break;
                 }

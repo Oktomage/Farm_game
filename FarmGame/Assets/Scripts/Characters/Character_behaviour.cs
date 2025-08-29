@@ -89,6 +89,9 @@ namespace Game.Characters
         public Animator Anim => this.gameObject.GetComponentInChildren<Animator>();
         public Rigidbody2D Rigid => this.gameObject.GetComponent<Rigidbody2D>();
         public Collider2D Collider => this.gameObject.GetComponentInChildren<Collider2D>();
+        [SerializeField] internal Transform Hand_pivot;
+        internal GameObject Swing_shadow_obj;
+        internal TrailRenderer Swing_trail;
 
         [Space(30)]
         //Internal variables
@@ -100,6 +103,7 @@ namespace Game.Characters
         [SerializeField] internal List<Object_behaviour> Objects_nearby = new List<Object_behaviour>();
         [SerializeField] internal List<Character_behaviour> Characters_nearby = new List<Character_behaviour>();
         [SerializeField] internal GameObject Last_damaged_by_obj;
+        internal Vector2 Hand_grip_offset => new Vector2(0.5f * transform.localScale.x, 0);
 
         private void Awake()
         {
@@ -136,7 +140,7 @@ namespace Game.Characters
 
         internal void Configure(Character_scriptable character_scriptable)
         {
-            //Set
+            // Set
             transform.localScale *= character_scriptable.Size_multiplier;
 
             Name = character_scriptable.Name;
@@ -161,14 +165,46 @@ namespace Game.Characters
 
             IsBoss = character_scriptable.IsBoss;
 
-            //Audios
+            // Audios
             Idle_sound = character_scriptable.Idle_sound;
             Move_sound = character_scriptable.Move_sound;
             Attack_sound = character_scriptable.Attack_sound;
             Hurt_sound = character_scriptable.Hurt_sound;
             Death_sound = character_scriptable.Death_sound;
 
-            //Routines
+            // Hand
+            Hand_pivot = Game_utils.Instance.Create_gameObject(this.gameObject).transform;
+            Hand_pivot.name = "Hand_pivot";
+
+            Swing_shadow_obj = Game_utils.Instance.Create_gameObject(Hand_pivot.gameObject);
+            Swing_shadow_obj.name = "Swing_shadow";
+            Swing_shadow_obj.transform.localPosition = Hand_grip_offset;
+
+            Swing_trail = Swing_shadow_obj.AddComponent<TrailRenderer>();
+
+            Swing_trail.time = 0.2f;
+            Swing_trail.widthCurve = new AnimationCurve(
+                new Keyframe(0f, 0.5f),   // Início: tempo 0, valor 0.2
+                new Keyframe(1f, 0f)      // Fim: tempo 1, valor 0
+            );
+            Swing_trail.material = Game_utils.Instance.Get_material("Materials/Default_material");
+            Swing_trail.colorGradient = new Gradient
+            {
+                colorKeys = new GradientColorKey[]
+                {
+                    new GradientColorKey(Color.white, 0f),
+                    new GradientColorKey(Color.white, 1f)
+                },
+                alphaKeys = new GradientAlphaKey[]
+                {
+                    new GradientAlphaKey(0.3f, 0f),
+                    new GradientAlphaKey(0f, 1f)
+                }
+            };
+
+            Swing_trail.emitting = false;
+
+            // Routines
             StartCoroutine(Regens());
             StartCoroutine(Detect_items_nearby());
             StartCoroutine(Animator_controller());
@@ -185,7 +221,7 @@ namespace Game.Characters
             //Set
             IsAlive = false;
 
-            if(Last_damaged_by_obj.CompareTag("Player"))
+            if (Last_damaged_by_obj != null && Last_damaged_by_obj.CompareTag("Player"))
             {
                 Player_data.Instance.Add_souls(Souls);
 
@@ -514,6 +550,14 @@ namespace Game.Characters
             }
         }
 
+        internal void Swing_hand(Vector2 dir)
+        {
+            dir.Normalize();
+            float baseAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+            StartCoroutine(Swing_routine(baseAngle));
+        }
+
         internal void Fix_character()
         {
             for (int i = 0; i < Inventory.Count; i++)
@@ -625,14 +669,15 @@ namespace Game.Characters
                 yield return new WaitForSeconds(0.1f);
 
                 Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, detectionRadius);
-                List<Character_behaviour> detectedCharacters = new List<Character_behaviour>();
+                List<Character_behaviour> detected_Characters = new List<Character_behaviour>();
 
                 foreach (var hit in hits)
                 {
                     Character_behaviour character = hit.GetComponentInParent<Character_behaviour>();
+                    
                     if (character != null && character != this) // Avoid self
                     {
-                        detectedCharacters.Add(character);
+                        detected_Characters.Add(character);
 
                         // Add
                         if (!Characters_nearby.Contains(character))
@@ -645,7 +690,7 @@ namespace Game.Characters
                 //Remove characters that are no longer detected
                 for (int i = Characters_nearby.Count - 1; i >= 0; i--)
                 {
-                    if (!detectedCharacters.Contains(Characters_nearby[i]))
+                    if (!detected_Characters.Contains(Characters_nearby[i]))
                     {
                         Characters_nearby.RemoveAt(i);
                     }
@@ -706,6 +751,35 @@ namespace Game.Characters
 
                 Current_grid = foundGrid;
             }
+        }
+
+        private IEnumerator Swing_routine(float baseAngle)
+        {
+            float swingArc = 170f;
+            float swingDuration = 0.15f;
+
+            float startAngle = baseAngle - swingArc * 0.5f;
+            float endAngle = baseAngle + swingArc * 0.5f;
+
+            // Set
+            Swing_trail.emitting = true;
+
+            float t = 0f;
+
+            // Swing
+            while (t < swingDuration)
+            {
+                t += Time.deltaTime;
+                float k = Mathf.Clamp01(t / swingDuration);
+
+                float current = Mathf.LerpAngle(startAngle, endAngle, k);
+                Hand_pivot.localRotation = Quaternion.AngleAxis(current, Vector3.forward);
+
+                yield return null;
+            }
+
+            // Set
+            Swing_trail.emitting = false;
         }
 
         void OnDrawGizmosSelected()

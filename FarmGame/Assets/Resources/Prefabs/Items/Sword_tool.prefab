@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2965788846529195481}
   - component: {fileID: 7944667305557677869}
   - component: {fileID: 3702052039303100903}
+  - component: {fileID: 2120100447232766995}
   - component: {fileID: 4686851180115425507}
   m_Layer: 0
   m_Name: Sword_tool
@@ -50,9 +51,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemData: {fileID: 11400000, guid: 9f00d75170bc3024a9457b6374148a1d, type: 2}
+  Character: {fileID: 0}
   Render: {fileID: 4078263930643548334}
   Render_shadow: {fileID: 2138803818626573990}
-  Collider: {fileID: 7546221410144661262}
   IsCollectable: 1
 --- !u!114 &3702052039303100903
 MonoBehaviour:
@@ -66,8 +67,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a43a9c25c1a3a343a6d9747f434bf56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Character: {fileID: 0}
   Type: 6
+--- !u!114 &2120100447232766995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2660444346253801280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78cd5c37af3a8ac47b8d0848f8f51379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Items.Weapons.Sword
 --- !u!114 &4686851180115425507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectType: 1
-  Render: {fileID: 0}
+  Extra_settings_scriptable: {fileID: 0}
 --- !u!1 &2839533667155663108
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,6 +214,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -223,6 +237,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
@@ -289,6 +304,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -310,6 +327,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0

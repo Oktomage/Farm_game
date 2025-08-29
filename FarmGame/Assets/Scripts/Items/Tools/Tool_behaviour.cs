@@ -50,15 +50,15 @@ namespace Game.Items.Tools
             switch (Type)
             {
                 case ToolType.Axe:
-                    Cut();
+                    Cut(dir);
                     break;
 
                 case ToolType.Pickaxe:
-                    Mine();
+                    Mine(dir);
                     break;
 
                 case ToolType.Hoe:
-                    Plow(Character.Current_grid);
+                    Plow(Character.Current_grid, dir);
                     break;
 
                 case ToolType.WateringCan:
@@ -72,7 +72,7 @@ namespace Game.Items.Tools
                     break;
 
                 case ToolType.Sword:
-                    Melee_attack();
+                    Melee_attack(dir);
                     break;
 
                 case ToolType.Seeds:
@@ -90,7 +90,7 @@ namespace Game.Items.Tools
         }
 
         /// TOOL ACTIONS METHODS
-        private void Cut()
+        private void Cut(Vector2 dir)
         {
             if(Character.Objects_nearby.Count > 0)
             {
@@ -110,18 +110,19 @@ namespace Game.Items.Tools
                 {
                     tree.Take_damage(1f);
 
-                    //Set character state
+                    // Set character state
                     Character.IsCutting = true;
+                    Character.Swing_hand(dir);
 
                     StartCoroutine(Action_time(0.3f));
 
-                    //Audio
+                    // Audio
                     Game_utils.Instance.Create_sound("Axe_sound", "Audios/Tools/Axe_1", Character.transform.position);
                 }
             }
         }
 
-        private void Mine()
+        private void Mine(Vector2 dir)
         {
             if (Character.Objects_nearby.Count > 0)
             {
@@ -132,6 +133,7 @@ namespace Game.Items.Tools
                 {
                     if (obj.TryGetComponent<Stone_entity>(out Stone_entity found_stone))
                     {
+                        // Set
                         stone = found_stone;
                         break;
                     }
@@ -141,39 +143,31 @@ namespace Game.Items.Tools
                 {
                     stone.Take_damage(1f);
 
-                    //Set character state
+                    // Set character state
                     Character.IsMining = true;
+                    Character.Swing_hand(dir);
 
                     StartCoroutine(Action_time(0.3f));
 
-                    //Audio
+                    // Audio
                     Game_utils.Instance.Create_sound("Pickaxe_sound", "Audios/Tools/Pickaxe_1", Character.transform.position);
                 }
             }
         }
 
-        private void Melee_attack()
+        private void Melee_attack(Vector2 dir)
         {
-            if (Character.Characters_nearby.Count > 0)
-            {
-                // Get character to attack
-                //Character_behaviour other_character = null;
+            if (Character.IsAttacking)
+                return;
 
-                foreach (Character_behaviour other_char in Character.Characters_nearby.ToArray())
-                {
-                    Character.Hit_other_entity(other_char.gameObject);
+            Sword sword = this.gameObject.GetComponent<Sword>();
+            sword.Attack(dir);
 
-                    // Set character state
-                    Character.IsAttacking = true;
+            // Set character state
+            Character.IsAttacking = true;
+            Character.Swing_hand(dir);
 
-                    StartCoroutine(Action_time(0.3f));
-
-                    // Audio
-                    Game_utils.Instance.Create_sound("Sword_sound", "Audios/Tools/Sword_1", Character.transform.position);
-
-                    break;
-                }
-            }
+            StartCoroutine(Action_time(0.3f));
         }
 
         private void Fire_bow(Vector2 dir)
@@ -183,7 +177,6 @@ namespace Game.Items.Tools
 
             // Fire
             Bow bow = this.gameObject.GetComponent<Bow>();
-
             bow.Fire(dir);
 
             // Set character state
@@ -202,11 +195,11 @@ namespace Game.Items.Tools
 
             // Fire
             Magic_wand wand = this.gameObject.GetComponent<Magic_wand>();
-
             wand.Fire(dir);
 
             // Set character state
             Character.IsAttacking = true;
+            Character.Swing_hand(dir);
 
             StartCoroutine(Action_time(0.3f));
 
@@ -214,7 +207,7 @@ namespace Game.Items.Tools
             Game_utils.Instance.Create_sound("Sword_sound", "Audios/Spells/Fireball_1", Character.transform.position);
         }
 
-        private void Plow(Grid_controller grid)
+        private void Plow(Grid_controller grid, Vector2 dir)
         {
             if (grid == null) return;
 

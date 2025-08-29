@@ -28,11 +28,13 @@ namespace Game.Characters.Player
         /// MAIN METHODS
         private void Read_inputs()
         {
+            // Movement functions
             if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
             {
                 Ask_move(new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0));
             }
 
+            // Interaction functions
             if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.KeypadEnter))
             {
                 Ask_collet();
@@ -43,11 +45,13 @@ namespace Game.Characters.Player
                 Ask_interact(key: KeyCode.R);
             }
 
+            // Actions functions
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Character.Use_tool();
             }
 
+            // Inventory functions
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 Character.Select_item_from_inventory(0);
@@ -55,6 +59,13 @@ namespace Game.Characters.Player
             else if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 Character.Select_item_from_inventory(1);
+            }
+
+            if (Input.GetAxisRaw("Mouse ScrollWheel") != 0f)
+            {
+                float scroll_value = Mathf.Sign(Input.GetAxisRaw("Mouse ScrollWheel"));
+
+                Character.Select_item_from_inventory(Character.Selected_item_index + (int)scroll_value);
             }
 
             if (Input.GetKeyDown(KeyCode.Q))
