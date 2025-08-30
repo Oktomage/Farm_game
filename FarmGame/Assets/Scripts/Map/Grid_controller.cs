@@ -1,3 +1,4 @@
+using Game.Utils;
 using System.Collections.Generic;
 using UnityEngine;
 using static Game.Grids.Grid_controller.Cell;
@@ -41,6 +42,7 @@ namespace Game.Grids
         {
             Local_grid = new Cell[(int)size.x, (int)size.y];
 
+            // Create cells
             for (int x = 0; x < size.x; x++)
             {
                 for (int y = 0; y < size.y; y++)
@@ -56,7 +58,7 @@ namespace Game.Grids
                 }
             }
 
-            //Create collider
+            // Create collider
             Collider = gameObject.AddComponent<BoxCollider2D>();
             BoxCollider2D box_coll = Collider as BoxCollider2D;
 
@@ -108,6 +110,9 @@ namespace Game.Grids
                         Plowed_ground.transform.position = new Vector3(cell.world_x + 0.5f, cell.world_y + 0.5f, 0);
 
                         Cell_objects.Add(cell, Plowed_ground);
+
+                        // Effects
+                        Game_utils.Instance.Create_particle_from_resources("Prefabs/Particles/Dirt_sparks", new Vector2(cell.world_x + 0.5f, cell.world_y + 0.5f));
                         break;
 
                     default:

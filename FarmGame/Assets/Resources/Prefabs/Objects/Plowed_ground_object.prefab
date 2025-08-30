@@ -52,6 +52,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -73,10 +75,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: 6500312130145788974, guid: 33ca0aa1913d57346a5f0b85f5afa938, type: 3}
+  m_Sprite: {fileID: 2576398749614335635, guid: 583374c5fd002324a9e13d4c864ad129, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -135,8 +138,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectData: {fileID: 11400000, guid: afea8908b9b2e2d45930074a5daf1625, type: 2}
-  Render: {fileID: 9200638568114662511}
-  Collider: {fileID: 1464708934735897566}
 --- !u!114 &4419633832312615013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73439e692fca0b348a374e59b70f335a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Is_occupied: 0
   Local_crop: {fileID: 0}
 --- !u!1 &6281730006562751435
 GameObject:

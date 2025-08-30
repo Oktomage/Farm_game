@@ -209,7 +209,8 @@ namespace Game.Items.Tools
 
         private void Plow(Grid_controller grid, Vector2 dir)
         {
-            if (grid == null) return;
+            if (grid == null) 
+                return;
 
             // Get the grid position based on the character's position
             Vector2 character_world_grid_position = new Vector2(Mathf.FloorToInt(Character.transform.position.x), Mathf.FloorToInt(Character.transform.position.y));

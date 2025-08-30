@@ -96,7 +96,7 @@ namespace Game.Crafting
                 Game_utils.Instance.Create_sound("Craft_sound", "Audios/Objects/Anvil_1", transform.position);
 
                 // Effects
-                Game_utils.Instance.Create_particle_from_resources("Prefabs/Particles/Workbench_gears", transform.position);
+                Game_utils.Instance.Create_particle_from_resources("Prefabs/Particles/Craft_sparks", transform.position);
             }
             else
             {

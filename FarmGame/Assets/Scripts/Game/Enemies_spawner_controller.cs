@@ -132,6 +132,8 @@ namespace Game.Controller
         {
             while (IsSpawning)
             {
+                yield return new WaitForSeconds(Spawn_interval);
+
                 Spawn_enemy();
 
                 if (Can_SpawnBoss)
@@ -143,8 +145,6 @@ namespace Game.Controller
                         Spawn_boss();
                     }
                 }
-
-                yield return new WaitForSeconds(Spawn_interval);
             }
         }
     }

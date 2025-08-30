@@ -201,6 +201,7 @@ namespace Game.Characters
                     new GradientAlphaKey(0f, 1f)
                 }
             };
+            Swing_trail.sortingOrder = 2;
 
             Swing_trail.emitting = false;
 
@@ -556,6 +557,9 @@ namespace Game.Characters
             float baseAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
             StartCoroutine(Swing_routine(baseAngle));
+
+            // Audio
+            Game_utils.Instance.Create_sound("Swing_sound", "Audios/Tools/Swing_1", transform.position);
         }
 
         internal void Fix_character()

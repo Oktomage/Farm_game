@@ -37,10 +37,10 @@ namespace Game.Items.Tools
 
         internal void Delete_bag()
         {
-            //Remove item from character inventory
+            // Remove item from character inventory
             Item_behaviour.Delete_item();
 
-            //Events
+            // Events
             if (Tool_behaviour.Character != null && Tool_behaviour.Character.IsPlayer)
             {
                 Game_events.Player_character_used_item.Invoke();
@@ -57,15 +57,18 @@ namespace Game.Items.Tools
 
             for (int i = 0; i < ammount; i++)
             {
-                //Plant
+                // Plant
                 if(spots.Count > 0)
                 {
                     Seed_ammount--;
 
                     spots[i].Plant_crop(CropData);
 
-                    //Audio
+                    // Audio
                     Game_utils.Instance.Create_sound("Hoe_sound", "Audios/Tools/Plant_1", spots[i].transform.position);
+
+                    // Effects
+                    Game_utils.Instance.Create_particle_from_resources("Prefabs/Particles/Seed_sparks", spots[i].transform.position);
                 }
 
                 if (Seed_ammount <= 0)
