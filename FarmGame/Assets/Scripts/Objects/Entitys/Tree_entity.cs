@@ -58,6 +58,8 @@ namespace Game.Objects.Entitys
             {
                 effectController.Force_effect(Effects_controller.EffectType.Boing);
             }
+
+            Game_utils.Instance.Create_particle_from_resources("Prefabs/Particles/Tree_leaf_fall", new Vector2(transform.position.x, transform.position.y + 1f));
         }
 
         private void Drop_items()

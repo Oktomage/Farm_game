@@ -51,6 +51,9 @@ namespace Game.Objects.Entitys
             {
                 effectController.Force_effect(Effects_controller.EffectType.Boing);
             }
+
+            // Effects
+            Game_utils.Instance.Create_particle_from_resources("Prefabs/Particles/Stone_sparks", transform.position);
         }
 
         private void Drop_items()

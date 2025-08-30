@@ -283,6 +283,7 @@ namespace Game.Utils
                 yield return null;
             }
 
+            // Set end scale
             rect.localScale = to;
         }
 

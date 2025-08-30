@@ -2,6 +2,7 @@ using Game.Characters;
 using Game.Characters.Shopper;
 using Game.Controller;
 using Game.Items;
+using Game.Utils.Misc;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -49,6 +50,9 @@ namespace Game.Events
         public static Enemy_took_damageEvent Enemy_took_damage = new Enemy_took_damageEvent();
 
         public static UnityEvent Enemy_died = new UnityEvent();
+
+        public class Attack_indicatorEvent : UnityEvent<Attack_indicator_controller.Indicator_info, Vector2> { }
+        public static Attack_indicatorEvent Attack_indicator = new Attack_indicatorEvent();
 
         public static UnityEvent New_day = new UnityEvent();
         public static UnityEvent New_hour = new UnityEvent();

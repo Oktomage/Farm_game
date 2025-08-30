@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cd097bca1ef5ef48871cff4d44b13da, type: 3}
+  m_Name: Ground_hit
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Magic.Spell_scriptable
+  Spell_name: 
+  Spell_description: 
+  Area_effect_type: 0
+  Damage: 0
+  Radius: 0
+  Cast_time: 0
+  Duration: 0
