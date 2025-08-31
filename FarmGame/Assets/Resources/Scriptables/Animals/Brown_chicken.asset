@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36fb45de3db820b4aadef4c9c5fa640d, type: 3}
+  m_Name: Brown_chicken
+  m_EditorClassIdentifier: 
+  Name: Brown chicken
+  Size_multiplier: 1
+  Max_health: 1
+  Move_speed: 1
+  Damage: 0
+  Souls_reward: 1
+  IsExtraStrong: 0
+  IsExtraFast: 0
+  HaveMagicalResistance: 0
+  HavePhysicalResistance: 0
+  IsBoss: 0
+  Menance_class: 0
+  Icon: {fileID: -3888248066327895594, guid: 440f8fb2b88a74f4a9a935ef287b86cb, type: 3}
+  Item_drop: {fileID: 0}
+  Drop_chance: 0.5
+  Idle_sound: {fileID: 8300000, guid: 9d6cc96dbec39e54ca8f06690b2a2543, type: 3}
+  Move_sound: {fileID: 8300000, guid: 27b495272ba7c9d48a8398852b4ccb6f, type: 3}
+  Attack_sound: {fileID: 0}
+  Hurt_sound: {fileID: 8300000, guid: c592d0a31148a4943b56383e9fcfe066, type: 3}
+  Death_sound: {fileID: 8300000, guid: 67b3ae135b8fcb347968f5bacd46b710, type: 3}

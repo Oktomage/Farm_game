@@ -51,12 +51,13 @@ namespace Game.Characters.Player
             {
                 Character.Use_tool();
 
+                /*
                 Game_events.Attack_indicator.Invoke(new Utils.Misc.Attack_indicator_controller.Indicator_info
                 {
                     Format = Utils.Misc.Attack_indicator_controller.Indicator_info.Indicator_formats.Circle,
                     Duration = 2f,
                     Radius = 1f
-                }, transform.position);
+                }, transform.position);*/
             }
 
             // Inventory functions

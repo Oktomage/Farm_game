@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using System.Linq;
+using Game.Characters.Animals;
+
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -90,10 +92,23 @@ namespace Game.Utils
 
             Enemy_controller Enm_ctrl = new_enemy_obj.GetComponent<Enemy_controller>();
 
-            //Set
+            // Set
             Enm_ctrl.Set_characterData(char_scriptable as Character_scriptable);
 
             return new_enemy_obj;
+        }
+
+        public GameObject Create_animal(ScriptableObject char_scriptable, Vector2 origin_grid_pos)
+        {
+            GameObject new_animal_obj = Create_prefab_from_resources("Prefabs/Animals/Animal");
+            new_animal_obj.transform.position = origin_grid_pos;
+
+            Animal_controller Anm_ctrl = new_animal_obj.GetComponent<Animal_controller>();
+
+            // Set
+            Anm_ctrl.Set_characterData(char_scriptable as Character_scriptable);
+
+            return new_animal_obj;
         }
 
         public ScriptableObject Get_scriptable(string path)

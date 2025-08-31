@@ -1,5 +1,4 @@
 using Game.Events;
-using Game.Map.Controller;
 using Game.Utils;
 using System.Collections;
 using System.Collections.Generic;
@@ -110,6 +109,7 @@ namespace Game.Controller.Audio
                     break;
 
                 case Game_controller.Day_stages.Storm:
+                    target_clip = Get_music_by_name("Storm");
                     break;
 
                 case Game_controller.Day_stages.Blood_moon:
@@ -154,8 +154,10 @@ namespace Game.Controller.Audio
                     break;
 
                 case Game_controller.Day_stages.Rain:
-                case Game_controller.Day_stages.Storm:
                     Set_ambiance_audio_to_audioSource(Get_ambiance_sound_settings_by_name("Rain"));
+                    break;
+                case Game_controller.Day_stages.Storm:
+                    Set_ambiance_audio_to_audioSource(Get_ambiance_sound_settings_by_name("Storm"));
                     break;
             }
         }

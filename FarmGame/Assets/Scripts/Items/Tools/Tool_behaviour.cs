@@ -94,15 +94,20 @@ namespace Game.Items.Tools
         {
             if(Character.Objects_nearby.Count > 0)
             {
-                //Search for a tree in the nearby objects
+                // Search for a tree in the nearby objects
                 Tree_entity tree = null;
 
                 foreach (Object_behaviour obj in Character.Objects_nearby.ToArray())
                 {
                     if (obj.TryGetComponent<Tree_entity>(out Tree_entity found_tree))
                     {
-                        tree = found_tree;
-                        break;
+                        if(!found_tree.IsFalling)
+                        {
+                            // Set
+                            tree = found_tree;
+
+                            break;
+                        }
                     }
                 }
 

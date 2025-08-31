@@ -66,7 +66,7 @@ namespace Game.Map.Controller
                 Animal
             }
 
-            internal Entity_types Type;
+            internal Entity_types Entity_type;
         }
         private GameObject Spawn_entity(Entity_info info, Vector2 pos)
         {
@@ -93,16 +93,28 @@ namespace Game.Map.Controller
                 //Spawn entity
                 if (randomValue <= probabilityAccumulator)
                 {
-                    GameObject spawnedEntity = Game_utils.Instance.Create_prefab_from_resources(World_spawn_table[i].Entity_resources_path);
-                    spawnedEntity.transform.position = pos;
+                    switch(info.Entity_type)
+                    {
+                        case Entity_info.Entity_types.Object:
+                            GameObject spawnedObject = Game_utils.Instance.Create_prefab_from_resources(World_spawn_table[i].Entity_resources_path, pos);
 
-                    Objects_generated++;
+                            // Set
+                            Objects_generated++;
 
-                    return spawnedEntity;
+                            return spawnedObject;
+
+                        case Entity_info.Entity_types.Animal:
+                            GameObject spawnedAnimal = Game_utils.Instance.Create_animal(Game_utils.Instance.Get_scriptable("Scriptables/Animals/White_chicken"), pos);
+
+                            // Set
+                            Animals_generated++;
+
+                            return spawnedAnimal;
+                    }
                 }
             }
 
-            return null; // fallback (não deveria chegar aqui)
+            return null;
         }
 
         private bool Check_if_can_spawn_at_cell(Vector2 pos)
@@ -139,13 +151,15 @@ namespace Game.Map.Controller
                         // Object
                         if (Objects_generated < Max_world_objects)
                         {
-                            entity_Info.Type = Entity_info.Entity_types.Object;
+                            entity_Info.Entity_type = Entity_info.Entity_types.Object;
                         }
+                        // Animal
                         else if (Animals_generated < Max_world_animals)
                         {
-                            entity_Info.Type = Entity_info.Entity_types.Animal;
+                            entity_Info.Entity_type = Entity_info.Entity_types.Animal;
                         }
 
+                        // Create
                         entity = Spawn_entity(entity_Info, pos);
                     }
 

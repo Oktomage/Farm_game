@@ -33,5 +33,10 @@
     "Entity_name": "Butterflies",
     "Entity_resources_path": "Prefabs/Objects/Butterflies_object",
     "Probability": 0.005
+  },
+  {
+    "Entity_name": "Animal",
+    "Entity_resources_path": "Prefabs/Animals/Animal",
+    "Probability": 0.01
   }
 ]

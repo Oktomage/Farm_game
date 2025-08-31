@@ -580,8 +580,13 @@ namespace Game.Characters
             {
                 yield return new WaitForSeconds(Random.Range(10f, 30f));
 
-                // Audio
-                Game_utils.Instance.Create_sound("Idle_sound", Idle_sound, transform.position);
+                float c = Random.value;
+
+                if(c <= 0.5f)
+                {
+                    // Audio
+                    Game_utils.Instance.Create_sound("Idle_sound", Idle_sound, transform.position);
+                }
             }
         }
 
