@@ -1,11 +1,13 @@
 using Game.Characters.Data;
 using Game.Characters.Shopper;
+using Game.Characters.Spells;
 using Game.Crafting;
 using Game.Effects;
 using Game.Events;
 using Game.Grids;
 using Game.Items;
 using Game.Items.Tools;
+using Game.Magic;
 using Game.Objects;
 using Game.Objects.Cristal;
 using Game.UI.Notifications;
@@ -43,6 +45,10 @@ namespace Game.Characters
         public bool HaveMagicalResistance;
         public bool HavePhysicalResistance;
 
+        [Space]
+        internal bool CanUseMagic;
+        internal List<Spell_scriptable> Spells = new List<Spell_scriptable>();
+
         public enum Character_stances
         {
             Idle,
@@ -62,6 +68,7 @@ namespace Game.Characters
 
         [Space]
         internal bool IsUsingTool = false;
+        internal bool IsUsingSpell = false;
         internal bool IsAlive = true;
         internal bool IsMoving = false;
         internal bool IsPlowing = false;
@@ -89,6 +96,7 @@ namespace Game.Characters
         public Animator Anim => this.gameObject.GetComponentInChildren<Animator>();
         public Rigidbody2D Rigid => this.gameObject.GetComponent<Rigidbody2D>();
         public Collider2D Collider => this.gameObject.GetComponentInChildren<Collider2D>();
+        public Character_spells_controller character_spells_controller => this.gameObject.GetComponent<Character_spells_controller>();
         [SerializeField] internal Transform Hand_pivot;
         internal GameObject Swing_shadow_obj;
         internal TrailRenderer Swing_trail;
@@ -155,6 +163,13 @@ namespace Game.Characters
             HaveMagicalResistance = character_scriptable.HaveMagicalResistance;
             HavePhysicalResistance = character_scriptable.HavePhysicalResistance;
             Recieve_extra_bonuses();
+
+            CanUseMagic = character_scriptable.CanUseMagic;
+
+            foreach(Spell_scriptable spell in character_scriptable.Spells)
+            {
+                Spells.Add(spell);
+            }
 
             Current_stance = Character_stances.Idle;
 
@@ -444,7 +459,7 @@ namespace Game.Characters
 
         internal void Hit_other_entity(GameObject obj)
         {
-            //Check if the object is a character
+            // Check if the object is a character
             obj.TryGetComponent<Character_behaviour>(out Character_behaviour other_character);
 
             if(other_character != null)

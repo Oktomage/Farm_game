@@ -1,5 +1,7 @@
 using Game.Items;
+using Game.Magic;
 using NaughtyAttributes;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game.Characters
@@ -38,6 +40,11 @@ namespace Game.Characters
         [Header("Class settings")]
         public bool IsBoss = false;
         public Character_menance_class Menance_class = Character_menance_class.Common;
+
+        [Header("Magic settings")]
+        public bool CanUseMagic = false;
+        [ShowIf("CanUseMagic")]
+        public List<Spell_scriptable> Spells = new List<Spell_scriptable>();
 
         [Space]
         public Sprite Icon;

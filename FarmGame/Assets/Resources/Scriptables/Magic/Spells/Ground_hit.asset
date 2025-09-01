@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cd097bca1ef5ef48871cff4d44b13da, type: 3}
   m_Name: Ground_hit
   m_EditorClassIdentifier: Assembly-CSharp::Game.Magic.Spell_scriptable
-  Spell_name: 
-  Spell_description: 
+  Spell_name: Ground hit
+  Spell_description: Heavy hit on the ground
   Area_effect_type: 0
-  Damage: 0
-  Radius: 0
-  Cast_time: 0
-  Duration: 0
+  Damage: 5
+  Radius: 2
+  Cast_time: 1
+  Duration: 2

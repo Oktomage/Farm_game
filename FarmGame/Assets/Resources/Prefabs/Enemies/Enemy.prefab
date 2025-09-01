@@ -52,6 +52,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -73,6 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -97,6 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8689051150333293092}
   - component: {fileID: 1369854502844881500}
+  - component: {fileID: 2744582338485230907}
   - component: {fileID: 205274550005839799}
   - component: {fileID: 2680725522142115534}
   - component: {fileID: 4142763327523420172}
@@ -137,33 +141,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f36a2a977e42e24e85c7d65912f82c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Render: {fileID: 5439726449974665950}
-  Anim: {fileID: 0}
-  Rigid: {fileID: 4142763327523420172}
-  Collider: {fileID: 6173384385870898535}
+  Name: 
   Health: 5
   Max_health: 5
   MoveSpeed: 5
   AttackDamage: 1
   detectionRadius: 1.5
+  Souls: 1
+  IsExtraStrong: 0
+  IsExtraFast: 0
+  HaveMagicalResistance: 0
+  HavePhysicalResistance: 0
+  Current_stance: 0
   IsPlayer: 0
+  IsAlly: 0
   IsEnemy: 1
-  IsAlive: 1
-  IsMoving: 0
-  IsPlowing: 0
-  IsWatering: 0
-  IsAttacking: 0
-  IsHarvesting: 0
-  IsMining: 0
-  IsCutting: 0
-  InventorySize: 2
+  IsBoss: 0
+  IsEnraged: 0
   Inventory: []
   Equipped_tool: {fileID: 0}
-  Selected_item_index: 0
+  Idle_sound: {fileID: 0}
+  Move_sound: {fileID: 0}
+  Attack_sound: {fileID: 0}
+  Hurt_sound: {fileID: 0}
+  Death_sound: {fileID: 0}
+  Hand_pivot: {fileID: 0}
+  IsGodMode: 0
   Items_nearby: []
   Current_grid: {fileID: 0}
   Objects_nearby: []
   Characters_nearby: []
+  Last_damaged_by_obj: {fileID: 0}
+--- !u!114 &2744582338485230907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4605249619224407201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c9b199b9c73a144a885fca3b40f088, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Characters.Spells.Character_spells_controller
 --- !u!114 &205274550005839799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,8 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a826821f76a95b0428e4091e04f73e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: 4555892e5083fb74496f66ea71537c69, type: 2}
-  Character: {fileID: 1369854502844881500}
+  characterData: {fileID: 0}
   Target: {fileID: 0}
 --- !u!114 &2680725522142115534
 MonoBehaviour:
@@ -192,7 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectType: 0
-  Render: {fileID: 0}
+  Extra_settings_scriptable: {fileID: 0}
 --- !u!50 &4142763327523420172
 Rigidbody2D:
   serializedVersion: 5
@@ -272,6 +291,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -293,6 +314,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2

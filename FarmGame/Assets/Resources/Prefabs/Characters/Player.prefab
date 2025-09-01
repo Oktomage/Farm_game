@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3358910794601978001}
   - component: {fileID: 9166068143536640882}
+  - component: {fileID: 7377370672965488165}
   - component: {fileID: 8545831413392152420}
   - component: {fileID: 2354964210569342709}
   - component: {fileID: 2930333737482570999}
@@ -52,43 +53,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f36a2a977e42e24e85c7d65912f82c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Name: 
   Health: 5
   Max_health: 5
   MoveSpeed: 5
   AttackDamage: 1
   detectionRadius: 1.2
   Souls: 1
+  IsExtraStrong: 0
+  IsExtraFast: 0
+  HaveMagicalResistance: 0
+  HavePhysicalResistance: 0
+  Current_stance: 0
   IsPlayer: 0
   IsAlly: 0
   IsEnemy: 0
   IsBoss: 0
-  IsUsingTool: 0
-  IsAlive: 1
-  IsMoving: 0
-  IsPlowing: 0
-  IsWatering: 0
-  IsAttacking: 0
-  IsHarvesting: 0
-  IsMining: 0
-  IsCutting: 0
-  InventorySize: 2
+  IsEnraged: 0
   Inventory: []
   Equipped_tool: {fileID: 0}
-  Selected_item_index: 0
+  Idle_sound: {fileID: 0}
   Move_sound: {fileID: 0}
   Attack_sound: {fileID: 0}
   Hurt_sound: {fileID: 0}
   Death_sound: {fileID: 0}
-  Render: {fileID: 5246772942222355628}
-  Anim: {fileID: 7177081553399899022}
-  Rigid: {fileID: 7322933393268389994}
-  Collider: {fileID: 9112191582184564355}
+  Hand_pivot: {fileID: 0}
   IsGodMode: 0
   Items_nearby: []
   Current_grid: {fileID: 0}
   Objects_nearby: []
   Characters_nearby: []
   Last_damaged_by_obj: {fileID: 0}
+--- !u!114 &7377370672965488165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610222040005257716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c9b199b9c73a144a885fca3b40f088, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Characters.Spells.Character_spells_controller
 --- !u!114 &8545831413392152420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,8 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectType: 0
-  Souls_aura: 0
-  Souls_aura_color: {r: 1, g: 1, b: 1, a: 1}
+  Extra_settings_scriptable: {fileID: 0}
 --- !u!50 &7322933393268389994
 Rigidbody2D:
   serializedVersion: 5
@@ -294,6 +300,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -315,6 +323,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -382,6 +391,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -403,6 +414,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
