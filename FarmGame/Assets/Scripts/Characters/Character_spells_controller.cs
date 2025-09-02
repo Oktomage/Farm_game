@@ -1,5 +1,6 @@
 using Game.Events;
 using Game.Magic;
+using Game.Magic.Spell;
 using Game.Utils;
 using System.Collections;
 using UnityEngine;
@@ -12,30 +13,26 @@ namespace Game.Characters.Spells
         internal Character_behaviour Character => this.gameObject.GetComponent<Character_behaviour>();
 
         /// CORE METHODS
-        internal void Cast_spell(Spell_scriptable spell, Vector2 origin_pos, GameObject target_obj)
+        internal class Cast_spell_data
         {
-            switch(spell.Spell_name)
-            {
-                case "Ground hit":
-                    StartCoroutine(Cast_ground_hit(spell, origin_pos));
-                    break;
-            }
+            internal Spell_scriptable SpellData;
+
+            internal Vector2 Origin_pos;
+            internal GameObject Target_obj;
         }
 
-        /// MAIN METHODS
-        private IEnumerator Cast_ground_hit(Spell_scriptable spellData, Vector2 pos)
+        internal void Cast_spell(Cast_spell_data data)
         {
-            yield return new WaitForSeconds(spellData.Cast_time);
+            switch(data.SpellData.Spell_name)
+            {
+                case "Ground hit":
+                    GameObject spell_obj = Game_utils.Instance.Create_gameObject(data.Origin_pos);
+                    Ground_hit_spell spell_script = spell_obj.AddComponent<Ground_hit_spell>();
 
-            // Effects
-            Game_utils.Instance.Create_particle_from_resources("Prefabs/Particles/Impact_dirt", pos);
-
-            // Audio
-            Game_utils.Instance.Create_sound("Ground_hit", Game_utils.Instance.Get_audio_clip("Audios/Spells/Heavy_ground_impact_1"), pos);
-
-            // Events
-            Game_events.Camera_shake.Invoke();
-            Game_events.ShaderEffect.Invoke("Shockwave", pos);
+                    // Active
+                    spell_script.Active(Character, data);
+                    break;
+            }
         }
     }
 }

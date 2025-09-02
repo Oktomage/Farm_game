@@ -93,7 +93,7 @@ namespace Game.Characters.Enemies
                 Character.IsUsingSpell = true;
 
                 // Cast
-                Character.character_spells_controller.Cast_spell(spell: spellData, origin_pos: transform.position, target_obj: Target_obj);
+                Character.character_spells_controller.Cast_spell(new Spells.Character_spells_controller.Cast_spell_data { SpellData = spellData, Origin_pos = this.transform.position, Target_obj = Target_obj});
 
                 // Audio
                 Game_utils.Instance.Create_sound("Boss_encounter", "Audios/Characters/Strong_roar_1", transform.position);

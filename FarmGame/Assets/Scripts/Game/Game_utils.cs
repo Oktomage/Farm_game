@@ -41,6 +41,13 @@ namespace Game.Utils
 
             return new_obj;
         }
+        public GameObject Create_gameObject(Vector2 pos)
+        {
+            GameObject new_obj = new GameObject();
+            new_obj.transform.position = pos;
+
+            return new_obj;
+        }
 
         public GameObject Create_prefab_from_resources(string path)
         {

@@ -36,7 +36,7 @@ namespace Game.Map.Controller
 
         private void Start()
         {
-            Start_sunny();
+            //Start_sunny();
             StartCoroutine(Move_water_drops());
         }
 

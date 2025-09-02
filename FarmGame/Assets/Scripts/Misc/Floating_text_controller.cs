@@ -26,7 +26,7 @@ namespace Game.Utils.Misc
         /// CORE METHODS
         private void Read_events(float value, GameObject obj)
         {
-            Draw_text(value.ToString("N2"), obj.transform.position);
+            Draw_text(value.ToString("N1"), obj.transform.position);
         }
 
         /// MAIN METHODS
