@@ -1,3 +1,4 @@
+using Game.Events;
 using Game.Magic;
 using Game.Utils;
 using System.Collections;
@@ -31,6 +32,10 @@ namespace Game.Characters.Spells
 
             // Audio
             Game_utils.Instance.Create_sound("Ground_hit", Game_utils.Instance.Get_audio_clip("Audios/Spells/Heavy_ground_impact_1"), pos);
+
+            // Events
+            Game_events.Camera_shake.Invoke();
+            Game_events.ShaderEffect.Invoke("Shockwave", pos);
         }
     }
 }

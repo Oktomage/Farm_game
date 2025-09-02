@@ -1,6 +1,5 @@
 using Game.Characters;
 using Game.Characters.Shopper;
-using Game.Controller;
 using Game.Items;
 using Game.Utils.Misc;
 using UnityEngine;
@@ -10,6 +9,11 @@ namespace Game.Events
 {
     public class Game_events : MonoBehaviour
     {
+        public static UnityEvent Camera_shake = new UnityEvent();
+
+        public class ShaderEffectEvent : UnityEvent<string, Vector2> { }
+        public static ShaderEffectEvent ShaderEffect = new ShaderEffectEvent();
+
         public static UnityEvent<Character_behaviour> Player_clicked_on_enemy = new UnityEvent<Character_behaviour>();
         public static UnityEvent Player_clicked_on_recipe_book = new UnityEvent();
         public static UnityEvent<int> Player_collected_souls = new UnityEvent<int>();

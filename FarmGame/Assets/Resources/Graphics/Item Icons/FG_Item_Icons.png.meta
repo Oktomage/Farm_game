@@ -24387,7 +24387,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FG_Item_Icons_945
+      name: Corn_common_seeds
       rect:
         serializedVersion: 2
         x: 288
@@ -25751,7 +25751,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FG_Item_Icons_1007
+      name: Corn_item
       rect:
         serializedVersion: 2
         x: 288
@@ -32787,6 +32787,8 @@ TextureImporter:
       Big_soul: 8675884164445795304
       Cooper_bar: -1496621087581136309
       Cooper_chunk: 4758524348670379536
+      Corn_common_seeds: -800843177372193392
+      Corn_item: -4493718808208296871
       FG_Item_Icons_0: -8971961018793184455
       FG_Item_Icons_1: 6809473691787854706
       FG_Item_Icons_10: 3039083581297197325
@@ -32798,7 +32800,6 @@ TextureImporter:
       FG_Item_Icons_1004: -2801870173851278100
       FG_Item_Icons_1005: -7353607055742328251
       FG_Item_Icons_1006: 7083012635512181085
-      FG_Item_Icons_1007: -4493718808208296871
       FG_Item_Icons_1009: 374851436690383270
       FG_Item_Icons_101: 7226433390651852488
       FG_Item_Icons_1010: -3580767512350112560
@@ -34029,7 +34030,6 @@ TextureImporter:
       FG_Item_Icons_942: 8462214181289215499
       FG_Item_Icons_943: -2059054901736192818
       FG_Item_Icons_944: -717222496667610554
-      FG_Item_Icons_945: -800843177372193392
       FG_Item_Icons_947: 646871669767672669
       FG_Item_Icons_948: 4751170159140067568
       FG_Item_Icons_949: -8748691281819610191

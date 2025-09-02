@@ -19,7 +19,7 @@ namespace Game.Cameras
 
         private void Awake()
         {
-            Game_events.Boss_battle_started.AddListener(_ => DoCameraShake());
+            Game_events.Camera_shake.AddListener(DoCameraShake);
         }
 
         void LateUpdate()

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ant_king
   m_EditorClassIdentifier: 
   Name: Ant king
-  Size_multiplier: 1
+  Size_multiplier: 1.2
   Max_health: 15
   Move_speed: 1.5
   Damage: 1

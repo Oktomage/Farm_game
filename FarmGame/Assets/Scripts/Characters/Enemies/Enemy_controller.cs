@@ -55,8 +55,9 @@ namespace Game.Characters.Enemies
             // Events
             Game_events.Boss_battle_started.Invoke(Character);
             Game_events.Warning_panel_called.Invoke("Boss encounter !");
+            Game_events.Camera_shake.Invoke();
 
-            //Audio
+            // Audio
             Game_utils.Instance.Create_2d_sound("Boss_encounter", "Audios/Characters/Roar_1");
         }
 
@@ -94,8 +95,11 @@ namespace Game.Characters.Enemies
                 // Cast
                 Character.character_spells_controller.Cast_spell(spell: spellData, origin_pos: transform.position, target_obj: Target_obj);
 
+                // Audio
+                Game_utils.Instance.Create_sound("Boss_encounter", "Audios/Characters/Strong_roar_1", transform.position);
+
                 // Events
-                Game_events.Attack_indicator.Invoke(new Attack_indicator_controller.Indicator_info { Format = spellData.Area_effect_type, Duration = spellData.Cast_time, Radius = spellData.Radius }, Target_obj.transform.position);
+                Game_events.Attack_indicator.Invoke(new Attack_indicator_controller.Indicator_info { Format = spellData.Area_effect_type, Duration = spellData.Cast_time, Radius = spellData.Radius }, this.gameObject.transform.position);
 
                 // Wait
                 StartCoroutine(Action_time(spellData.Duration));
