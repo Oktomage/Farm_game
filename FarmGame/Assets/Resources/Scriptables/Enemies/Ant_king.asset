@@ -27,6 +27,7 @@ MonoBehaviour:
   CanUseMagic: 1
   Spells:
   - {fileID: 11400000, guid: 15fd4bafb663f0b49bbc350b86af83bf, type: 2}
+  - {fileID: 11400000, guid: 3bdd710f01c03da4386248e41f3be74d, type: 2}
   Icon: {fileID: 5859336592426497548, guid: 19916b7b830d22441a99d389bb0083be, type: 3}
   Item_drop: {fileID: 0}
   Drop_chance: 0.5

@@ -15,8 +15,11 @@ MonoBehaviour:
   ItemName: Bow
   Description: Tool
   Icon: {fileID: 2023257652412226957, guid: 10fd74191ea47194e884a36c1b33462c, type: 3}
-  Price: 50
+  Price: 150
   Can_trade: 0
+  Can_smelt: 0
+  Smelt_result: {fileID: 0}
+  Smelt_time: 0
   Type: 4
   ToolType: 9
   Crop: {fileID: 0}

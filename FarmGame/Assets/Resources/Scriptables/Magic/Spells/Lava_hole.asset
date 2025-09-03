@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9cd097bca1ef5ef48871cff4d44b13da, type: 3}
-  m_Name: Ground_hit
+  m_Name: Lava_hole
   m_EditorClassIdentifier: Assembly-CSharp::Game.Magic.Spell_scriptable
-  Spell_name: Ground hit
-  Spell_description: Heavy hit on the ground
+  Spell_name: Lava hole
+  Spell_description: Heavy hit and open a lava pit
   Area_effect_type: 0
-  Damage: 5
+  Damage: 0.5
   Radius: 2
   Cast_time: 1
-  Duration: 2
-  Need_rest: 1
+  Duration: 8
+  Need_rest: 0

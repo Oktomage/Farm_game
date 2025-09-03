@@ -13,26 +13,33 @@ namespace Game.Characters.Spells
         internal Character_behaviour Character => this.gameObject.GetComponent<Character_behaviour>();
 
         /// CORE METHODS
-        internal class Cast_spell_data
+        public class Cast_spell_data
         {
-            internal Spell_scriptable SpellData;
+            public Spell_scriptable SpellData;
 
-            internal Vector2 Origin_pos;
-            internal GameObject Target_obj;
+            public Vector2 Origin_pos;
+            public GameObject Target_obj;
         }
 
         internal void Cast_spell(Cast_spell_data data)
         {
-            switch(data.SpellData.Spell_name)
+            GameObject spell_obj = Game_utils.Instance.Create_gameObject(data.Origin_pos);
+            Base_spell spell_script = null;
+
+            switch (data.SpellData.Spell_name)
             {
                 case "Ground hit":
-                    GameObject spell_obj = Game_utils.Instance.Create_gameObject(data.Origin_pos);
-                    Ground_hit_spell spell_script = spell_obj.AddComponent<Ground_hit_spell>();
 
-                    // Active
-                    spell_script.Active(Character, data);
+                    spell_script = spell_obj.AddComponent<Ground_hit_spell>();
+                    break;
+
+                case "Lava hole":
+                    spell_script = spell_obj.AddComponent<Lava_hole_spell>();
                     break;
             }
+
+            if (spell_script != null)
+                spell_script.Active(Character, data);
         }
     }
 }

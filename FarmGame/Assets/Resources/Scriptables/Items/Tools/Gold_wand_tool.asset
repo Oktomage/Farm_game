@@ -15,8 +15,11 @@ MonoBehaviour:
   ItemName: Gold wand
   Description: Tool
   Icon: {fileID: 3521160242810018713, guid: 27aa59535e1023f42a1bec4a97f9605e, type: 3}
-  Price: 50
+  Price: 150
   Can_trade: 0
+  Can_smelt: 0
+  Smelt_result: {fileID: 0}
+  Smelt_time: 0
   Type: 4
   ToolType: 8
   Crop: {fileID: 0}

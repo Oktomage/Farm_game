@@ -137,7 +137,7 @@ namespace Game.Map.Controller
 
                     for (int i = 0; i < create_ammount_per_tick; i++)
                     {
-                        Vector3 pos = new Vector3(Player_character_obj.transform.position.x + Random.Range(-max_distance, max_distance), Player_character_obj.transform.position.y + max_distance, 0);
+                        Vector3 pos = new Vector3(Player_character_obj.transform.position.x + Random.Range(-max_distance, max_distance), Player_character_obj.transform.position.y + max_distance / 2, 0);
 
                         // Create
                         GameObject wtr_drop = Game_utils.Instance.Create_prefab_from_resources("Prefabs/Misc/Water_drop", pos);
@@ -145,7 +145,7 @@ namespace Game.Map.Controller
                         // Add
                         Water_drops_objs.Add(wtr_drop);
 
-                        StartCoroutine(Kill_water_drop_routine(wtr_drop, Random.Range(0.5f, 8f)));
+                        StartCoroutine(Kill_water_drop_routine(wtr_drop, Random.Range(0.5f, 2f)));
                     }
 
                     yield return new WaitForSeconds(Random.Range(0.05f, 0.1f));

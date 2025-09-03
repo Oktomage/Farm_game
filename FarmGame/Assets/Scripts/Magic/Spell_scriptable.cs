@@ -21,5 +21,8 @@ namespace Game.Magic
         public float Cast_time;
         [Range(0f, 10f)]
         public float Duration;
+
+        [Space]
+        public bool Need_rest = false;
     }
 }

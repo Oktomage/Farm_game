@@ -84,6 +84,14 @@ namespace Game.Utils
             return new_item_obj;
         }
 
+        public GameObject Create_particle_from_resources(string path, GameObject parent)
+        {
+            GameObject particle = Instantiate(Resources.Load<GameObject>(path));
+            particle.transform.position = parent.transform.position;
+            particle.transform.SetParent(parent.transform);
+
+            return particle;
+        }
         public GameObject Create_particle_from_resources(string path, Vector2 pos)
         {
             GameObject particle = Instantiate(Resources.Load<GameObject>(path));

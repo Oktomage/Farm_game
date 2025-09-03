@@ -101,8 +101,11 @@ namespace Game.Characters.Enemies
                 // Events
                 Game_events.Attack_indicator.Invoke(new Attack_indicator_controller.Indicator_info { Format = spellData.Area_effect_type, Duration = spellData.Cast_time, Radius = spellData.Radius }, this.gameObject.transform.position);
 
-                // Wait
-                StartCoroutine(Action_time(spellData.Duration));
+                // Wait if needed
+                if(spellData.Need_rest)
+                    StartCoroutine(Action_time(spellData.Duration));
+                else 
+                    Character.IsUsingSpell = false;
             }
             else
             {

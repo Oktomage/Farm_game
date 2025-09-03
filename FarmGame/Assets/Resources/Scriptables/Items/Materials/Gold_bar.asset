@@ -15,8 +15,11 @@ MonoBehaviour:
   ItemName: Gold bar
   Description: Gold
   Icon: {fileID: 2586207762737447440, guid: 8f96af051f41a4c4a9169823aa9ec712, type: 3}
-  Price: 1
+  Price: 50
   Can_trade: 1
+  Can_smelt: 0
+  Smelt_result: {fileID: 0}
+  Smelt_time: 0
   Type: 2
   ToolType: 0
   Crop: {fileID: 0}
