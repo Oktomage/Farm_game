@@ -33,16 +33,16 @@ namespace Game.Utils.Misc
 
             // Set
             indicator_obj.transform.position = pos;
-            render.color = new Color(1, 1, 1, 1f);
+            render.color = new Color(1, 0, 0, 0.4f);
 
             switch(info.Format)
             {
                 case Indicator_info.Indicator_formats.Circle:
-                    render.sprite = Game_utils.Instance.Get_sprite("Graphics/Magic/Circle_area");
+                    render.sprite = Game_utils.Instance.Get_sprite("Graphics/Magic/Circle");
                     break;
 
                 case Indicator_info.Indicator_formats.Box:
-                    render.sprite = Game_utils.Instance.Get_sprite("Graphics/Magic/Box_area");
+                    render.sprite = Game_utils.Instance.Get_sprite("Graphics/Magic/Square");
                     break;
             }
 

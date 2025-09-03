@@ -36,6 +36,10 @@ namespace Game.Characters.Spells
                 case "Lava hole":
                     spell_script = spell_obj.AddComponent<Lava_hole_spell>();
                     break;
+
+                case "Ice spikes":
+                    spell_script = spell_obj.AddComponent<Ice_spikes_spell>();
+                    break;
             }
 
             if (spell_script != null)

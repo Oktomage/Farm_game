@@ -103,7 +103,7 @@ namespace Game.Characters.Enemies
 
                 // Wait if needed
                 if(spellData.Need_rest)
-                    StartCoroutine(Action_time(spellData.Duration));
+                    StartCoroutine(Action_time(spellData.Cast_time));
                 else 
                     Character.IsUsingSpell = false;
             }
