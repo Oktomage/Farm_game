@@ -21,6 +21,7 @@ namespace Game.Controller
 
         //Internal variables
         internal GameObject Player_character_obj => GameObject.FindGameObjectWithTag("Player");
+        private bool Already_spawned_boss = false;
 
         private void Awake()
         {
@@ -63,6 +64,7 @@ namespace Game.Controller
             if(IsSpawning)
                 return;
 
+            // Set
             IsSpawning = true;
 
             StartCoroutine(Spawner());
@@ -73,7 +75,9 @@ namespace Game.Controller
             if(!IsSpawning)
                 return;
 
+            // Set
             IsSpawning = false;
+            Already_spawned_boss = false;
         }
         
         internal class Enemy_info
@@ -82,6 +86,40 @@ namespace Game.Controller
             internal Enemy_types Type;
 
             internal Character_scriptable.Character_menance_class Menance_Class;
+        }
+
+        private Character_scriptable.Character_menance_class Get_menance_stage()
+        {
+            if (Game_controller.Instance.Total_days <= 3)
+            {
+                return Character_scriptable.Character_menance_class.Peaceful;
+            }
+            else if (Game_controller.Instance.Total_days <= 6)
+            {
+                return Character_scriptable.Character_menance_class.Pathetic;
+            }
+            else if (Game_controller.Instance.Total_days <= 10)
+            {
+                return Character_scriptable.Character_menance_class.Common;
+            }
+            else if (Game_controller.Instance.Total_days <= 15)
+            {
+                return Character_scriptable.Character_menance_class.Menacing;
+            }
+            else if (Game_controller.Instance.Total_days <= 25)
+            {
+                return Character_scriptable.Character_menance_class.Relentless;
+            }
+            else if (Game_controller.Instance.Total_days <= 35)
+            {
+                return Character_scriptable.Character_menance_class.Cataclysmic;
+            }
+            else if (Game_controller.Instance.Total_days <= 50)
+            {
+                return Character_scriptable.Character_menance_class.Apocalyptic;
+            }
+            else 
+                return Character_scriptable.Character_menance_class.Peaceful;
         }
 
         private ScriptableObject Get_enemy_to_spawn(Enemy_info enemy_info)
@@ -106,10 +144,11 @@ namespace Game.Controller
         {
             Vector2 pos = new Vector2(Player_character_obj.transform.position.x, Player_character_obj.transform.position.y) + Random.insideUnitCircle * 10f;
 
+            // Set
             Enemy_info info = new Enemy_info
             {
                 Type = Enemy_info.Enemy_types.Normal,
-                Menance_Class = Character_scriptable.Character_menance_class.Peaceful
+                Menance_Class = Get_menance_stage()
             };
 
             GameObject enemy = Game_utils.Instance.Create_enemy(Get_enemy_to_spawn(info), pos);
@@ -119,10 +158,11 @@ namespace Game.Controller
         {
             Vector2 pos = new Vector2(Player_character_obj.transform.position.x, Player_character_obj.transform.position.y) + Random.insideUnitCircle * 10f;
 
+            // Set
             Enemy_info info = new Enemy_info
             {
                 Type = Enemy_info.Enemy_types.Boss,
-                Menance_Class = Character_scriptable.Character_menance_class.Peaceful
+                Menance_Class = Get_menance_stage()
             };
 
             GameObject boss = Game_utils.Instance.Create_enemy(Get_enemy_to_spawn(info), pos);
@@ -134,14 +174,18 @@ namespace Game.Controller
             {
                 yield return new WaitForSeconds(Spawn_interval);
 
+                // Create
                 Spawn_enemy();
 
-                if (Can_SpawnBoss)
+                if (Can_SpawnBoss && !Already_spawned_boss)
                 {
                     float c = Random.value;
 
                     if (c <= Boss_chance_per_day)
                     {
+                        // Set
+                        Already_spawned_boss = true;
+
                         Spawn_boss();
                     }
                 }

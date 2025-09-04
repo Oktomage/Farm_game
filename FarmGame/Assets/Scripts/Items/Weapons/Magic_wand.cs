@@ -17,7 +17,7 @@ namespace Game.Items.Weapons
             Projectile_entity projec_entity = orb_obj.GetComponent<Projectile_entity>();
 
             // Call
-            projec_entity.Configure(char_parent_obj: Tool.Character.gameObject, sprite: Tool.Item.ItemData.Magic_sprite, Min_dmg: 0, Max_dmg: 1f, speed: 10f, dir);
+            projec_entity.Configure(char_parent_obj: Tool.Character.gameObject, sprite: Tool.Item.ItemData.Magic_sprite, Min_dmg: 0, Max_dmg: 1f * Tool.Item.ItemData.Magic_damage_multiplier, speed: 10f, dir);
         }
     }
 }

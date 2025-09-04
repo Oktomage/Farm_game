@@ -10,26 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36fb45de3db820b4aadef4c9c5fa640d, type: 3}
-  m_Name: Black_snake
+  m_Name: Blue_flame
   m_EditorClassIdentifier: 
-  Name: Red snake
+  Name: Blue flame
   Size_multiplier: 1
-  Max_health: 3
+  Max_health: 5
   Move_speed: 3
-  Damage: 0.25
+  Damage: 0.5
   Souls_reward: 1
   IsExtraStrong: 0
   IsExtraFast: 0
   HaveMagicalResistance: 0
   HavePhysicalResistance: 0
   IsBoss: 0
-  Menance_class: 1
+  Menance_class: 2
   CanUseMagic: 0
   Spells: []
-  Icon: {fileID: -1763510112482834899, guid: 769065ef1cc44da46ab3b4b2e6a461fc, type: 3}
+  Icon: {fileID: -2350972926832528685, guid: 0241af39754e6aa409c997f844c389f6, type: 3}
   Item_drop: {fileID: 0}
   Drop_chance: 0.5
-  Idle_sound: {fileID: 8300000, guid: ca0362388cd3f354aa884a48966508fe, type: 3}
+  Idle_sound: {fileID: 8300000, guid: e176202660e84924fb91249cedbed689, type: 3}
   Move_sound: {fileID: 8300000, guid: 27b495272ba7c9d48a8398852b4ccb6f, type: 3}
   Attack_sound: {fileID: 0}
   Hurt_sound: {fileID: 8300000, guid: bb0587b6dfef3b84d946c92daf95c4c2, type: 3}

@@ -36,7 +36,7 @@ namespace Game.Magic.Spell
                         continue;
 
                     // Do damage
-                    other_character.TakeDamage(Cast_data.SpellData.Damage, Character.gameObject);
+                    other_character?.TakeDamage(Cast_data.SpellData.Damage, Character.gameObject);
                 }
             }
         }

@@ -24,7 +24,8 @@ namespace Game.Items.Tools
             Sword,
             Seeds,
             Staff,
-            Bow
+            Bow,
+            BattleAxe
         }
 
         [Header("Data")]
@@ -85,6 +86,10 @@ namespace Game.Items.Tools
 
                 case ToolType.Bow:
                     Fire_bow(dir);
+                    break;
+
+                case ToolType.BattleAxe:
+                    Melee_attack(dir);
                     break;
             }
         }

@@ -12177,7 +12177,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FG_Item_Icons_390
+      name: Reinforced_battle_axe
       rect:
         serializedVersion: 2
         x: 112
@@ -15543,7 +15543,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FG_Item_Icons_543
+      name: Golden_bow
       rect:
         serializedVersion: 2
         x: 0
@@ -33423,7 +33423,6 @@ TextureImporter:
       FG_Item_Icons_387: -2857777160330509334
       FG_Item_Icons_388: 5930683173467997356
       FG_Item_Icons_39: 4771427560544923752
-      FG_Item_Icons_390: 7942558827671111861
       FG_Item_Icons_391: 6724771453493688456
       FG_Item_Icons_392: -1908684293162729898
       FG_Item_Icons_393: 3534978359975195548
@@ -33585,7 +33584,6 @@ TextureImporter:
       FG_Item_Icons_540: -5489750605273608787
       FG_Item_Icons_541: 7998998556054245983
       FG_Item_Icons_542: -6496791238827198365
-      FG_Item_Icons_543: -2521657504529083270
       FG_Item_Icons_544: 4970621153298518664
       FG_Item_Icons_545: 3477646946516811337
       FG_Item_Icons_546: -1701707355390381523
@@ -34089,6 +34087,7 @@ TextureImporter:
       FG_Item_Icons_999: 9011242368230150638
       Gold_bar: 2586207762737447440
       Gold_chunk: 5498269093103653564
+      Golden_bow: -2521657504529083270
       Grape_common_seeds: -9000334656902443374
       Grape_item: -1239588314
       Huge_soul: 1975793307958704066
@@ -34099,6 +34098,7 @@ TextureImporter:
       Onion_item: 3307507686919383740
       Potato_common_seeds: 1947310010223967155
       Potato_item: 3284400341411787445
+      Reinforced_battle_axe: 7942558827671111861
       Silver_bar: 3955286595716654376
       Silver_chunk: -1407649770735597421
       Silver_hoe: 7181817493855327126

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Red snake
   Size_multiplier: 1
-  Max_health: 1.5
+  Max_health: 3
   Move_speed: 3
   Damage: 0.25
   Souls_reward: 1
@@ -23,7 +23,9 @@ MonoBehaviour:
   HaveMagicalResistance: 0
   HavePhysicalResistance: 0
   IsBoss: 0
-  Menance_class: 0
+  Menance_class: 1
+  CanUseMagic: 0
+  Spells: []
   Icon: {fileID: 6626250619592642690, guid: c0afa54e090103d4a9b9b42ce6b4b8df, type: 3}
   Item_drop: {fileID: 0}
   Drop_chance: 0.5

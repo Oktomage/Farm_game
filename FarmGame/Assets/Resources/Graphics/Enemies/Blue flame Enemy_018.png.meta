@@ -1,0 +1,333 @@
+fileFormatVersion: 2
+guid: 0241af39754e6aa409c997f844c389f6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2350972926832528685
+    second: Enemy_018_0
+  - first:
+      213: 5565725779111191780
+    second: Enemy_018_1
+  - first:
+      213: -9069319314962450536
+    second: Enemy_018_2
+  - first:
+      213: -8452717405339066793
+    second: Enemy_018_3
+  - first:
+      213: 4729870432845011918
+    second: Enemy_018_4
+  - first:
+      213: 619808518326998520
+    second: Enemy_018_5
+  - first:
+      213: -2898242786809804492
+    second: Enemy_018_6
+  - first:
+      213: 882376414429260931
+    second: Enemy_018_7
+  - first:
+      213: 1929261014007724614
+    second: Enemy_018_8
+  - first:
+      213: 8560083833562019855
+    second: Enemy_018_9
+  - first:
+      213: 3180014905633620094
+    second: Enemy_018_10
+  - first:
+      213: -4467635807835208367
+    second: Enemy_018_11
+  - first:
+      213: -702239240589378313
+    second: Enemy_018_12
+  - first:
+      213: -4370917789920258596
+    second: Enemy_018_13
+  - first:
+      213: 7080352237812037370
+    second: Enemy_018_14
+  - first:
+      213: 8207096652276783544
+    second: Enemy_018_15
+  - first:
+      213: 6203770718718061342
+    second: Enemy_018_16
+  - first:
+      213: -9088532670936553413
+    second: Enemy_018_17
+  - first:
+      213: 3299817793458769107
+    second: Enemy_018_18
+  - first:
+      213: -1402338414555811780
+    second: Enemy_018_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 24
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Blue_flame_1
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 102
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d2369b349aaf5fd0800000000000000
+      internalID: -2350972926832528685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_018_16
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 0
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1be8258998381650800000000000000
+      internalID: 6203770718718061342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_018_17
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 0
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b386b4b50bb0fd180800000000000000
+      internalID: -9088532670936553413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_018_18
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 0
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dc8f9accce4bcd20800000000000000
+      internalID: 3299817793458769107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_018_19
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 0
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c30348154a4e98ce0800000000000000
+      internalID: -1402338414555811780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: bcc859bd98daa0f4182e547075f3581e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Blue_flame_1: -2350972926832528685
+      Enemy_018_1: 5565725779111191780
+      Enemy_018_10: 3180014905633620094
+      Enemy_018_11: -4467635807835208367
+      Enemy_018_12: -702239240589378313
+      Enemy_018_13: -4370917789920258596
+      Enemy_018_14: 7080352237812037370
+      Enemy_018_15: 8207096652276783544
+      Enemy_018_16: 6203770718718061342
+      Enemy_018_17: -9088532670936553413
+      Enemy_018_18: 3299817793458769107
+      Enemy_018_19: -1402338414555811780
+      Enemy_018_2: -9069319314962450536
+      Enemy_018_3: -8452717405339066793
+      Enemy_018_4: 4729870432845011918
+      Enemy_018_5: 619808518326998520
+      Enemy_018_6: -2898242786809804492
+      Enemy_018_7: 882376414429260931
+      Enemy_018_8: 1929261014007724614
+      Enemy_018_9: 8560083833562019855
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

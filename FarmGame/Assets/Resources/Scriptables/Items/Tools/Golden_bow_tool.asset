@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aec353d74fa6ad4eaf64487aead53e3, type: 3}
+  m_Name: Golden_bow_tool
+  m_EditorClassIdentifier: 
+  ItemName: Golden bow
+  Description: Tool
+  Icon: {fileID: -2521657504529083270, guid: 8f96af051f41a4c4a9169823aa9ec712, type: 3}
+  Price: 150
+  Can_trade: 0
+  Can_smelt: 0
+  Smelt_result: {fileID: 0}
+  Smelt_time: 0
+  Type: 4
+  ToolType: 9
+  Crop: {fileID: 0}
+  Melee_damage_multiplier: 1
+  Arrow_sprite: {fileID: 9172212051362439745, guid: 6be5257e240075b48a060278ba559ede, type: 3}
+  Arrow_damage_multiplier: 2
+  Magic_sprite: {fileID: 0}
+  Magic_damage_multiplier: 1

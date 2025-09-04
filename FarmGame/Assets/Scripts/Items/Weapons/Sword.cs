@@ -36,7 +36,7 @@ namespace Game.Items.Weapons
             // Do damage
             foreach (Character_behaviour character in detected_Characters)
             {
-                character.TakeDamage(1f, Tool.Character.gameObject);
+                character.TakeDamage(dmg: 1f * Tool.Item.ItemData.Melee_damage_multiplier, Tool.Character.gameObject);
             }
         }
     }

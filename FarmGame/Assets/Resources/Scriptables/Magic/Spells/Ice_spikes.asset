@@ -15,7 +15,7 @@ MonoBehaviour:
   Spell_name: Ice spikes
   Spell_description: Wave of ice spikes
   Area_effect_type: 1
-  Damage: 2.5
+  Damage: 2
   Radius: 1.5
   Cast_time: 1
   Duration: 3

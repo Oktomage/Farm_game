@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterData: {fileID: 0}
-  Target: {fileID: 0}
+  Target_obj: {fileID: 0}
 --- !u!114 &2680725522142115534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,6 +249,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5436140043677189705}
   - component: {fileID: 5439726449974665950}
+  - component: {fileID: 5701736728366450475}
   m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
@@ -329,6 +330,60 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5701736728366450475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7268355103786950891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_Priority: 2
+  m_ComponentVersion: 5
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_AlphaCutoff: 0.1
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.040304184, y: -0.20062828, z: 0}
+  - {x: -0.18952942, y: -0.09305191, z: 0}
+  - {x: -0.14280319, y: 0.13757324, z: 0}
+  - {x: 0.13555717, y: 0.14506531, z: 0}
+  - {x: 0.20747375, y: -0.020133972, z: 0}
+  - {x: 0.16683769, y: -0.18255234, z: 0}
+  m_ShapePathHash: -2126759523
+  m_InstanceId: 0
+  m_ShadowShape2DComponent: {fileID: 0}
+  m_ShadowShape2DProvider:
+    rid: -2
+  m_ShadowCastingSource: 1
+  m_ShadowMesh:
+    m_Mesh: {fileID: 0}
+    m_LocalBounds:
+      m_Center: {x: 0.008972168, y: -0.027781487, z: 0}
+      m_Extent: {x: 0.19850159, y: 0.1728468, z: 0}
+    m_EdgeProcessing: 1
+    m_TrimEdge: 0.03
+    m_FlipX: 0
+    m_FlipY: 0
+    m_InitialTrim: 0
+  m_CastingOption: 1
+  m_PreviousTrimEdge: 0.03
+  m_PreviousEdgeProcessing: 1
+  m_PreviousShadowCastingSource: 1
+  m_PreviousShadowShape2DSource: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1 &7304811153029914726
 GameObject:
   m_ObjectHideFlags: 0
