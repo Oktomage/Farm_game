@@ -93,20 +93,11 @@ namespace Game.Characters.Enemies
 
         private void UseSpell(Spell_scriptable.Spell_range_styles Spell_range)
         {
-            if (Character.IsAttacking || Character.IsUsingSpell)
-                return;
-
-            if (!Character.CanUseMagic)
-                return;
-
             int spell_id = Random.Range(0, Character.Spells.Count);
             Spell_scriptable spellData = Character.Spells[spell_id];
 
-            // Set
-            Character.IsUsingSpell = true;
-
-            // Cast
-            Character.character_spells_controller.Cast_spell(new Spells.Character_spells_controller.Cast_spell_data { SpellData = spellData, Origin_pos = this.transform.position, Target_obj = Target_obj });
+            // Call
+            Character.Cast_spell(spellData, Target_obj);
 
             // Audio
             Game_utils.Instance.Create_sound("Boss_encounter", "Audios/Characters/Strong_roar_1", transform.position);
@@ -150,11 +141,14 @@ namespace Game.Characters.Enemies
                             // Use attack anyway
                             else
                             {
-                                float c = Random.value;
-                                float attack_chance = 0.2f;
+                                if (Character.CanUseMagic)
+                                {
+                                    float c = Random.value;
+                                    float attack_chance = 0.2f;
 
-                                if (c <= attack_chance)
-                                    UseSpell(Spell_scriptable.Spell_range_styles.Ranged);
+                                    if (c <= attack_chance)
+                                        UseSpell(Spell_scriptable.Spell_range_styles.Ranged);
+                                }
                             }
                         }
                         break;

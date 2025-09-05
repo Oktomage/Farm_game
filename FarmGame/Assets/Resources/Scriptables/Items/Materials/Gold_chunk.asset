@@ -15,7 +15,7 @@ MonoBehaviour:
   ItemName: Gold chunk
   Description: Gold
   Icon: {fileID: 5498269093103653564, guid: 8f96af051f41a4c4a9169823aa9ec712, type: 3}
-  Price: 20
+  Price: 5
   Can_trade: 1
   Can_smelt: 1
   Smelt_result: {fileID: 11400000, guid: 3e431fddbfd5181499ca92e5453d912b, type: 2}
@@ -23,5 +23,8 @@ MonoBehaviour:
   Type: 2
   ToolType: 0
   Crop: {fileID: 0}
+  Melee_damage_multiplier: 1
   Arrow_sprite: {fileID: 0}
+  Arrow_damage_multiplier: 1
   Magic_sprite: {fileID: 0}
+  Magic_damage_multiplier: 1

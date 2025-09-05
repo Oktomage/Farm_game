@@ -16,6 +16,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 namespace Game.Characters
 {
@@ -570,6 +571,21 @@ namespace Game.Characters
 
             // Audio
             Game_utils.Instance.Create_sound("Swing_sound", "Audios/Tools/Swing_1", transform.position);
+        }
+
+        internal void Cast_spell(Spell_scriptable spell, GameObject target_obj)
+        {
+            if (!CanUseMagic)
+                return;
+
+            if (IsAttacking || IsUsingSpell)
+                return;
+
+            // Set
+            IsUsingSpell = true;
+
+            // Cast
+            character_spells_controller.Cast_spell(new Spells.Character_spells_controller.Cast_spell_data { SpellData = spell, Origin_pos = this.transform.position, Target_obj = target_obj });
         }
 
         internal void Fix_character()

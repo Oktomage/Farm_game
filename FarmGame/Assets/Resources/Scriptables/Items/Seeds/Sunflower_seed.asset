@@ -15,12 +15,16 @@ MonoBehaviour:
   ItemName: Sunflower seeds
   Description: Seeds
   Icon: {fileID: -7807509442842662644, guid: 8f96af051f41a4c4a9169823aa9ec712, type: 3}
-  Price: 1
+  Price: 5
   Can_trade: 1
+  Can_smelt: 0
+  Smelt_result: {fileID: 0}
+  Smelt_time: 0
   Type: 3
   ToolType: 0
   Crop: {fileID: 11400000, guid: 177c3b88b2f671345b620b25a6f84470, type: 2}
-  Have_other_behaviours: 1
-  Other_behaviours:
-  - {fileID: 11500000, guid: 8a43a9c25c1a3a343a6d9747f434bf56, type: 3}
-  - {fileID: 11500000, guid: 621e692c252f3bf43a7898fee4717357, type: 3}
+  Melee_damage_multiplier: 1
+  Arrow_sprite: {fileID: 0}
+  Arrow_damage_multiplier: 1
+  Magic_sprite: {fileID: 0}
+  Magic_damage_multiplier: 1

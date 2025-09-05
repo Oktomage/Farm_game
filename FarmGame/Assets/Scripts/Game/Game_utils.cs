@@ -397,7 +397,48 @@ namespace Game.Utils
                 return true; // If not a Character_scriptable, remove it
             });
 
+            // Filter enemies by type
+            enemies.RemoveAll(enemy => 
+            { 
+                if(enemy is Character_scriptable character)
+                {
+                    return character.IsBoss;
+                }
+
+                return true; // If not a Character_scriptable, remove it
+            });
+
             return enemies;
+        }
+        public List<ScriptableObject> Get_bosses_from_menance_class(Character_scriptable.Character_menance_class boss_class)
+        {
+            List<ScriptableObject> bosses = new List<ScriptableObject>();
+
+            bosses.AddRange(Resources.LoadAll<ScriptableObject>("Scriptables/Enemies/"));
+
+            // Filter bosses by menance class
+            bosses.RemoveAll(boss =>
+            {
+                if (boss is Character_scriptable character)
+                {
+                    return character.Menance_class != boss_class;
+                }
+
+                return true; // If not a Character_scriptable, remove it
+            });
+
+            // Filter bosses by type
+            bosses.RemoveAll(boss =>
+            {
+                if (boss is Character_scriptable character)
+                {
+                    return !character.IsBoss;
+                }
+
+                return true; // If not a Character_scriptable, remove it
+            });
+
+            return bosses;
         }
 
         /// CRAFT

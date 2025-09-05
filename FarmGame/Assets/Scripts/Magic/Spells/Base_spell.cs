@@ -1,7 +1,6 @@
 using Game.Characters;
 using Game.Characters.Spells;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 
 namespace Game.Magic.Spell
 {

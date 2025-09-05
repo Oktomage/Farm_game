@@ -15,10 +15,16 @@ MonoBehaviour:
   ItemName: Potato seeds
   Description: Seeds
   Icon: {fileID: 1947310010223967155, guid: 8f96af051f41a4c4a9169823aa9ec712, type: 3}
-  Price: 1
+  Price: 5
   Can_trade: 1
+  Can_smelt: 0
+  Smelt_result: {fileID: 0}
+  Smelt_time: 0
   Type: 3
   ToolType: 0
   Crop: {fileID: 11400000, guid: ba2b7b2ccc063b94e966e4f6ed151e4f, type: 2}
+  Melee_damage_multiplier: 1
   Arrow_sprite: {fileID: 0}
+  Arrow_damage_multiplier: 1
   Magic_sprite: {fileID: 0}
+  Magic_damage_multiplier: 1

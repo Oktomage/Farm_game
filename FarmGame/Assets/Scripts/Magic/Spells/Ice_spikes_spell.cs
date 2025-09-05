@@ -66,7 +66,7 @@ namespace Game.Magic.Spell
             SpriteRenderer render = spike_obj.AddComponent<SpriteRenderer>();
             render.sprite = Game_utils.Instance.Get_sprite("Graphics/Magic/Spells/Ice_spike");
             render.color = new Color(1, 1, 1, 0.6f);
-            render.sortingOrder = 3; // Just to be above the characters
+            render.sortingOrder = 6; // Just to be above the trees
 
             return spike_obj;
         }
