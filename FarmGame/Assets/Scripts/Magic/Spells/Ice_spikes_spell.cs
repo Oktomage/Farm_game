@@ -2,6 +2,7 @@ using Game.Characters;
 using Game.Characters.Spells;
 using Game.Events;
 using Game.Utils;
+using Game.Utils.Misc;
 using System.Collections;
 using UnityEngine;
 using static Game.Characters.Spells.Character_spells_controller;
@@ -16,6 +17,8 @@ namespace Game.Magic.Spell
         private int Spikes_amount = 6;
         private float Scale_amount_per_spike = 1.05f;
 
+        private GameObject Current_spike_obj;
+
         public override void Active(Character_behaviour character, Character_spells_controller.Cast_spell_data data)
         {
             // Set
@@ -23,13 +26,16 @@ namespace Game.Magic.Spell
             Cast_data = data;
 
             StartCoroutine(Cast_ice_spikes());
+
+            // Events
+            Game_events.Attack_indicator.Invoke(new Attack_indicator_controller.Indicator_info { Format = data.SpellData.Area_effect_type, Duration = data.SpellData.Cast_time, Radius = data.SpellData.Radius, Target_obj = data.Target_obj });
         }
 
         /// MAIN METHODS
-        private void DoDamage(Vector2 pos)
+        public override void DoDamage()
         {
             // Detect characters
-            Collider2D[] hits = Physics2D.OverlapCircleAll(pos, Cast_data.SpellData.Radius);
+            Collider2D[] hits = Physics2D.OverlapCircleAll(Current_spike_obj.transform.position, Cast_data.SpellData.Radius);
 
             foreach (Collider2D hit in hits)
             {
@@ -42,7 +48,7 @@ namespace Game.Magic.Spell
                         continue;
 
                     // Do damage
-                    other_character?.TakeDamage(Cast_data.SpellData.Damage, Character.gameObject);
+                    other_character?.TakeDamage(Cast_data.SpellData.Damage, Character?.gameObject);
                 }
             }
         }
@@ -78,11 +84,12 @@ namespace Game.Magic.Spell
                 Vector2 pos = Cast_data.Origin_pos + (dir * i);
 
                 GameObject spike_obj = Create_spike(pos, Vector2.one * (Scale_amount_per_spike * i));
+                Current_spike_obj = spike_obj;
 
                 // Audio
                 Game_utils.Instance.Create_sound("Ice_spike", Game_utils.Instance.Get_audio_clip("Audios/Spells/Ice_spike_1"), pos);
 
-                DoDamage(pos);
+                DoDamage();
 
                 StartCoroutine(Kill_spell_obj(spike_obj, Cast_data.SpellData.Duration / (Spikes_amount * 0.5f)));
 

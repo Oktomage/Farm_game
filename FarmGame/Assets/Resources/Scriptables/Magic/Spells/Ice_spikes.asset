@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Magic.Spell_scriptable
   Spell_name: Ice spikes
   Spell_description: Wave of ice spikes
+  Spell_range_style: 1
   Area_effect_type: 1
-  Damage: 2
+  Damage: 1
   Radius: 1.5
   Cast_time: 1
   Duration: 3

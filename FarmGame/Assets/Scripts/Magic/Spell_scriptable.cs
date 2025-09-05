@@ -10,6 +10,15 @@ namespace Game.Magic
         public string Spell_name;
         public string Spell_description;
 
+        public enum Spell_range_styles
+        {
+            Melee,
+            Ranged
+        }
+
+        [Space]
+        public Spell_range_styles Spell_range_style;
+
         [Space]
         public Attack_indicator_controller.Indicator_info.Indicator_formats Area_effect_type;
 

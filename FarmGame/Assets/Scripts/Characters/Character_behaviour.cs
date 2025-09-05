@@ -232,24 +232,25 @@ namespace Game.Characters
 
         private void Die()
         {
-            if (IsGodMode) { return; }
+            if (IsGodMode)
+                return;
 
-            //Set
+            // Set
             IsAlive = false;
 
             if (Last_damaged_by_obj != null && Last_damaged_by_obj.CompareTag("Player"))
             {
                 Player_data.Instance.Add_souls(Souls);
 
-                //Events
+                // Events
                 Game_events.Player_collected_souls.Invoke(Souls);
                 Game_events.Player_character_killed_enemy.Invoke(this.gameObject);
             }
 
-            //Audio
+            // Audio
             Game_utils.Instance.Create_sound("Character_hurt", Death_sound, transform.position);
 
-            //Particles
+            // Particles
             Game_utils.Instance.Create_particle_from_resources("Prefabs/Particles/Death_souls", transform.position);
 
             Destroy(this.gameObject);
@@ -260,41 +261,35 @@ namespace Game.Characters
 
         internal void TakeDamage(float dmg, GameObject attacker)
         {
-            if (IsAlive)
+            if (!IsAlive)
+                return;
+
+            // Set last damaged by
+            if (attacker != null)
+                Last_damaged_by_obj = attacker;
+
+            // Set
+            Health -= dmg;
+            Health = Mathf.Clamp(Health, 0, Max_health);
+
+            if (Health <= 0)
+                Die();
+
+            // Events
+            if (IsPlayer)
+                Game_events.Player_character_took_damage.Invoke(dmg, Last_damaged_by_obj);
+            else
+                Game_events.Enemy_took_damage.Invoke(dmg, this.gameObject);
+
+            // Effects
+            if (this.gameObject.TryGetComponent<Effects_controller>(out Effects_controller effects))
             {
-                //Set
-                Health -= dmg;
-                Health = Mathf.Clamp(Health, 0, Max_health);
-
-                if (Health <= 0)
-                {
-                    Die();
-                }
-
-                //Set last damaged by
-                if(attacker != null)
-                    Last_damaged_by_obj = attacker;
-
-                //Events
-                if (IsPlayer)
-                {
-                    Game_events.Player_character_took_damage.Invoke(dmg, Last_damaged_by_obj);
-                }
-                else
-                {
-                    Game_events.Enemy_took_damage.Invoke(dmg, this.gameObject);
-                }
-
-                //Effects
-                if (this.gameObject.TryGetComponent<Effects_controller>(out Effects_controller effects))
-                {
-                    effects.Force_effect(Effects_controller.EffectType.Boing);
-                    effects.Force_effect(Effects_controller.EffectType.Flash);
-                }
-
-                //Audio
-                Game_utils.Instance.Create_sound("Character_hurt", Hurt_sound, transform.position);
+                effects.Force_effect(Effects_controller.EffectType.Boing);
+                effects.Force_effect(Effects_controller.EffectType.Flash);
             }
+
+            // Audio
+            Game_utils.Instance.Create_sound("Character_hurt", Hurt_sound, transform.position);
         }
 
         private void Regenerate(float hlth_regen)

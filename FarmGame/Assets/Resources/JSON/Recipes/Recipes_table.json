@@ -1,10 +1,28 @@
 [
   {
+    "Recipe_name": "Hoe",
+    "Materials_resources_path": [
+      "Scriptables/Items/Materials/Wood_log",
+      "Scriptables/Items/Materials/Wood_log",
+      "Scriptables/Items/Materials/Iron_chunk"
+    ],
+    "Craft_result_resources_path": "Scriptables/Items/Tools/Hoe_tool"
+  },
+  {
+    "Recipe_name": "Scythe",
+    "Materials_resources_path": [
+      "Scriptables/Items/Materials/Wood_log",
+      "Scriptables/Items/Materials/Iron_chunk",
+      "Scriptables/Items/Materials/Iron_chunk"
+    ],
+    "Craft_result_resources_path": "Scriptables/Items/Tools/Scythe_tool"
+  },
+  {
     "Recipe_name": "Gold wand",
     "Materials_resources_path": [
       "Scriptables/Items/Materials/Wood_log",
       "Scriptables/Items/Materials/Wood_log",
-      "Scriptables/Items/Materials/Gold_chunk"
+      "Scriptables/Items/Materials/Gold_bar"
     ],
     "Craft_result_resources_path": "Scriptables/Items/Tools/Gold_wand_tool"
   },
@@ -13,7 +31,7 @@
     "Materials_resources_path": [
       "Scriptables/Items/Materials/Wood_log",
       "Scriptables/Items/Materials/Wood_log",
-      "Scriptables/Items/Materials/Iron_chunk"
+      "Scriptables/Items/Materials/Iron_bar"
     ],
     "Craft_result_resources_path": "Scriptables/Items/Tools/Wood_bow_tool"
   },
@@ -21,8 +39,8 @@
     "Recipe_name": "Iron sword",
     "Materials_resources_path": [
       "Scriptables/Items/Materials/Wood_log",
-      "Scriptables/Items/Materials/Iron_chunk",
-      "Scriptables/Items/Materials/Iron_chunk"
+      "Scriptables/Items/Materials/Iron_bar",
+      "Scriptables/Items/Materials/Iron_bar"
     ],
     "Craft_result_resources_path": "Scriptables/Items/Tools/Iron_sword_tool"
   }

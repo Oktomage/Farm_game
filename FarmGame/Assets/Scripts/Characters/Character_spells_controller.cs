@@ -40,6 +40,10 @@ namespace Game.Characters.Spells
                 case "Ice spikes":
                     spell_script = spell_obj.AddComponent<Ice_spikes_spell>();
                     break;
+
+                case "Meteor":
+                    spell_script = spell_obj.AddComponent<Meteor_spell>();
+                    break;
             }
 
             if (spell_script != null)

@@ -82,40 +82,40 @@ namespace Game.Characters.Enemies
         {
             if (Character.IsAttacking || Character.IsUsingSpell)
                 return;
-        
-            // Use magic or just hit
-            if (Character.CanUseMagic)
-            {
-                int spell_id = Random.Range(0, Character.Spells.Count);
-                Spell_scriptable spellData = Character.Spells[spell_id];
 
-                // Set
-                Character.IsUsingSpell = true;
+            // Set
+            Character.IsAttacking = true;
+            Character.Hit_other_entity(Target_obj);
 
-                // Cast
-                Character.character_spells_controller.Cast_spell(new Spells.Character_spells_controller.Cast_spell_data { SpellData = spellData, Origin_pos = this.transform.position, Target_obj = Target_obj});
+            // Wait
+            StartCoroutine(Action_time(1f));
+        }
 
-                // Audio
-                Game_utils.Instance.Create_sound("Boss_encounter", "Audios/Characters/Strong_roar_1", transform.position);
+        private void UseSpell(Spell_scriptable.Spell_range_styles Spell_range)
+        {
+            if (Character.IsAttacking || Character.IsUsingSpell)
+                return;
 
-                // Events
-                Game_events.Attack_indicator.Invoke(new Attack_indicator_controller.Indicator_info { Format = spellData.Area_effect_type, Duration = spellData.Cast_time, Radius = spellData.Radius }, this.gameObject.transform.position);
+            if (!Character.CanUseMagic)
+                return;
 
-                // Wait if needed
-                if(spellData.Need_rest)
-                    StartCoroutine(Action_time(spellData.Cast_time));
-                else 
-                    Character.IsUsingSpell = false;
-            }
+            int spell_id = Random.Range(0, Character.Spells.Count);
+            Spell_scriptable spellData = Character.Spells[spell_id];
+
+            // Set
+            Character.IsUsingSpell = true;
+
+            // Cast
+            Character.character_spells_controller.Cast_spell(new Spells.Character_spells_controller.Cast_spell_data { SpellData = spellData, Origin_pos = this.transform.position, Target_obj = Target_obj });
+
+            // Audio
+            Game_utils.Instance.Create_sound("Boss_encounter", "Audios/Characters/Strong_roar_1", transform.position);
+
+            // Wait if needed
+            if (spellData.Need_rest)
+                StartCoroutine(Action_time(spellData.Cast_time));
             else
-            {
-                // Set
-                Character.IsAttacking = true;
-                Character.Hit_other_entity(Target_obj);
-
-                // Wait
-                StartCoroutine(Action_time(1f));
-            }
+                Character.IsUsingSpell = false;
         }
         
         private IEnumerator Brain_controller()
@@ -139,10 +139,22 @@ namespace Game.Characters.Enemies
                             Vector3 direction = (Target_obj.transform.position - transform.position).normalized;
                             Character.Move(direction);
 
-                            // Check if the enemy can attack the target
+                            // Check if the target is in the attack range
                             if (Vector3.Distance(transform.position, Target_obj.transform.position) < Character.detectionRadius)
                             {
-                                UseAttack();
+                                if(Character.CanUseMagic)
+                                    UseSpell(Spell_scriptable.Spell_range_styles.Melee);
+                                else
+                                    UseAttack();
+                            }
+                            // Use attack anyway
+                            else
+                            {
+                                float c = Random.value;
+                                float attack_chance = 0.2f;
+
+                                if (c <= attack_chance)
+                                    UseSpell(Spell_scriptable.Spell_range_styles.Ranged);
                             }
                         }
                         break;

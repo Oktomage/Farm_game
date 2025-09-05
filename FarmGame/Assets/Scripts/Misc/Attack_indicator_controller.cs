@@ -6,11 +6,14 @@ namespace Game.Utils.Misc
 {
     public class Attack_indicator_controller : MonoBehaviour
     {
+        private Indicator_info Current_info;
+
         private void Awake()
         {
             Game_events.Attack_indicator.AddListener(Create_indicator);
         }
 
+        /// MAIN METHODS
         public class Indicator_info
         {
             public enum Indicator_formats
@@ -23,19 +26,24 @@ namespace Game.Utils.Misc
 
             public float Radius;
             public float Duration;
+
+            public GameObject Target_obj;
         }
 
-        private void Create_indicator(Indicator_info info, Vector2 pos)
+        private void Create_indicator(Indicator_info info)
         {
+            // Set
+            Current_info = info;
+
             // Create
             GameObject indicator_obj = Game_utils.Instance.Create_gameObject();
             SpriteRenderer render = indicator_obj.AddComponent<SpriteRenderer>();
 
             // Set
-            indicator_obj.transform.position = pos;
+            indicator_obj.transform.position = Current_info.Target_obj.transform.position;
             render.color = new Color(1, 0, 0, 0.4f);
 
-            switch(info.Format)
+            switch(Current_info.Format)
             {
                 case Indicator_info.Indicator_formats.Circle:
                     render.sprite = Game_utils.Instance.Get_sprite("Graphics/Magic/Circle");
@@ -47,7 +55,7 @@ namespace Game.Utils.Misc
             }
 
             StartCoroutine(ScaleTo(indicator_obj, new Vector3(info.Radius, info.Radius, 1), 0.5f));
-            StartCoroutine(Indicator_timer(indicator_obj, info));
+            StartCoroutine(Indicator_timer(indicator_obj));
         }
 
         IEnumerator ScaleTo(GameObject obj, Vector3 to, float dur)
@@ -72,11 +80,21 @@ namespace Game.Utils.Misc
             obj.transform.localScale = to;
         }
 
-        private IEnumerator Indicator_timer (GameObject obj, Indicator_info info)
+        private IEnumerator Indicator_timer (GameObject indicator_obj)
         {
-            yield return new WaitForSeconds(info.Duration);
+            float t = 0f;
 
-            Destroy(obj);
+            while (t < Current_info.Duration)
+            {
+                // Set
+                t += Time.deltaTime;
+                
+                indicator_obj.transform.position = Current_info.Target_obj.transform.position;
+
+                yield return null;
+            }
+
+            Destroy(indicator_obj);
         }
     }
 }

@@ -55,7 +55,7 @@ namespace Game.Events
 
         public static UnityEvent Enemy_died = new UnityEvent();
 
-        public class Attack_indicatorEvent : UnityEvent<Attack_indicator_controller.Indicator_info, Vector2> { }
+        public class Attack_indicatorEvent : UnityEvent<Attack_indicator_controller.Indicator_info> { }
         public static Attack_indicatorEvent Attack_indicator = new Attack_indicatorEvent();
 
         public static UnityEvent New_day = new UnityEvent();

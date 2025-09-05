@@ -1,6 +1,7 @@
 using Game.Characters;
 using Game.Events;
 using Game.Utils;
+using Game.Utils.Misc;
 using System.Collections;
 using UnityEngine;
 using static Game.Characters.Spells.Character_spells_controller;
@@ -19,10 +20,13 @@ namespace Game.Magic.Spell
             Cast_data = data;
 
             StartCoroutine(Cast_ground_hit());
+
+            // Events
+            Game_events.Attack_indicator.Invoke(new Attack_indicator_controller.Indicator_info { Format = data.SpellData.Area_effect_type, Duration = data.SpellData.Cast_time, Radius = data.SpellData.Radius, Target_obj = Character.gameObject});
         }
 
         /// MAIN METHODS
-        private void DoDamage()
+        public override void DoDamage()
         {
             Collider2D[] hits = Physics2D.OverlapCircleAll(Cast_data.Origin_pos, Cast_data.SpellData.Radius);
 
@@ -36,7 +40,7 @@ namespace Game.Magic.Spell
                         continue;
 
                     // Do damage
-                    other_character?.TakeDamage(Cast_data.SpellData.Damage, Character.gameObject);
+                    other_character?.TakeDamage(Cast_data.SpellData.Damage, Character?.gameObject);
                 }
             }
         }

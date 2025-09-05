@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9cd097bca1ef5ef48871cff4d44b13da, type: 3}
-  m_Name: Lava_hole
+  m_Name: Meteor
   m_EditorClassIdentifier: Assembly-CSharp::Game.Magic.Spell_scriptable
-  Spell_name: Lava hole
-  Spell_description: Heavy hit and open a lava pit
+  Spell_name: Meteor
+  Spell_description: A fallen meteor
+  Spell_range_style: 1
   Area_effect_type: 0
-  Damage: 2
-  Radius: 2
+  Damage: 5
+  Radius: 2.25
   Cast_time: 1
-  Duration: 10
+  Duration: 3
   Need_rest: 1

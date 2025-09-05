@@ -32,9 +32,15 @@ namespace Game.Characters
         public int Souls_reward = 1;
 
         [Space(10)]
+        public bool HaveExtraStats = false;
+
+        [ShowIf("HaveExtraStats")]
         public bool IsExtraStrong;
+        [ShowIf("HaveExtraStats")]
         public bool IsExtraFast;
+        [ShowIf("HaveExtraStats")]
         public bool HaveMagicalResistance;
+        [ShowIf("HaveExtraStats")]
         public bool HavePhysicalResistance;
 
         [Header("Class settings")]
